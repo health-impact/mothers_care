@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mother's Care - منصة توعوية طبية موثوقة لصحة الأم والطفل">
+    <title>Mother's Care | منصة الأمومة والصحة</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        /* Responsive Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom, #ffffff, #fdf2f8);
+            border-bottom: 1px solid #fce7f3;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            fill: #f43f5e;
+        }
+
+        .logo-text {
+            font-size: 1.875rem;
+            font-weight: bold;
+            background: linear-gradient(to left, #f43f5e, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+                gap: 2rem;
+            }
+
+            nav a {
+                color: #374151;
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+
+            nav a:hover {
+                color: #f43f5e;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(to bottom, #fdf2f8, #ffffff, #f0f9ff);
+            padding: 4rem 1rem;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            mix-blend-mode: multiply;
+            filter: blur(3rem);
+            opacity: 0.2;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .blob-pink {
+            top: 0;
+            right: 0;
+            width: 384px;
+            height: 384px;
+            background-color: #fda4af;
+        }
+
+        .blob-blue {
+            bottom: 0;
+            left: 0;
+            width: 384px;
+            height: 384px;
+            background-color: #bfdbfe;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.75rem);
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-title-accent {
+            display: block;
+            background: linear-gradient(to left, #f43f5e, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: #4b5563;
+            max-width: 42rem;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        /* Welcome Box */
+        .welcome-box {
+            background: linear-gradient(to bottom, #ffffff, #fdf2f8);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid #fce7f3;
+            max-width: 48rem;
+            margin: 0 auto 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .welcome-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-icon {
+            width: 32px;
+            height: 32px;
+            fill: #f43f5e;
+            flex-shrink: 0;
+        }
+
+        .welcome-box h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .welcome-box p {
+            color: #374151;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .welcome-box p.quote {
+            color: #6b7280;
+            font-style: italic;
+        }
+
+        /* CTA Buttons */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 640px) {
+            .button-group {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to left, #f43f5e, #ec4899);
+            color: white;
+            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 15px 35px rgba(244, 63, 94, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #60a5fa;
+            color: #1e40af;
+            background: transparent;
+            box-shadow: 0 10px 25px rgba(96, 165, 250, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background-color: #eff6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(96, 165, 250, 0.3);
+        }
+
+        /* Knowledge Bar */
+        .knowledge-bar {
+            background: linear-gradient(to right, #fef3c7, #fed7aa);
+            border-radius: 1rem;
+            padding: 2rem;
+            border-left: 4px solid #fbbf24;
+            margin: 2rem 0;
+        }
+
+        .knowledge-content {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .knowledge-emoji {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .knowledge-bar h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 0.75rem;
+        }
+
+        .knowledge-bar p {
+            color: #374151;
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+
+        /* Section Heading */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 2.25rem);
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 1rem;
+        }
+
+        .section-heading p {
+            color: #4b5563;
+            font-size: 1.125rem;
+        }
+
+        /* Cards Grid */
+        .cards-section {
+            background-color: #f9fafb;
+            padding: 4rem 1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .card {
+            border-radius: 1rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-pink {
+            background: linear-gradient(to bottom right, #fce7f3, #fbcfe8);
+        }
+
+        .card-blue {
+            background: linear-gradient(to bottom right, #dbeafe, #cffafe);
+        }
+
+        .card-purple {
+            background: linear-gradient(to bottom right, #e9d5ff, #fbcfe8);
+        }
+
+        .card-green {
+            background: linear-gradient(to bottom right, #d1fae5, #ccfbf1);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: scale(1.2);
+        }
+
+        .card-icon-rose { fill: #f43f5e; }
+        .card-icon-blue { fill: #3b82f6; }
+        .card-icon-purple { fill: #a855f7; }
+        .card-icon-emerald { fill: #10b981; }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover h3 {
+            background: linear-gradient(to left, #f43f5e, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card p {
+            color: #374151;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f43f5e;
+            font-weight: bold;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .card:hover .card-link {
+            gap: 0.75rem;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 0.75rem;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+
+        .hero-image-container {
+            position: relative;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .badge-coming {
+            display: inline-block;
+            background-color: #fef08a;
+            color: #92400e;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, #111827, #1f2937);
+            color: white;
+            padding: 3rem 1rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            color: #f8a5cc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fbcfe8;
+        }
+
+        .footer-divider {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                grid-template-columns: 1fr auto;
+            }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 50;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 448px;
+            width: 100%;
+            padding: 2rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111827;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+            transition: color 0.3s ease;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: #111827;
+        }
+
+        .modal-description {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            ring: 2px #f43f5e;
+            border-color: transparent;
+            box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        .success-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-message p {
+            color: #4b5563;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(to left, #f43f5e, #ec4899);
+            color: white;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 640px) {
+            .welcome-box {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .knowledge-bar {
+                padding: 1.5rem;
+            }
+
+            .knowledge-content {
+                flex-direction: column;
+            }
+
+            .button-group {
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <span class="logo-text">Mother's Care</span>
+                </div>
+                <nav>
+                    <a href="#guide">الدليل</a>
+                    <a href="#facts">معلومات</a>
+                    <a href="#cards">الأقسام</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="blob blob-pink"></div>
+            <div class="blob blob-blue"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">
+                    رؤية صحية لوعيٍ
+                    <span class="hero-title-accent">يُنير رحلة الأمومة</span>
+                </h2>
+                <p class="hero-subtitle">منصة توعوية موثوقة تجمع بين المعرفة الطبية والدعم الإنساني لكل أم</p>
+            </div>
+
+            <!-- Welcome Box -->
+            <div class="welcome-box">
+                <div class="welcome-header">
+                    <svg class="welcome-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <div>
+                        <h3>مرحباً بكِ في Mother's Care</h3>
+                        <p>
+                            وُلدت هذه المنصة من قلب قسم الصحة العامة لتعمل كجسرٍ توعوي موثوق بين المعرفة الطبية والأم في مجتمعنا. نهدف إلى تقديم دليل صحي مبسط وموثوق يُعنى برعاية الأم والطفل، ونركز بشكل خاص على نشر الوعي حول الخيارات والقرارات الطبية المتعلقة بالولادة، وعلى رأسها دواعي ومضاعفات الولادة القيصرية.
+                        </p>
+                        <p class="quote">"الوعي الصحي هو أساس القرار السليم"</p>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="document.getElementById('guide').scrollIntoView()">
+                        <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        </svg>
+                        تصفّحي دليل القيصرية
+                    </button>
+                    <button class="btn btn-secondary" onclick="openModal()">
+                        <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                        </svg>
+                        عيادة الاستشارات
+                    </button>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop" alt="صورة توضيحية للأمومة والصحة" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Bar -->
+    <section id="facts" class="knowledge-bar" style="margin: 2rem 1rem; border-radius: 1rem;">
+        <div class="container">
+            <div class="knowledge-content">
+                <div class="knowledge-emoji">
+                    <svg style="width: 48px; height: 48px; fill: #fbbf24;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3>هل تعلمين؟</h3>
+                    <p>
+                        تشهد معدلات الولادة القيصرية ارتفاعاً متزايداً، ولكن بالوعي الصحي وفهم الدواعي الطبية الحقيقية، يمكنكِ اتخاذ القرار الأنسب وحماية صحتكِ وصحة طفلكِ بأمان.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="cards-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>أقسام منصتنا</h2>
+                <p>استكشفي المحتوى الشامل والموثوق</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card card-pink">
+                    <svg class="card-icon card-icon-rose" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    </svg>
+                    <h3>دليل القيصرية والتعافي</h3>
+                    <p>كل ما تحتاجين معرفته عن دواعي العملية، العناية بالجرح، والتغذية السليمة.</p>
+                    <a href="#" class="card-link">اكتشفي المزيد →</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card card-blue">
+                    <svg class="card-icon card-icon-blue" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
+                    </svg>
+                    <h3>حقائق وإحصائيات توعوية</h3>
+                    <p>أسباب ارتفاع معدلات القيصرية، متى تكون ضرورة طبية، وكيفية تجنب المضاعفات.</p>
+                    <a href="#" class="card-link">اكتشفي المزيد →</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card card-purple">
+                    <svg class="card-icon card-icon-purple" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                    <h3>رعاية وحماية الطفل</h3>
+                    <p>أهمية الرضاعة الطبيعية الأولى، جدول التطعيمات، ومتابعة النمو السليم.</p>
+                    <a href="#" class="card-link">اكتشفي المزيد →</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card card-green">
+                    <svg class="card-icon card-icon-emerald" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.99 5C6.47 5 2 8.82 2 13.5S6.47 22 11.99 22C17.52 22 22 18.18 22 13.5S17.52 5 11.99 5zM12 20c-3.35 0-6-2.57-6-6s2.65-6 6-6 6 2.57 6 6-2.65 6-6 6zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    </svg>
+                    <h3>عيادة الاستشارات</h3>
+                    <p>تواصل مستقبلي مباشر مع الأخصائيين والاستشاريين في طب النساء والأطفال.</p>
+                    <span class="badge-coming">قريباً ⏰</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div class="footer-section">
+                    <h4>
+                        <svg style="width: 20px; height: 20px; fill: #f8a5cc;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        Mother's Care
+                    </h4>
+                    <p>منصة توعوية طبية موثوقة مكرسة لصحة الأم والطفل، بمعايير طبية عالية ورحلة توعية إنسانية.</p>
+                </div>
+
+                <!-- Credits -->
+                <div class="footer-section">
+                    <h4>الجهة المسؤولة</h4>
+                    <p>
+                        <strong>الإعداد والتطوير:</strong><br>
+                        قسم الصحة العامة — كلية التقنية الطبية (جامعة طرابلس)
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-section">
+                    <h4>التواصل والدعم</h4>
+                    <a href="mailto:info@motherscare.ly">
+                        <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        info@motherscare.ly
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-divider">
+                <div class="footer-bottom">
+                    <p>
+                        <strong>ملاحظة مهمة:</strong> جميع المعلومات الطبية والتوعوية على هذا الموقع مُراجعة ومستندة لأبحاث ودلائل علمية موثوقة.
+                    </p>
+                    <p>© 2024 Mother's Care. جميع الحقوق محفوظة.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>
+                    <svg style="width: 24px; height: 24px; fill: #3b82f6;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                    </svg>
+                    عيادة الاستشارات
+                </h2>
+                <button class="modal-close" onclick="closeModal()">✕</button>
+            </div>
+
+            <!-- Form -->
+            <div id="formContent" class="modal-form">
+                <p class="modal-description">انضمي إلى قائمة الانتظار للتواصل المباشر مع الأخصائيين والاستشاريين</p>
+                
+                <form onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" required placeholder="أدخلي اسمكِ">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required placeholder="بريدكِ الإلكتروني">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" required placeholder="+218...">
+                    </div>
+
+                    <button type="submit" class="form-submit">التسجيل في القائمة</button>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="success-message">
+                <div class="success-emoji">
+                    <svg style="width: 64px; height: 64px; fill: #10b981;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h3>شُكراً لكِ!</h3>
+                <p>تم تسجيل بيانات التواصل بنجاح. سنتصل بك قريباً.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const modal = document.getElementById('modalOverlay');
+        const formContent = document.getElementById('formContent');
+        const successMessage = document.getElementById('successMessage');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            formContent.style.display = 'block';
+            successMessage.classList.remove('active');
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Hide form and show success message
+            formContent.style.display = 'none';
+            successMessage.classList.add('active');
+            
+            // Auto-close modal after 2 seconds
+            setTimeout(() => {
+                closeModal();
+            }, 2000);
+        }
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
