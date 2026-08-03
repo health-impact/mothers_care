@@ -7,6 +7,9 @@
     <title>Mother's Care | منصة الأمومة والصحة</title>
     
     <style>
+        /* ============================================
+           1. RESET و BASE STYLES
+           ============================================ */
         * {
             margin: 0;
             padding: 0;
@@ -24,14 +27,18 @@
             background-color: #ffffff;
         }
 
-        /* Responsive Container */
+        /* ============================================
+           2. CONTAINER
+           ============================================ */
         .container {
             max-width: 1280px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        /* Header Styles */
+        /* ============================================
+           3. HEADER STYLES
+           ============================================ */
         header {
             background: linear-gradient(to bottom, #ffffff, #fdf2f8);
             border-bottom: 1px solid #fce7f3;
@@ -91,7 +98,9 @@
             }
         }
 
-        /* Hero Section */
+        /* ============================================
+           4. HERO SECTION
+           ============================================ */
         .hero {
             position: relative;
             background: linear-gradient(to bottom, #fdf2f8, #ffffff, #f0f9ff);
@@ -170,7 +179,9 @@
             margin-bottom: 2rem;
         }
 
-        /* Welcome Box */
+        /* ============================================
+           5. WELCOME BOX
+           ============================================ */
         .welcome-box {
             background: linear-gradient(to bottom, #ffffff, #fdf2f8);
             border-radius: 1rem;
@@ -192,7 +203,7 @@
         .welcome-icon {
             width: 32px;
             height: 32px;
-            fill: #f43f5e;
+            fill: #10b981;
             flex-shrink: 0;
         }
 
@@ -214,7 +225,9 @@
             font-style: italic;
         }
 
-        /* CTA Buttons */
+        /* ============================================
+           6. BUTTONS
+           ============================================ */
         .button-group {
             display: flex;
             flex-direction: column;
@@ -268,7 +281,44 @@
             box-shadow: 0 15px 35px rgba(96, 165, 250, 0.3);
         }
 
-        /* Knowledge Bar */
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* ============================================
+           7. HERO IMAGE
+           ============================================ */
+        .hero-image-container {
+            position: relative;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 1rem;
+            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+            animation: floatImage 3s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* ============================================
+           8. KNOWLEDGE BAR
+           ============================================ */
         .knowledge-bar {
             background: linear-gradient(to right, #fef3c7, #fed7aa);
             border-radius: 1rem;
@@ -283,8 +333,13 @@
         }
 
         .knowledge-emoji {
-            font-size: 2rem;
             flex-shrink: 0;
+        }
+
+        .knowledge-emoji svg {
+            width: 48px;
+            height: 48px;
+            fill: #fbbf24;
         }
 
         .knowledge-bar h3 {
@@ -300,7 +355,9 @@
             font-size: 1.125rem;
         }
 
-        /* Section Heading */
+        /* ============================================
+           9. SECTION HEADING
+           ============================================ */
         .section-heading {
             text-align: center;
             margin-bottom: 3rem;
@@ -318,7 +375,9 @@
             font-size: 1.125rem;
         }
 
-        /* Cards Grid */
+        /* ============================================
+           10. CARDS SECTION
+           ============================================ */
         .cards-section {
             background-color: #f9fafb;
             padding: 4rem 1rem;
@@ -378,6 +437,19 @@
             background: linear-gradient(to bottom right, #d1fae5, #ccfbf1);
         }
 
+        .card-image {
+            width: 100%;
+            height: 180px;
+            border-radius: 0.75rem;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.05);
+        }
+
         .card-icon {
             width: 40px;
             height: 40px;
@@ -430,47 +502,10 @@
             gap: 0.75rem;
         }
 
-        .card-image {
-            width: 100%;
-            height: 180px;
-            border-radius: 0.75rem;
-            object-fit: cover;
-            margin-bottom: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-image {
-            transform: scale(1.05);
-        }
-
-        .hero-image-container {
-            position: relative;
-            margin-top: 3rem;
-            max-width: 600px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        .hero-image {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 1rem;
-            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
-            animation: floatImage 3s ease-in-out infinite;
-        }
-
-        @keyframes floatImage {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
-        }
-
         .badge-coming {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background-color: #fef08a;
             color: #92400e;
             padding: 0.5rem 1rem;
@@ -479,7 +514,15 @@
             font-weight: bold;
         }
 
-        /* Footer */
+        .badge-coming svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        /* ============================================
+           11. FOOTER
+           ============================================ */
         footer {
             background: linear-gradient(to right, #111827, #1f2937);
             color: white;
@@ -503,6 +546,12 @@
             gap: 0.5rem;
         }
 
+        .footer-section h4 svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
         .footer-section p {
             color: #d1d5db;
             font-size: 0.875rem;
@@ -520,6 +569,12 @@
 
         .footer-section a:hover {
             color: #fbcfe8;
+        }
+
+        .footer-section a svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
         }
 
         .footer-divider {
@@ -542,7 +597,9 @@
             }
         }
 
-        /* Modal Styles */
+        /* ============================================
+           12. MODAL STYLES
+           ============================================ */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -606,6 +663,12 @@
             gap: 0.5rem;
         }
 
+        .modal-header h2 svg {
+            width: 24px;
+            height: 24px;
+            fill: #3b82f6;
+        }
+
         .modal-close {
             background: none;
             border: none;
@@ -653,8 +716,7 @@
 
         .form-group input:focus {
             outline: none;
-            ring: 2px #f43f5e;
-            border-color: transparent;
+            border-color: #f43f5e;
             box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1);
         }
 
@@ -671,6 +733,12 @@
         .success-emoji {
             font-size: 3rem;
             margin-bottom: 1rem;
+        }
+
+        .success-emoji svg {
+            width: 64px;
+            height: 64px;
+            fill: #10b981;
         }
 
         .success-message h3 {
@@ -701,7 +769,9 @@
             transform: translateY(-2px);
         }
 
-        /* Mobile Responsiveness */
+        /* ============================================
+           13. RESPONSIVE
+           ============================================ */
         @media (max-width: 640px) {
             .welcome-box {
                 padding: 1.5rem;
@@ -734,13 +804,65 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ============================================
+         SVG ICONS DEFINITIONS
+         ============================================ -->
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <!-- قلب - Heart -->
+        <symbol id="icon-heart" viewBox="0 0 24 24">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </symbol>
+
+        <!-- كتاب - Book/Plus -->
+        <symbol id="icon-book" viewBox="0 0 24 24">
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        </symbol>
+
+        <!-- تقويم - Calendar -->
+        <symbol id="icon-calendar" viewBox="0 0 24 24">
+            <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+        </symbol>
+
+        <!-- مصباح - Lightbulb -->
+        <symbol id="icon-lightbulb" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+        </symbol>
+
+        <!-- رسم بياني - Chart -->
+        <symbol id="icon-chart" viewBox="0 0 24 24">
+            <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
+        </symbol>
+
+        <!-- شخص - Person -->
+        <symbol id="icon-person" viewBox="0 0 24 24">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </symbol>
+
+        <!-- وجه ضاحك - Smiley -->
+        <symbol id="icon-smiley" viewBox="0 0 24 24">
+            <path d="M11.99 5C6.47 5 2 8.82 2 13.5S6.47 22 11.99 22C17.52 22 22 18.18 22 13.5S17.52 5 11.99 5zM12 20c-3.35 0-6-2.57-6-6s2.65-6 6-6 6 2.57 6 6-2.65 6-6 6zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+        </symbol>
+
+        <!-- تحقق - Check -->
+        <symbol id="icon-check" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </symbol>
+
+        <!-- بريد - Mail -->
+        <symbol id="icon-mail" viewBox="0 0 24 24">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </symbol>
+    </svg>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">
                     <svg class="logo-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        <use href="#icon-heart"></use>
                     </svg>
                     <span class="logo-text">Mother's Care</span>
                 </div>
@@ -753,7 +875,9 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
     <section class="hero">
         <div class="hero-bg">
             <div class="blob blob-pink"></div>
@@ -773,7 +897,7 @@
             <div class="welcome-box">
                 <div class="welcome-header">
                     <svg class="welcome-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        <use href="#icon-check"></use>
                     </svg>
                     <div>
                         <h3>مرحباً بكِ في Mother's Care</h3>
@@ -786,14 +910,14 @@
 
                 <div class="button-group">
                     <button class="btn btn-primary" onclick="document.getElementById('guide').scrollIntoView()">
-                        <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon-book"></use>
                         </svg>
                         تصفّحي دليل القيصرية
                     </button>
                     <button class="btn btn-secondary" onclick="openModal()">
-                        <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon-calendar"></use>
                         </svg>
                         عيادة الاستشارات
                     </button>
@@ -807,13 +931,15 @@
         </div>
     </section>
 
-    <!-- Knowledge Bar -->
+    <!-- ============================================
+         KNOWLEDGE BAR
+         ============================================ -->
     <section id="facts" class="knowledge-bar" style="margin: 2rem 1rem; border-radius: 1rem;">
         <div class="container">
             <div class="knowledge-content">
                 <div class="knowledge-emoji">
-                    <svg style="width: 48px; height: 48px; fill: #fbbf24;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon-lightbulb"></use>
                     </svg>
                 </div>
                 <div>
@@ -826,7 +952,9 @@
         </div>
     </section>
 
-    <!-- Cards Section -->
+    <!-- ============================================
+         CARDS SECTION
+         ============================================ -->
     <section id="cards" class="cards-section">
         <div class="container">
             <div class="section-heading">
@@ -835,58 +963,69 @@
             </div>
 
             <div class="cards-grid">
-                <!-- Card 1 -->
+                <!-- Card 1: Caesarean Guide -->
                 <div class="card card-pink">
+                    <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=180&fit=crop" alt="دليل القيصرية" class="card-image">
                     <svg class="card-icon card-icon-rose" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                        <use href="#icon-book"></use>
                     </svg>
                     <h3>دليل القيصرية والتعافي</h3>
                     <p>كل ما تحتاجين معرفته عن دواعي العملية، العناية بالجرح، والتغذية السليمة.</p>
                     <a href="#" class="card-link">اكتشفي المزيد →</a>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2: Statistics -->
                 <div class="card card-blue">
+                    <img src="https://images.unsplash.com/photo-1460925895917-adf4198c838f?w=400&h=180&fit=crop" alt="احصائيات طبية" class="card-image">
                     <svg class="card-icon card-icon-blue" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
+                        <use href="#icon-chart"></use>
                     </svg>
                     <h3>حقائق وإحصائيات توعوية</h3>
                     <p>أسباب ارتفاع معدلات القيصرية، متى تكون ضرورة طبية، وكيفية تجنب المضاعفات.</p>
                     <a href="#" class="card-link">اكتشفي المزيد →</a>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3: Child Care -->
                 <div class="card card-purple">
+                    <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=180&fit=crop" alt="رعاية الطفل" class="card-image">
                     <svg class="card-icon card-icon-purple" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        <use href="#icon-person"></use>
                     </svg>
                     <h3>رعاية وحماية الطفل</h3>
                     <p>أهمية الرضاعة الطبيعية الأولى، جدول التطعيمات، ومتابعة النمو السليم.</p>
                     <a href="#" class="card-link">اكتشفي المزيد →</a>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- Card 4: Consultations -->
                 <div class="card card-green">
+                    <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=180&fit=crop" alt="استشارات طبية" class="card-image">
                     <svg class="card-icon card-icon-emerald" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.99 5C6.47 5 2 8.82 2 13.5S6.47 22 11.99 22C17.52 22 22 18.18 22 13.5S17.52 5 11.99 5zM12 20c-3.35 0-6-2.57-6-6s2.65-6 6-6 6 2.57 6 6-2.65 6-6 6zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                        <use href="#icon-smiley"></use>
                     </svg>
                     <h3>عيادة الاستشارات</h3>
                     <p>تواصل مستقبلي مباشر مع الأخصائيين والاستشاريين في طب النساء والأطفال.</p>
-                    <span class="badge-coming">قريباً ⏰</span>
+                    <span class="badge-coming">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon-calendar"></use>
+                        </svg>
+                        قريباً
+                    </span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <!-- About -->
                 <div class="footer-section">
                     <h4>
-                        <svg style="width: 20px; height: 20px; fill: #f8a5cc;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon-heart"></use>
                         </svg>
                         Mother's Care
                     </h4>
@@ -906,8 +1045,8 @@
                 <div class="footer-section">
                     <h4>التواصل والدعم</h4>
                     <a href="mailto:info@motherscare.ly">
-                        <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <use href="#icon-mail"></use>
                         </svg>
                         info@motherscare.ly
                     </a>
@@ -925,13 +1064,15 @@
         </div>
     </footer>
 
-    <!-- Modal -->
+    <!-- ============================================
+         MODAL / FORM
+         ============================================ -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal">
             <div class="modal-header">
                 <h2>
-                    <svg style="width: 24px; height: 24px; fill: #3b82f6;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon-calendar"></use>
                     </svg>
                     عيادة الاستشارات
                 </h2>
@@ -965,8 +1106,8 @@
             <!-- Success Message -->
             <div id="successMessage" class="success-message">
                 <div class="success-emoji">
-                    <svg style="width: 64px; height: 64px; fill: #10b981;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <use href="#icon-check"></use>
                     </svg>
                 </div>
                 <h3>شُكراً لكِ!</h3>
@@ -975,8 +1116,13 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
     <script>
+        // ============================================
+        // MODAL FUNCTIONS
+        // ============================================
         const modal = document.getElementById('modalOverlay');
         const formContent = document.getElementById('formContent');
         const successMessage = document.getElementById('successMessage');
@@ -1021,6 +1167,22 @@
             if (e.key === 'Escape') {
                 closeModal();
             }
+        });
+
+        // ============================================
+        // SMOOTH SCROLL ENHANCEMENT
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
