@@ -8,7 +8,7 @@
     
     <style>
         /* ============================================
-           1. RESET و BASE STYLES
+           RESET و BASE STYLES
            ============================================ */
         * {
             margin: 0;
@@ -34,7 +34,7 @@
         }
 
         /* ============================================
-           2. HEADER STYLES
+           HEADER
            ============================================ */
         header {
             background: linear-gradient(to bottom, #ffffff, #fdf2f8);
@@ -75,12 +75,13 @@
 
         nav {
             display: none;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
         @media (min-width: 768px) {
             nav {
                 display: flex;
-                gap: 2rem;
             }
 
             nav a {
@@ -88,6 +89,7 @@
                 text-decoration: none;
                 font-weight: 500;
                 transition: color 0.3s ease;
+                font-size: 0.875rem;
             }
 
             nav a:hover {
@@ -96,7 +98,7 @@
         }
 
         /* ============================================
-           3. HERO SECTION - CAROUSEL
+           HERO CAROUSEL
            ============================================ */
         .hero {
             position: relative;
@@ -155,7 +157,6 @@
         .hero-subtitle {
             font-size: 1.5rem;
             max-width: 42rem;
-            margin: 0 auto;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
 
@@ -185,7 +186,7 @@
         }
 
         /* ============================================
-           4. WELCOME BOX
+           WELCOME BOX
            ============================================ */
         .welcome-box {
             background: linear-gradient(to bottom, #ffffff, #fdf2f8);
@@ -231,14 +232,13 @@
         }
 
         /* ============================================
-           5. BUTTONS
+           BUTTONS
            ============================================ */
         .button-group {
             display: flex;
             flex-direction: column;
             gap: 1rem;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
         @media (min-width: 640px) {
@@ -293,7 +293,7 @@
         }
 
         /* ============================================
-           6. KNOWLEDGE BAR
+           KNOWLEDGE BAR
            ============================================ */
         .knowledge-bar {
             background: linear-gradient(to right, #fef3c7, #fed7aa);
@@ -329,7 +329,7 @@
         }
 
         /* ============================================
-           7. SECTION HEADING
+           SECTION HEADING
            ============================================ */
         .section-heading {
             text-align: center;
@@ -349,7 +349,7 @@
         }
 
         /* ============================================
-           8. CARDS SECTION
+           CARDS SECTION
            ============================================ */
         .cards-section {
             background-color: #f9fafb;
@@ -394,21 +394,10 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .card-pink {
-            background: linear-gradient(to bottom right, #fce7f3, #fbcfe8);
-        }
-
-        .card-blue {
-            background: linear-gradient(to bottom right, #dbeafe, #cffafe);
-        }
-
-        .card-purple {
-            background: linear-gradient(to bottom right, #e9d5ff, #fbcfe8);
-        }
-
-        .card-green {
-            background: linear-gradient(to bottom right, #d1fae5, #ccfbf1);
-        }
+        .card-pink { background: linear-gradient(to bottom right, #fce7f3, #fbcfe8); }
+        .card-blue { background: linear-gradient(to bottom right, #dbeafe, #cffafe); }
+        .card-purple { background: linear-gradient(to bottom right, #e9d5ff, #fbcfe8); }
+        .card-green { background: linear-gradient(to bottom right, #d1fae5, #ccfbf1); }
 
         .card-image {
             width: 100%;
@@ -476,20 +465,8 @@
             gap: 0.75rem;
         }
 
-        .badge-coming {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: #fef08a;
-            color: #92400e;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: bold;
-        }
-
         /* ============================================
-           9. STATISTICS INFOGRAPHIC
+           STATISTICS INFOGRAPHIC
            ============================================ */
         .stats-infographic {
             background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
@@ -534,80 +511,517 @@
         }
 
         /* ============================================
-           10. FOOTER
+           FAQ SECTION
            ============================================ */
-        footer {
-            background: linear-gradient(to right, #111827, #1f2937);
-            color: white;
-            padding: 3rem 1rem 2rem;
+        .faq-section {
+            background: white;
+            padding: 4rem 1rem;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1280px;
-            margin: 0 auto 2rem;
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .footer-section h4 {
-            font-size: 1.125rem;
-            font-weight: bold;
+        .faq-item {
             margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(to right, #fdf2f8, #f0f9ff);
+            cursor: pointer;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 0.5rem;
+            font-weight: bold;
+            color: #111827;
+            transition: all 0.3s ease;
         }
 
-        .footer-section h4 svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
+        .faq-question:hover {
+            background: linear-gradient(to right, #fce7f3, #dbeafe);
         }
 
-        .footer-section p {
-            color: #d1d5db;
-            font-size: 0.875rem;
-            line-height: 1.6;
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
         }
 
-        .footer-section a {
-            color: #f8a5cc;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
         }
 
-        .footer-section a:hover {
-            color: #fbcfe8;
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: white;
         }
 
-        .footer-section a svg {
-            width: 16px;
-            height: 16px;
-            fill: currentColor;
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
         }
 
-        .footer-divider {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            margin-top: 2rem;
+        .faq-answer p {
+            color: #374151;
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
-        .footer-bottom {
+        /* ============================================
+           TESTIMONIALS
+           ============================================ */
+        .testimonials-section {
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            padding: 4rem 1rem;
+        }
+
+        .testimonials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            font-size: 0.875rem;
-            color: #9ca3af;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             max-width: 1280px;
             margin: 0 auto;
         }
 
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.2);
+        }
+
+        .testimonial-text {
+            color: #374151;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: #f43f5e;
+            font-weight: bold;
+            border-right: 3px solid #f43f5e;
+            padding-right: 1rem;
+        }
+
+        .testimonial-rating {
+            color: #fbbf24;
+            margin-top: 0.5rem;
+        }
+
         /* ============================================
-           11. MODAL STYLES
+           QUICK TIPS
+           ============================================ */
+        .tips-section {
+            background: white;
+            padding: 4rem 1rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .tip-card {
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-left: 4px solid #f43f5e;
+            transition: all 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.2);
+        }
+
+        .tip-card h4 {
+            color: #f43f5e;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+
+        .tip-card p {
+            color: #374151;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           TIMELINE
+           ============================================ */
+        .timeline-section {
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            padding: 4rem 1rem;
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f43f5e, #ec4899);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 0;
+            }
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 50%;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 50px;
+                padding-right: 0;
+                text-align: left;
+            }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border: 3px solid #f43f5e;
+            border-radius: 50%;
+            left: calc(50% - 8px);
+            top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: -8px;
+            }
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: #f43f5e;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: #374151;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           RESOURCES
+           ============================================ */
+        .resources-section {
+            background: white;
+            padding: 4rem 1rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-top: 4px solid #f43f5e;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.2);
+        }
+
+        .resource-card h4 {
+            color: #f43f5e;
+            margin-bottom: 0.75rem;
+        }
+
+        .resource-card p {
+            color: #374151;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #f43f5e;
+            transform: translateX(5px);
+        }
+
+        /* ============================================
+           ADVANCED FORM
+           ============================================ */
+        .form-section {
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            padding: 3rem 1rem;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f43f5e;
+            box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(to left, #f43f5e, #ec4899);
+            color: white;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ============================================
+           BLOG SECTION
+           ============================================ */
+        .blog-section {
+            background: white;
+            padding: 4rem 1rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-meta {
+            color: #9ca3af;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-excerpt {
+            color: #374151;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .blog-link {
+            color: #f43f5e;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: #ec4899;
+        }
+
+        /* ============================================
+           NEWSLETTER
+           ============================================ */
+        .newsletter-section {
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+            color: white;
+            padding: 4rem 1rem;
+        }
+
+        .newsletter-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-container h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-container p {
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .newsletter-form {
+                flex-direction: row;
+            }
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .newsletter-select {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            min-width: 150px;
+        }
+
+        .newsletter-btn {
+            padding: 0.75rem 2rem;
+            background: white;
+            color: #f43f5e;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============================================
+           MODALS
            ============================================ */
         .modal-overlay {
             position: fixed;
@@ -673,11 +1087,6 @@
             gap: 0.5rem;
         }
 
-        .modal-header h2 svg {
-            width: 24px;
-            height: 24px;
-        }
-
         .modal-close {
             background: none;
             border: none;
@@ -685,9 +1094,6 @@
             cursor: pointer;
             color: #6b7280;
             transition: color 0.3s ease;
-            padding: 0;
-            width: 24px;
-            height: 24px;
         }
 
         .modal-close:hover {
@@ -736,7 +1142,68 @@
         }
 
         /* ============================================
-           12. RESPONSIVE
+           FOOTER
+           ============================================ */
+        footer {
+            background: linear-gradient(to right, #111827, #1f2937);
+            color: white;
+            padding: 3rem 1rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section p {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            color: #f8a5cc;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fbcfe8;
+        }
+
+        .footer-divider {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* ============================================
+           RESPONSIVE
            ============================================ */
         @media (max-width: 640px) {
             .welcome-box {
@@ -766,6 +1233,24 @@
             .stats-infographic {
                 grid-template-columns: 1fr;
             }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                padding-left: 50px !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-item::before {
+                left: -8px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -777,35 +1262,24 @@
         <symbol id="icon-heart" viewBox="0 0 24 24">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
         </symbol>
-
         <symbol id="icon-book" viewBox="0 0 24 24">
             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
         </symbol>
-
         <symbol id="icon-calendar" viewBox="0 0 24 24">
             <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
         </symbol>
-
         <symbol id="icon-lightbulb" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
         </symbol>
-
         <symbol id="icon-chart" viewBox="0 0 24 24">
             <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
         </symbol>
-
         <symbol id="icon-person" viewBox="0 0 24 24">
             <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
         </symbol>
-
-        <symbol id="icon-smiley" viewBox="0 0 24 24">
-            <path d="M11.99 5C6.47 5 2 8.82 2 13.5S6.47 22 11.99 22C17.52 22 22 18.18 22 13.5S17.52 5 11.99 5zM12 20c-3.35 0-6-2.57-6-6s2.65-6 6-6 6 2.57 6 6-2.65 6-6 6zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
-        </symbol>
-
         <symbol id="icon-check" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
         </symbol>
-
         <symbol id="icon-mail" viewBox="0 0 24 24">
             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
         </symbol>
@@ -824,16 +1298,18 @@
                     <span class="logo-text">Mother's Care</span>
                 </div>
                 <nav>
-                    <a href="#guide">الدليل</a>
-                    <a href="#stats">إحصائيات</a>
                     <a href="#cards">الأقسام</a>
+                    <a href="#faq">الأسئلة</a>
+                    <a href="#tips">النصائح</a>
+                    <a href="#blog">المقالات</a>
+                    <a href="#newsletter">النشرة</a>
                 </nav>
             </div>
         </div>
     </header>
 
     <!-- ============================================
-         HERO SECTION - CAROUSEL
+         HERO CAROUSEL
          ============================================ -->
     <section class="hero">
         <div class="hero-carousel">
@@ -841,12 +1317,10 @@
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1606216174052-933bda50caf7?w=1200&h=600&fit=crop')"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1552636388-f7b37dba76ea?w=1200&h=600&fit=crop')"></div>
         </div>
-
         <div class="hero-content">
             <h2 class="hero-title">رؤية صحية لوعيٍ يُنير رحلة الأمومة</h2>
-            <p class="hero-subtitle">منصة توعوية موثوقة تجمع بين المعرفة الطبية والدعم الإنساني لكل أم</p>
+            <p class="hero-subtitle">منصة توعوية موثوقة تجمع بين المعرفة الطبية والدعم الإنساني</p>
         </div>
-
         <div class="carousel-indicators">
             <div class="indicator active" onclick="goToSlide(0)"></div>
             <div class="indicator" onclick="goToSlide(1)"></div>
@@ -865,13 +1339,10 @@
                 </svg>
                 <div>
                     <h3>مرحباً بكِ في Mother's Care</h3>
-                    <p>
-                        وُلدت هذه المنصة من قلب قسم الصحة العامة لتعمل كجسرٍ توعوي موثوق بين المعرفة الطبية والأم في مجتمعنا. نهدف إلى تقديم دليل صحي مبسط وموثوق يُعنى برعاية الأم والطفل.
-                    </p>
+                    <p>وُلدت هذه المنصة من قلب قسم الصحة العامة لتعمل كجسرٍ توعوي موثوق بين المعرفة الطبية والأم في مجتمعنا.</p>
                     <p class="quote">"الوعي الصحي هو أساس القرار السليم"</p>
                 </div>
             </div>
-
             <div class="button-group">
                 <button class="btn btn-primary" onclick="document.getElementById('cards').scrollIntoView()">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -892,7 +1363,7 @@
     <!-- ============================================
          KNOWLEDGE BAR
          ============================================ -->
-    <section id="facts" class="knowledge-bar" style="margin: 2rem 1rem; border-radius: 1rem;">
+    <section class="knowledge-bar" style="margin: 2rem 1rem; border-radius: 1rem;">
         <div class="container">
             <div class="knowledge-content">
                 <div class="knowledge-emoji">
@@ -902,9 +1373,7 @@
                 </div>
                 <div>
                     <h3>هل تعلمين؟</h3>
-                    <p>
-                        تشهد معدلات الولادة القيصرية ارتفاعاً متزايداً عالمياً. وفقاً لمنظمة الصحة العالمية، بالوعي الصحي وفهم الدواعي الطبية الحقيقية، يمكنكِ اتخاذ القرار الأنسب وحماية صحتكِ وصحة طفلكِ بأمان.
-                    </p>
+                    <p>تشهد معدلات الولادة القيصرية ارتفاعاً عالمياً. بالوعي الصحي وفهم الدواعي الطبية الحقيقية، يمكنكِ اتخاذ القرار الأنسب وحماية صحتكِ وصحة طفلكِ.</p>
                 </div>
             </div>
         </div>
@@ -921,49 +1390,425 @@
             </div>
 
             <div class="cards-grid">
-                <!-- Card 1: Caesarean Guide -->
                 <div class="card card-pink">
                     <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=180&fit=crop" alt="دليل القيصرية" class="card-image">
                     <svg class="card-icon card-icon-rose" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon-book"></use>
                     </svg>
                     <h3>دليل القيصرية والتعافي</h3>
-                    <p>معلومات شاملة عن الولادة القيصرية من منظمة الصحة العالمية والمعهد الوطني للصحة.</p>
+                    <p>معلومات شاملة عن الولادة القيصرية من منظمة الصحة العالمية.</p>
                     <a class="card-link" onclick="openModal('caesarean')">اكتشفي المزيد →</a>
                 </div>
 
-                <!-- Card 2: Statistics -->
                 <div class="card card-blue">
                     <img src="https://images.unsplash.com/photo-1460925895917-adf4198c838f?w=400&h=180&fit=crop" alt="احصائيات طبية" class="card-image">
                     <svg class="card-icon card-icon-blue" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon-chart"></use>
                     </svg>
                     <h3>حقائق وإحصائيات توعوية</h3>
-                    <p>إحصائيات موثوقة عن الولادة القيصرية من منظمة الصحة العالمية واليونيسيف.</p>
+                    <p>إحصائيات موثوقة عن الولادة القيصرية من منظمة الصحة العالمية.</p>
                     <a class="card-link" onclick="openModal('statistics')">اكتشفي المزيد →</a>
                 </div>
 
-                <!-- Card 3: Child Care -->
                 <div class="card card-purple">
                     <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=180&fit=crop" alt="رعاية الطفل" class="card-image">
                     <svg class="card-icon card-icon-purple" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon-person"></use>
                     </svg>
                     <h3>رعاية وحماية الطفل</h3>
-                    <p>أهمية الرضاعة الطبيعية، جدول التطعيمات، ومتابعة النمو السليم.</p>
+                    <p>أهمية الرضاعة الطبيعية، جدول التطعيمات، ومتابعة النمو.</p>
                     <a class="card-link" onclick="openModal('childcare')">اكتشفي المزيد →</a>
                 </div>
 
-                <!-- Card 4: Consultations -->
                 <div class="card card-green">
                     <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=180&fit=crop" alt="استشارات طبية" class="card-image">
                     <svg class="card-icon card-icon-emerald" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-smiley"></use>
+                        <use href="#icon-calendar"></use>
                     </svg>
                     <h3>عيادة الاستشارات</h3>
-                    <p>تواصل مستقبلي مباشر مع الأخصائيين والاستشاريين في طب النساء والأطفال.</p>
+                    <p>تواصل مستقبلي مباشر مع الأخصائيين والاستشاريين المعتمدين.</p>
                     <a class="card-link" onclick="openModal('consultation')">اكتشفي المزيد →</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         STATISTICS INFOGRAPHIC (في كرت الإحصائيات)
+         ============================================ -->
+    <div id="statisticsContent" style="display: none;">
+        <h3>إحصائيات عالمية (منظمة الصحة العالمية 2023)</h3>
+        <div class="stats-infographic">
+            <div class="stat-item">
+                <div class="stat-number">21%</div>
+                <div class="stat-label">معدل القيصرية عالمياً</div>
+                <div class="stat-source">WHO 2023</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">45%</div>
+                <div class="stat-label">النسبة في الدول المتقدمة</div>
+                <div class="stat-source">معدل متزايد</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15%</div>
+                <div class="stat-label">المعدل الموصى به من WHO</div>
+                <div class="stat-source">معايير صحية</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">5-15%</div>
+                <div class="stat-label">نسبة المضاعفات الخطيرة</div>
+                <div class="stat-source">الدول النامية</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         FAQ SECTION
+         ============================================ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>الأسئلة الشائعة</h2>
+                <p>إجابات على أسئلة تطرحها الأمهات</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>ما الفرق بين الولادة الطبيعية والقيصرية؟</span>
+                        <span class="faq-toggle">❯</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>الولادة الطبيعية تتم عبر قناة الولادة بشكل طبيعي، بينما الولادة القيصرية هي عملية جراحية يتم من خلالها استخراج الجنين مباشرة من الرحم. لكل منهما مميزاتها ومخاطرها.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>متى يمكن الرضاعة بعد القيصرية؟</span>
+                        <span class="faq-toggle">❯</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>يمكن البدء بالرضاعة فوراً بعد الاستيقاظ من التخدير. لا توجد مانع طبي لذلك. في الواقع، الرضاعة المبكرة تساعد على الشعور بتقلصات رحمية تساعد على التعافي.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>كم مدة التعافي من القيصرية؟</span>
+                        <span class="faq-toggle">❯</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>عادة ما تستغرق فترة التعافي من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة ورفع الأشياء الثقيلة. لكن الحركة الخفيفة والمشي مفيد جداً.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>هل الرضاعة الطبيعية ضرورية؟</span>
+                        <span class="faq-toggle">❯</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، الرضاعة الطبيعية مهمة جداً للطفل والأم. توفر كل التغذية والحماية للطفل. الرضاعة الحصرية لمدة 6 أشهر موصى بها من قبل منظمة الصحة العالمية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS SECTION
+         ============================================ -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>تجارب الأمهات</h2>
+                <p>شهادات من أمهات استفدن من المنصة</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"كانت منصة Mother's Care مصدر ثقة وأمان لي طوال فترة الحمل والولادة. المعلومات موثوقة وسهلة الفهم."</div>
+                    <div class="testimonial-author">فاطمة محمد - طرابلس</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"أحببت الإحصائيات الموثوقة والشرح المفصل عن كل شيء. ساعدتني على اتخاذ قرارات صحيحة."</div>
+                    <div class="testimonial-author">نور علي - بنغازي</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-text">"الدعم النفسي والمعلومات العملية جعلتني أشعر بأنني لست وحدي. شكراً لكن على هذه المنصة الرائعة."</div>
+                    <div class="testimonial-author">ليلى حسن - مصراته</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         QUICK TIPS SECTION
+         ============================================ -->
+    <section id="tips" class="tips-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>نصائح يومية سريعة</h2>
+                <p>معلومات عملية لتحسين صحتك وصحة طفلك</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>💧 الترطيب ضروري</h4>
+                    <p>اشربي 8-10 أكواب ماء يومياً أثناء الرضاعة لدعم إنتاج الحليب والتعافي السريع.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>😴 النوم الكافي</h4>
+                    <p>احصلي على 7-8 ساعات نوم لتسريع التعافي وتحسين الحالة النفسية والجسدية.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🥗 التغذية السليمة</h4>
+                    <p>تناولي طعاماً صحياً غنياً بالبروتينات والفيتامينات والحديد للشعور بالطاقة.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🏃 الحركة البسيطة</h4>
+                    <p>المشي السريع والحركة الخفيفة تساعد على التعافي وتحسن المزاج.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>👶 استمتعي باللحظات</h4>
+                    <p>أمضي وقتاً جميلاً مع طفلك. العلاقة القوية مهمة لصحته النفسية.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h4>🩺 الفحوصات المنتظمة</h4>
+                    <p>لا تتأخري عن فحوصات المتابعة. التشخيص المبكر ينقذ الأرواح.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         TIMELINE SECTION
+         ============================================ -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>رحلة الحمل والولادة</h2>
+                <p>خطوة بخطوة عبر مراحل الحمل</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>الثلث الأول (الأسابيع 1-13)</h3>
+                            <p>تكون الأعضاء الحيوية، فحوصات مهمة، قد تشعرين بالإرهاق والغثيان.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>الثلث الثاني (الأسابيع 14-26)</h3>
+                            <p>نمو الجنين بسرعة، الشعور بحركة الجنين، تحسن الأعراض تدريجياً.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>الثلث الثالث (الأسابيع 27-40)</h3>
+                            <p>التحضير للولادة، الفحوصات النهائية، قد تشعرين بالقلق والاستعداد.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>بعد الولادة</h3>
+                            <p>التعافي، الرضاعة، الرعاية الأساسية، الاستمتاع بالأمومة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         RESOURCES SECTION
+         ============================================ -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>موارد وروابط موثوقة</h2>
+                <p>مراجع خارجية موثوقة للمزيد من المعلومات</p>
+            </div>
+
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h4>منظمة الصحة العالمية</h4>
+                    <p>موارد شاملة عن صحة الأم والطفل والولادة الآمنة.</p>
+                    <a href="https://www.who.int" target="_blank" class="resource-link">زيارة الموقع →</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>اليونيسيف</h4>
+                    <p>معلومات عن حقوق الطفل، الرضاعة الطبيعية، والتطعيمات.</p>
+                    <a href="https://www.unicef.org" target="_blank" class="resource-link">زيارة الموقع →</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>المعهد الوطني للصحة</h4>
+                    <p>أبحاث طبية متقدمة عن الحمل والولادة والرعاية.</p>
+                    <a href="https://www.nih.gov" target="_blank" class="resource-link">زيارة الموقع →</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>الأكاديمية الأمريكية لطب الأطفال</h4>
+                    <p>توصيات طبية معتمدة عن رعاية الأطفال والنمو السليم.</p>
+                    <a href="https://www.aap.org" target="_blank" class="resource-link">زيارة الموقع →</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>جمعية التوليد والنساء</h4>
+                    <p>معايير طبية عالمية لصحة النساء والحمل والولادة.</p>
+                    <a href="https://www.acog.org" target="_blank" class="resource-link">زيارة الموقع →</a>
+                </div>
+
+                <div class="resource-card">
+                    <h4>مراكز السيطرة على الأمراض</h4>
+                    <p>معلومات موثوقة عن الصحة العامة والتطعيمات والوقاية.</p>
+                    <a href="https://www.cdc.gov" target="_blank" class="resource-link">زيارة الموقع →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         ADVANCED CONSULTATION FORM
+         ============================================ -->
+    <section class="form-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>طلب استشارة متقدم</h2>
+                <p>ملاحظاتك وحالتك تساعدنا على تقديم استشارات أفضل</p>
+            </div>
+
+            <div class="form-container">
+                <form onsubmit="handleAdvancedForm(event)">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" placeholder="أدخلي اسمكِ" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>البريد الإلكتروني</label>
+                        <input type="email" placeholder="بريدكِ الإلكتروني" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>رقم الهاتف</label>
+                        <input type="tel" placeholder="+218..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>حالتك الصحية</label>
+                        <select required>
+                            <option value="">اختاري حالتك</option>
+                            <option value="pregnant">حامل حالياً</option>
+                            <option value="postpartum-1m">بعد الولادة (أقل من شهر)</option>
+                            <option value="postpartum-6m">بعد الولادة (1-6 أشهر)</option>
+                            <option value="planning">تخطيط للحمل</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>نوع الاستشارة</label>
+                        <select required>
+                            <option value="">اختاري نوع الاستشارة</option>
+                            <option value="medical">استشارة طبية</option>
+                            <option value="nutrition">استشارة تغذية</option>
+                            <option value="psychological">دعم نفسي</option>
+                            <option value="general">استفسار عام</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>اشرحي حالتك بإيجاز</label>
+                        <textarea placeholder="صفي حالتك أو سؤالك بالتفصيل" required></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit">إرسال طلب الاستشارة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOG SECTION
+         ============================================ -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="section-heading">
+                <h2>المقالات والمدونة</h2>
+                <p>محتوى شامل وموثوق عن الأمومة والصحة</p>
+            </div>
+
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>التعافي السريع بعد القيصرية</h3>
+                        <div class="blog-meta">نُشرت في: 15 يناير 2024 | د. فاطمة علي</div>
+                        <div class="blog-excerpt">هناك عدة طرق طبية وطبيعية لتسريع التعافي بعد الولادة القيصرية. من الحركة البسيطة إلى التغذية السليمة...</div>
+                        <a href="#" class="blog-link">اقرأ المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>فوائد الرضاعة الطبيعية</h3>
+                        <div class="blog-meta">نُشرت في: 10 يناير 2024 | د. نور حسن</div>
+                        <div class="blog-excerpt">الرضاعة الطبيعية توفر للطفل كل الفيتامينات والبروتينات والحماية من الأمراض. تعرفي على الفوائد الكاملة...</div>
+                        <a href="#" class="blog-link">اقرأ المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image"></div>
+                    <div class="blog-content">
+                        <h3>جدول التطعيمات الموصى به</h3>
+                        <div class="blog-meta">نُشرت في: 5 يناير 2024 | د. علي محمد</div>
+                        <div class="blog-excerpt">التطعيمات تحمي طفلك من الأمراض الخطيرة. تعرفي على الجدول الموصى به من منظمة الصحة العالمية...</div>
+                        <a href="#" class="blog-link">اقرأ المزيد →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         NEWSLETTER SECTION
+         ============================================ -->
+    <section id="newsletter" class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-container">
+                <h2>اشتركي في نشرتنا الأسبوعية</h2>
+                <p>احصلي على نصائح وتحديثات طبية موثوقة مباشرة في بريدك الإلكتروني</p>
+
+                <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+                    <input type="email" class="newsletter-input" placeholder="بريدكِ الإلكتروني" required>
+                    <select class="newsletter-select" required>
+                        <option value="">نوع المحتوى</option>
+                        <option value="pregnant">مهتمة بالحمل</option>
+                        <option value="pregnant-now">حامل الآن</option>
+                        <option value="new-mother">أم جديدة</option>
+                    </select>
+                    <button type="submit" class="newsletter-btn">اشترك الآن</button>
+                </form>
             </div>
         </div>
     </section>
@@ -976,7 +1821,7 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h4>
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg style="width: 20px; height: 20px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <use href="#icon-heart"></use>
                         </svg>
                         Mother's Care
@@ -986,16 +1831,13 @@
 
                 <div class="footer-section">
                     <h4>الجهة المسؤولة</h4>
-                    <p>
-                        <strong>الإعداد والتطوير:</strong><br>
-                        قسم الصحة العامة — كلية التقنية الطبية (جامعة طرابلس)
-                    </p>
+                    <p><strong>الإعداد والتطوير:</strong><br>قسم الصحة العامة — كلية التقنية الطبية (جامعة طرابلس)</p>
                 </div>
 
                 <div class="footer-section">
                     <h4>التواصل والدعم</h4>
                     <a href="mailto:info@motherscare.ly">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg style="width: 16px; height: 16px; fill: currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <use href="#icon-mail"></use>
                         </svg>
                         info@motherscare.ly
@@ -1005,9 +1847,7 @@
 
             <div class="footer-divider">
                 <div class="footer-bottom">
-                    <p>
-                        <strong>ملاحظة مهمة:</strong> جميع المعلومات مستندة لأبحاث ودلائل من منظمة الصحة العالمية واليونيسيف والمعهد الوطني للصحة.
-                    </p>
+                    <p><strong>ملاحظة مهمة:</strong> جميع المعلومات مستندة لأبحاث ودلائل من WHO و UNICEF و NIH و AAP.</p>
                     <p>© 2024 Mother's Care. جميع الحقوق محفوظة.</p>
                 </div>
             </div>
@@ -1021,7 +1861,7 @@
         <div class="modal">
             <div class="modal-header">
                 <h2>
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #f43f5e;">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #f43f5e; width: 24px; height: 24px;">
                         <use href="#icon-book"></use>
                     </svg>
                     دليل القيصرية والتعافي
@@ -1030,20 +1870,19 @@
             </div>
             <div class="modal-content">
                 <h3>ما هي الولادة القيصرية؟</h3>
-                <p>الولادة القيصرية (العملية الجراحية) هي إجراء جراحي يتم من خلاله استخراج الجنين من الرحم مباشرة بدلاً من الولادة الطبيعية.</p>
+                <p>الولادة القيصرية هي إجراء جراحي يتم من خلاله استخراج الجنين من الرحم مباشرة بدلاً من الولادة الطبيعية.</p>
 
                 <h3>دواعي إجراء العملية</h3>
                 <ul>
                     <li>عدم نزول الجنين في الحوض</li>
                     <li>وجود مشاكل في المشيمة</li>
                     <li>فشل المخاض الطبيعي</li>
-                    <li>وجود عدوى نشطة (مثل الهربس)</li>
+                    <li>وجود عدوى نشطة</li>
                     <li>حالات الحمل المتعدد</li>
-                    <li>مشاكل صحية لدى الأم</li>
                 </ul>
 
                 <h3>فترة التعافي</h3>
-                <p>عادة ما تستغرق فترة التعافي من 6 أسابيع إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة وتتبع تعليمات الطبيب بعناية.</p>
+                <p>عادة ما تستغرق من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة وتتبع تعليمات الطبيب.</p>
 
                 <h3>العناية بالجرح</h3>
                 <ul>
@@ -1053,14 +1892,11 @@
                     <li>مراقبة علامات العدوى</li>
                 </ul>
 
-                <h3>التغذية السليمة بعد الولادة</h3>
-                <p>الحصول على تغذية متوازنة غنية بالبروتينات والفيتامينات والحديد لتسريع الشفاء والدعم البدني.</p>
-
                 <div class="modal-source">
                     <strong>المصادر الموثوقة:</strong><br>
                     • منظمة الصحة العالمية (WHO)<br>
                     • المعهد الوطني للصحة (NIH)<br>
-                    • الجمعية الأمريكية لأمراض النساء والتوليد (ACOG)
+                    • الجمعية الأمريكية لأمراض النساء (ACOG)
                 </div>
             </div>
         </div>
@@ -1070,7 +1906,7 @@
         <div class="modal">
             <div class="modal-header">
                 <h2>
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #3b82f6;">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #3b82f6; width: 24px; height: 24px;">
                         <use href="#icon-chart"></use>
                     </svg>
                     إحصائيات الولادة القيصرية
@@ -1079,7 +1915,6 @@
             </div>
             <div class="modal-content">
                 <h3>إحصائيات عالمية (منظمة الصحة العالمية 2023)</h3>
-                
                 <div class="stats-infographic">
                     <div class="stat-item">
                         <div class="stat-number">21%</div>
@@ -1106,33 +1941,14 @@
                 <h3>الأسباب الرئيسية للارتفاع</h3>
                 <ul>
                     <li>تأخر سن الحمل الأول</li>
-                    <li>زيادة حالات السمنة أثناء الحمل</li>
-                    <li>الخوف من مضاعفات الولادة الطبيعية</li>
-                    <li>اختيار الأم للقيصرية المخطط لها</li>
-                    <li>ارتفاع معدل الحالات الطبية المعقدة</li>
-                </ul>
-
-                <h3>المضاعفات المحتملة</h3>
-                <ul>
-                    <li>النزيف الشديد (1-5%)</li>
-                    <li>العدوى والالتهابات (2-3%)</li>
-                    <li>جلطات الدم (0.3%)</li>
-                    <li>إصابة الأعضاء المجاورة (0.1%)</li>
-                </ul>
-
-                <h3>الفوائد الصحية للقيصرية الضرورية</h3>
-                <ul>
-                    <li>تجنب مضاعفات الولادة الطبيعية</li>
-                    <li>تقليل مضاعفات الجنين</li>
-                    <li>التحكم في توقيت الولادة</li>
-                    <li>تقليل مخاطر الاختناق</li>
+                    <li>زيادة حالات السمنة</li>
+                    <li>الخوف من المضاعفات</li>
                 </ul>
 
                 <div class="modal-source">
-                    <strong>المصادر الموثوقة:</strong><br>
-                    • منظمة الصحة العالمية (WHO) 2023<br>
-                    • اليونيسيف (UNICEF) - صحة الأم والطفل<br>
-                    • المعهد الوطني للصحة والتميز السريري (NICE)
+                    <strong>المصادر:</strong><br>
+                    • منظمة الصحة العالمية (WHO)<br>
+                    • اليونيسيف (UNICEF)
                 </div>
             </div>
         </div>
@@ -1142,7 +1958,7 @@
         <div class="modal">
             <div class="modal-header">
                 <h2>
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #a855f7;">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #a855f7; width: 24px; height: 24px;">
                         <use href="#icon-person"></use>
                     </svg>
                     رعاية وحماية الطفل
@@ -1152,41 +1968,27 @@
             <div class="modal-content">
                 <h3>الرضاعة الطبيعية</h3>
                 <ul>
-                    <li>ابدئي الرضاعة في الساعة الأولى بعد الولادة إن أمكن</li>
+                    <li>ابدئي الرضاعة في الساعة الأولى</li>
                     <li>الرضاعة الحصرية لمدة 6 أشهر</li>
-                    <li>استمرري في الرضاعة مع الطعام الصلب حتى سنتين</li>
-                    <li>تعطي الجنين كل الغذاء والحماية التي يحتاجها</li>
+                    <li>استمرري حتى سنتين على الأقل</li>
                 </ul>
 
-                <h3>جدول التطعيمات الموصى به</h3>
+                <h3>جدول التطعيمات</h3>
                 <ul>
                     <li><strong>عند الولادة:</strong> الدرن، شلل الأطفال، التهاب الكبد B</li>
                     <li><strong>شهر واحد:</strong> الالتهاب السحائي</li>
-                    <li><strong>شهرين:</strong> الثلاثي، التهاب الكبد B، شلل الأطفال</li>
-                    <li><strong>4 و6 أشهر:</strong> تعزيز اللقاحات</li>
-                    <li><strong>سنة وما بعد:</strong> الحصبة والنكاف والحصبة الألمانية</li>
+                    <li><strong>شهرين:</strong> الثلاثي والتطعيمات الأخرى</li>
                 </ul>
 
                 <h3>مؤشرات النمو الصحي</h3>
                 <ul>
-                    <li>الوزن: يجب أن يتضاعف في أول 4-6 أشهر</li>
+                    <li>الوزن: يتضاعف في 4-6 أشهر</li>
                     <li>الطول: ينمو حوالي 25 سم في السنة الأولى</li>
-                    <li>المهارات: الابتسامة (6 أسابيع)، الجلوس (4-6 أشهر)، المشي (12 شهر)</li>
-                </ul>
-
-                <h3>الفحوصات الدورية</h3>
-                <p>يجب إجراء فحوصات دورية منتظمة للتأكد من صحة الطفل ومراقبة نموه وتطوره.</p>
-
-                <h3>السلامة والوقاية</h3>
-                <ul>
-                    <li>تجنبي النوم مع الطفل على الأسرة اللينة</li>
-                    <li>احفظي الطفل في بيئة آمنة خالية من المخاطر</li>
-                    <li>الرقابة المستمرة خلال أوقات النوم</li>
-                    <li>تجنبي تعريض الطفل لدخان السجائر</li>
+                    <li>المهارات: الابتسامة، الجلوس، المشي</li>
                 </ul>
 
                 <div class="modal-source">
-                    <strong>المصادر الموثوقة:</strong><br>
+                    <strong>المصادر:</strong><br>
                     • منظمة الصحة العالمية (WHO)<br>
                     • اليونيسيف (UNICEF)<br>
                     • الأكاديمية الأمريكية لطب الأطفال (AAP)
@@ -1199,7 +2001,7 @@
         <div class="modal">
             <div class="modal-header">
                 <h2>
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #10b981;">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #10b981; width: 24px; height: 24px;">
                         <use href="#icon-calendar"></use>
                     </svg>
                     عيادة الاستشارات
@@ -1208,42 +2010,36 @@
             </div>
             <div class="modal-content">
                 <h3>عن عيادتنا</h3>
-                <p>نوفر استشارات طبية متخصصة من أطباء وأخصائيين معتمدين في مجالات طب النساء والتوليد وطب الأطفال والتغذية العلاجية والدعم النفسي.</p>
+                <p>نوفر استشارات متخصصة من أطباء معتمدين في طب النساء والأطفال والتغذية والدعم النفسي.</p>
 
                 <h3>الخدمات المتاحة</h3>
                 <ul>
                     <li>استشارات طبية عبر الإنترنت</li>
-                    <li>تقييم صحي شامل للأم والطفل</li>
+                    <li>تقييم صحي شامل</li>
                     <li>إجابات على الأسئلة الصحية</li>
                     <li>نصائح تغذوية موثوقة</li>
                     <li>دعم نفسي واجتماعي</li>
                 </ul>
 
                 <h3>كيفية التسجيل</h3>
-                <p>للتسجيل في قائمة الانتظار والحصول على استشارة، يرجى ملء نموذج التسجيل أدناه. سيتصل بكِ فريقنا قريباً.</p>
+                <p>ملّئي النموذج وسيتصل بكِ فريقنا قريباً. الاستشارات الأولى مجانية.</p>
 
                 <form onsubmit="handleConsultationForm(event)" style="margin-top: 1.5rem;">
                     <div style="margin-bottom: 1rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">الاسم الكامل</label>
-                        <input type="text" placeholder="أدخلي اسمكِ" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem;">
+                        <input type="text" placeholder="اسمكِ" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem;">
                     </div>
-
                     <div style="margin-bottom: 1rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">البريد الإلكتروني</label>
-                        <input type="email" placeholder="بريدكِ الإلكتروني" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem;">
+                        <input type="email" placeholder="بريدكِ الإلكتروني" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem;">
                     </div>
-
                     <div style="margin-bottom: 1rem;">
-                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">رقم الهاتف</label>
-                        <input type="tel" placeholder="+218..." required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem; font-size: 1rem;">
+                        <input type="tel" placeholder="رقم الهاتف" required style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.5rem;">
                     </div>
-
                     <button type="submit" style="width: 100%; background: linear-gradient(to left, #f43f5e, #ec4899); color: white; padding: 0.75rem; border: none; border-radius: 0.5rem; font-weight: bold; cursor: pointer;">التسجيل الآن</button>
                 </form>
 
                 <div class="modal-source" style="margin-top: 1.5rem;">
-                    <strong>ملاحظة مهمة:</strong><br>
-                    الاستشارات المقدمة للأغراض التعليمية فقط وليست بديلاً عن الرعاية الطبية المباشرة.
+                    <strong>ملاحظة:</strong><br>
+                    الاستشارات للأغراض التعليمية فقط وليست بديلاً عن الرعاية الطبية المباشرة.
                 </div>
             </div>
         </div>
@@ -1254,7 +2050,7 @@
          ============================================ -->
     <script>
         // ============================================
-        // CAROUSEL FUNCTIONS
+        // CAROUSEL
         // ============================================
         let currentSlide = 0;
         const slides = document.querySelectorAll('.hero-slide');
@@ -1279,13 +2075,12 @@
             showSlide(currentSlide);
         }
 
-        // Auto-rotate carousel every 5 seconds
         setInterval(nextSlide, 5000);
 
         // ============================================
-        // MODAL FUNCTIONS
+        // MODALS
         // ============================================
-        function openModal(modalType) {
+        function openModal(type) {
             const modalMap = {
                 'caesarean': 'caesareanModal',
                 'statistics': 'statisticsModal',
@@ -1293,15 +2088,14 @@
                 'consultation': 'consultationModal'
             };
             
-            const modalId = modalMap[modalType];
-            const modal = document.getElementById(modalId);
+            const modal = document.getElementById(modalMap[type]);
             if (modal) {
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
         }
 
-        function closeModal(modalType) {
+        function closeModal(type) {
             const modalMap = {
                 'caesarean': 'caesareanModal',
                 'statistics': 'statisticsModal',
@@ -1309,15 +2103,13 @@
                 'consultation': 'consultationModal'
             };
             
-            const modalId = modalMap[modalType];
-            const modal = document.getElementById(modalId);
+            const modal = document.getElementById(modalMap[type]);
             if (modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = 'auto';
             }
         }
 
-        // Close modal when clicking outside
         document.querySelectorAll('.modal-overlay').forEach(overlay => {
             overlay.addEventListener('click', (e) => {
                 if (e.target === overlay) {
@@ -1327,7 +2119,6 @@
             });
         });
 
-        // Close modal with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.modal-overlay.active').forEach(modal => {
@@ -1337,14 +2128,40 @@
             }
         });
 
-        // Handle consultation form
+        // ============================================
+        // FAQ TOGGLE
+        // ============================================
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // ============================================
+        // FORMS
+        // ============================================
         function handleConsultationForm(event) {
             event.preventDefault();
             alert('شكراً لتسجيلكِ! سيتصل بكِ فريقنا قريباً.');
             closeModal('consultation');
         }
 
-        // Smooth scroll enhancement
+        function handleAdvancedForm(event) {
+            event.preventDefault();
+            alert('تم استقبال طلبكِ بنجاح! سنتصل بكِ قريباً.');
+            event.target.reset();
+        }
+
+        function handleNewsletterSignup(event) {
+            event.preventDefault();
+            alert('شكراً للاشتراك! تحققي من بريدكِ الإلكتروني.');
+            event.target.reset();
+        }
+
+        // ============================================
+        // SMOOTH SCROLL
+        // ============================================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1352,10 +2169,7 @@
                     e.preventDefault();
                     const target = document.querySelector(href);
                     if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }
             });
