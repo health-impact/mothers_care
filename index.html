@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mother's Care - منصة توعوية طبية موثوقة لصحة الأم والطفل">
-    <title>Mother's Care | صحة الأمومة والطفل</title>
+    <meta name="description" content="Mother's Care - منصة طبية موثوقة متخصصة في صحة الأم والطفل والرعاية الشاملة">
+    <title>Mother's Care - صحة الأمومة والطفل</title>
     
     <style>
         * {
@@ -18,593 +18,386 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #1f2937;
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            color: #1a1a1a;
+            background: #ffffff;
+            overflow-x: hidden;
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
 
         /* ============================================
            HEADER
            ============================================ */
         header {
-            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 50%, #f0f9ff 100%);
-            border-bottom: 3px solid #f43f5e;
             position: sticky;
             top: 0;
-            z-index: 40;
-            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.15);
-            backdrop-filter: blur(15px);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1.5rem 0;
+            transition: all 0.3s ease;
         }
 
         .header-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 1.5rem 0;
+            align-items: center;
+            padding: 0 2rem;
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .logo-svg {
-            width: 50px;
-            height: 50px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-
-        .logo-text {
-            font-size: 1.875rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #f43f5e, #ec4899, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
         }
 
         nav {
-            display: none;
-            gap: 1rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
         }
 
-        @media (min-width: 768px) {
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f43f5e, #ec4899);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
             nav {
-                display: flex;
-            }
-
-            nav a {
-                color: #1f2937;
-                text-decoration: none;
-                font-weight: 700;
-                transition: all 0.3s ease;
-                font-size: 0.95rem;
-                padding: 0.75rem 1.5rem;
-                border-radius: 12px;
-                position: relative;
-                background: linear-gradient(135deg, transparent, rgba(244, 63, 94, 0.1));
-                border: 2px solid transparent;
-            }
-
-            nav a::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 3px;
-                background: linear-gradient(to right, #f43f5e, #ec4899);
-                transition: width 0.4s ease;
-                border-radius: 2px;
-            }
-
-            nav a:hover {
-                color: #f43f5e;
-                border-color: #fce7f3;
-                background: linear-gradient(135deg, #fdf2f8, rgba(244, 63, 94, 0.15));
-            }
-
-            nav a:hover::after {
-                width: 100%;
+                display: none;
             }
         }
 
         /* ============================================
-           HERO CAROUSEL
+           HERO
            ============================================ */
         .hero {
-            position: relative;
-            height: 650px;
-            overflow: hidden;
-            border-radius: 20px;
-            margin: 2rem 0;
-            box-shadow: 0 25px 70px rgba(244, 63, 94, 0.2);
-        }
-
-        .hero-carousel {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            inset: 0;
-        }
-
-        .hero-slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1.2s ease-in-out;
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.65);
-        }
-
-        .hero-slide.active {
-            opacity: 1;
-        }
-
-        .hero-slide::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.4) 0%, rgba(236, 72, 153, 0.4) 50%, rgba(59, 130, 246, 0.4) 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            height: 100%;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: white;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-            animation: slideDown 0.8s ease-out;
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            max-width: 45rem;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-            font-weight: 600;
-            animation: slideUp 0.8s ease-out 0.2s both;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .carousel-indicators {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 12px;
-            z-index: 20;
-        }
-
-        .indicator {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.6);
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            border: 2px solid white;
-        }
-
-        .indicator.active {
-            background-color: white;
-            width: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.5);
-        }
-
-        /* ============================================
-           WELCOME BOX
-           ============================================ */
-        .welcome-box {
-            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 50%, #f0f9ff 100%);
-            border-radius: 18px;
-            padding: 3rem;
-            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
-            border: 2px solid #fce7f3;
-            max-width: 52rem;
-            margin: -80px auto 4rem;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #fff5e6 100%);
             position: relative;
-            z-index: 15;
-            backdrop-filter: blur(12px);
-            animation: scaleIn 0.6s ease-out 0.3s both;
+            overflow: hidden;
         }
 
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
         }
 
-        .welcome-header {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .welcome-icon {
-            width: 50px;
-            height: 50px;
-            fill: #10b981;
-            flex-shrink: 0;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
+        @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+            50% { transform: translateY(30px); }
         }
 
-        .welcome-box h3 {
-            font-size: 2rem;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
             font-weight: 900;
-            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 50%, #3b82f6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
         }
 
-        .welcome-box p {
-            color: #374151;
-            margin-bottom: 1.2rem;
-            line-height: 1.9;
-            font-size: 1.1rem;
+        .hero p {
+            font-size: 1.3rem;
+            color: #4b5563;
+            margin-bottom: 3rem;
             font-weight: 500;
+            line-height: 1.8;
         }
 
-        /* ============================================
-           BUTTONS
-           ============================================ */
-        .button-group {
+        .hero-buttons {
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        @media (min-width: 640px) {
-            .button-group {
-                flex-direction: row;
-                justify-content: center;
-            }
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1.1rem 2.8rem;
-            border-radius: 14px;
-            font-weight: 800;
+            padding: 1.2rem 2.8rem;
+            border-radius: 8px;
             border: none;
+            font-weight: 700;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
             text-decoration: none;
-            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #f43f5e, #ec4899);
             color: white;
-            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.3);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.6);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.4);
         }
 
         .btn-secondary {
-            border: 2px solid #60a5fa;
-            color: #1e40af;
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.15), rgba(59, 130, 246, 0.15));
-            box-shadow: 0 8px 20px rgba(96, 165, 250, 0.25);
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            background: white;
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(135deg, rgba(96, 165, 250, 0.25), rgba(59, 130, 246, 0.25));
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(96, 165, 250, 0.4);
+            background: #1a1a1a;
+            color: white;
         }
 
         /* ============================================
-           KNOWLEDGE BAR
+           INTRO SECTION
            ============================================ */
-        .knowledge-bar {
-            background: linear-gradient(135deg, #fff7ed 0%, #fef3c7 50%, #fed7aa 100%);
-            border-radius: 18px;
-            padding: 2.8rem;
-            border-left: 6px solid #f59e0b;
-            margin: 3rem 1rem;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
-            animation: slideInLeft 0.6s ease-out;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .knowledge-content {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .knowledge-emoji {
-            font-size: 2.5rem;
-            animation: rotate 4s infinite;
-        }
-
-        @keyframes rotate {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(15deg); }
-        }
-
-        .knowledge-bar h3 {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: #111827;
-            margin-bottom: 0.75rem;
-        }
-
-        .knowledge-bar p {
-            color: #374151;
-            line-height: 1.9;
-            font-size: 1.1rem;
-            font-weight: 600;
-        }
-
-        /* ============================================
-           SECTION HEADING
-           ============================================ */
-        .section-heading {
-            text-align: center;
-            margin-bottom: 4rem;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .section-heading h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, #f43f5e, #ec4899, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .section-heading p {
-            color: #4b5563;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        /* ============================================
-           CARDS SECTION
-           ============================================ */
-        .cards-section {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(253, 242, 248, 0.8) 100%);
-            padding: 5rem 1rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .card {
-            border-radius: 20px;
-            padding: 2.5rem;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            border: 2px solid rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
+        .intro-section {
+            padding: 8rem 2rem;
+            background: white;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3.5s infinite;
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            align-items: center;
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .card-pink { 
-            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%);
-            border-color: #fbcfe8;
-        }
-
-        .card-blue { 
-            background: linear-gradient(135deg, #dbeafe 0%, #cffafe 50%, #a5f3fc 100%);
-            border-color: #cffafe;
-        }
-
-        .card-purple { 
-            background: linear-gradient(135deg, #e9d5ff 0%, #f3e8ff 50%, #ddd6fe 100%);
-            border-color: #f3e8ff;
-        }
-
-        .card-green { 
-            background: linear-gradient(135deg, #d1fae5 0%, #ccfbf1 50%, #a7f3d0 100%);
-            border-color: #ccfbf1;
-        }
-
-        .card:hover {
-            transform: translateY(-18px) scale(1.03);
-            box-shadow: 0 30px 60px rgba(244, 63, 94, 0.3);
-            border-color: rgba(255, 255, 255, 1);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 220px;
-            border-radius: 14px;
-            object-fit: cover;
-            margin-bottom: 1.8rem;
-            transition: transform 0.4s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .card:hover .card-image {
-            transform: scale(1.1);
-        }
-
-        .card h3 {
-            font-size: 1.6rem;
+        .intro-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
             font-weight: 900;
-            color: #111827;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
         }
 
-        .card:hover h3 {
-            background: linear-gradient(to left, #f43f5e, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card p {
-            color: #374151;
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
+        .intro-content p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
             line-height: 1.8;
             font-weight: 500;
         }
 
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: #f43f5e;
-            font-weight: 800;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .card:hover .card-link {
-            gap: 1.2rem;
-            color: #ec4899;
+        .intro-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
         }
 
         /* ============================================
-           STATS INFOGRAPHIC
+           WHAT WE DO
            ============================================ */
-        .stats-infographic {
+        .what-we-do {
+            padding: 8rem 2rem;
             background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-            border-radius: 16px;
-            padding: 3rem;
-            margin-top: 3rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            box-shadow: 0 12px 35px rgba(244, 63, 94, 0.15);
         }
 
-        .stat-item {
+        .section-title {
             text-align: center;
-            padding: 2.5rem;
-            border-radius: 14px;
-            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
-            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.2);
-            transition: all 0.3s ease;
-            border: 2px solid #fce7f3;
+            margin-bottom: 4rem;
         }
 
-        .stat-item:hover {
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            color: #1a1a1a;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.3);
+            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+            border-color: #f43f5e;
         }
 
-        .stat-number {
-            font-size: 3.2rem;
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTIONS SHOWCASE
+           ============================================ */
+        .sections-showcase {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .showcase-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(244, 63, 94, 0.2);
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .showcase-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .showcase-card-content {
+            padding: 2rem;
+        }
+
+        .showcase-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .showcase-card p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .showcase-card a {
+            color: #f43f5e;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .showcase-card a:hover {
+            gap: 1rem;
+        }
+
+        /* ============================================
+           PROCESS SECTION
+           ============================================ */
+        .process-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            font-size: 3rem;
             font-weight: 900;
             background: linear-gradient(135deg, #f43f5e, #ec4899);
             -webkit-background-clip: text;
@@ -613,620 +406,225 @@
             margin-bottom: 1rem;
         }
 
-        .stat-label {
-            color: #374151;
-            font-size: 1.05rem;
+        .process-step h3 {
+            font-size: 1.3rem;
             font-weight: 800;
-            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .process-step p {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1rem;
         }
 
         /* ============================================
-           FAQ SECTION
+           STATS SECTION
            ============================================ */
-        .faq-section {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 50%, #fdf2f8 100%);
-            padding: 5rem 1rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            margin-bottom: 2rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 14px;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .stats-section {
+            padding: 8rem 2rem;
             background: white;
         }
 
-        .faq-item:hover {
-            box-shadow: 0 12px 30px rgba(244, 63, 94, 0.2);
-            border-color: #f43f5e;
-            transform: translateX(-5px);
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
-        .faq-question {
-            padding: 2rem;
+        .stat-card {
+            text-align: center;
+            padding: 3rem;
             background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 800;
-            color: #111827;
-            transition: all 0.3s ease;
-            font-size: 1.15rem;
-        }
-
-        .faq-question:hover {
-            background: linear-gradient(135deg, #fce7f3 0%, #dbeafe 100%);
-        }
-
-        .faq-toggle {
-            font-size: 2rem;
-            transition: transform 0.3s ease;
-            color: #f43f5e;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
             transition: all 0.4s ease;
-            background: white;
         }
 
-        .faq-item.active .faq-answer {
-            padding: 2.5rem;
-            max-height: 600px;
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.2);
         }
 
-        .faq-answer p {
-            color: #374151;
-            line-height: 2;
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-            font-size: 1.05rem;
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #4b5563;
+            font-weight: 700;
         }
 
         /* ============================================
-           QUICK TIPS
+           TEAM SECTION
            ============================================ */
-        .tips-section {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.8) 100%);
-            padding: 5rem 1rem;
-            border-radius: 24px;
-            margin: 3rem 0;
+        .team-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
         }
 
-        .tips-grid {
+        .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.8rem;
-            max-width: 1280px;
-            margin: 0 auto;
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
-        .tip-card {
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border-left: 6px solid #f43f5e;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.15);
-        }
-
-        .tip-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 18px 45px rgba(244, 63, 94, 0.25);
-            border-left-width: 8px;
-        }
-
-        .tip-card h4 {
-            color: #f43f5e;
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-            font-weight: 900;
-        }
-
-        .tip-card p {
-            color: #374151;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            font-weight: 500;
-        }
-
-        /* ============================================
-           TIMELINE
-           ============================================ */
-        .timeline-section {
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-            padding: 5rem 1rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-        }
-
-        .timeline-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, #f43f5e, #ec4899, #3b82f6);
-            border-radius: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 0;
-            }
-        }
-
-        .timeline-item {
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(odd) {
-            padding-right: 50%;
-            text-align: right;
-        }
-
-        .timeline-item:nth-child(even) {
-            padding-left: 50%;
-        }
-
-        @media (max-width: 768px) {
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                padding-left: 50px;
-                padding-right: 0;
-                text-align: left;
-            }
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            width: 22px;
-            height: 22px;
+        .team-card {
             background: white;
-            border: 4px solid #f43f5e;
-            border-radius: 50%;
-            left: calc(50% - 11px);
-            top: 0;
-            box-shadow: 0 0 0 5px rgba(244, 63, 94, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover::before {
-            width: 30px;
-            height: 30px;
-            left: calc(50% - 15px);
-            box-shadow: 0 0 0 8px rgba(244, 63, 94, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .timeline-item::before {
-                left: -11px;
-            }
-
-            .timeline-item:hover::before {
-                left: -15px;
-            }
-        }
-
-        .timeline-content {
-            background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
-            padding: 2.5rem;
-            border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.15);
-            transition: all 0.3s ease;
-            border: 2px solid #fce7f3;
-        }
-
-        .timeline-item:hover .timeline-content {
-            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.25);
-            transform: translateY(-5px);
-        }
-
-        .timeline-content h3 {
-            color: #f43f5e;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            font-weight: 900;
-        }
-
-        .timeline-content p {
-            color: #374151;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            font-weight: 500;
-        }
-
-        /* ============================================
-           BLOG SECTION
-           ============================================ */
-        .blog-section {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(240, 249, 255, 0.8) 100%);
-            padding: 5rem 1rem;
-            border-radius: 24px;
-            margin: 3rem 0;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 3rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .blog-card {
-            background: white;
-            border: 2px solid #e5e7eb;
-            border-radius: 18px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .blog-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(to right, #f43f5e, #ec4899, #3b82f6);
-            z-index: 2;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(244, 63, 94, 0.25);
-            border-color: #f43f5e;
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-        }
-
-        .blog-card:hover .blog-image {
-            transform: scale(1.08);
-        }
-
-        .blog-content {
-            padding: 2.5rem;
-        }
-
-        .blog-content h3 {
-            color: #111827;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-            font-weight: 900;
-            line-height: 1.4;
-        }
-
-        .blog-meta {
-            color: #9ca3af;
-            font-size: 0.95rem;
-            margin-bottom: 1.2rem;
-            font-weight: 700;
-        }
-
-        .blog-excerpt {
-            color: #374151;
-            font-size: 1rem;
-            margin-bottom: 1.8rem;
-            line-height: 1.9;
-            font-weight: 500;
-        }
-
-        .blog-link {
-            color: #f43f5e;
-            text-decoration: none;
-            font-weight: 800;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            font-size: 1.1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .blog-link:hover {
-            color: #ec4899;
-            gap: 0.8rem;
-        }
-
-        /* ============================================
-           MODALS
-           ============================================ */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            z-index: 50;
-            animation: fadeIn 0.3s ease;
-            overflow-y: auto;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-            max-width: 800px;
-            width: 100%;
-            padding: 3rem;
-            animation: slideIn 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 2.5rem;
-            border-bottom: 3px solid #f0f0f0;
-            padding-bottom: 1.8rem;
-        }
-
-        .modal-header h2 {
-            font-size: 2rem;
-            font-weight: 900;
-            color: #111827;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 2.2rem;
-            cursor: pointer;
-            color: #6b7280;
-            transition: all 0.3s ease;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-        }
-
-        .modal-close:hover {
-            color: #111827;
-            background-color: #f3f4f6;
-            transform: rotate(90deg);
-        }
-
-        .modal-content {
-            color: #374151;
-            line-height: 2;
-        }
-
-        .modal-content h3 {
-            color: #f43f5e;
-            margin-top: 2.5rem;
-            margin-bottom: 1.2rem;
-            font-size: 1.5rem;
-            font-weight: 900;
-        }
-
-        .modal-content p {
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-            font-size: 1.05rem;
-        }
-
-        .modal-content ul {
-            list-style-position: inside;
-            margin-bottom: 2rem;
-            margin-right: 1rem;
-        }
-
-        .modal-content li {
-            margin-bottom: 1rem;
-            color: #4b5563;
-            font-weight: 500;
-            font-size: 1.05rem;
-        }
-
-        .modal-source {
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-            border-right: 6px solid #f43f5e;
-            padding: 2rem;
             border-radius: 12px;
-            margin-top: 2.5rem;
-            font-size: 0.95rem;
-            color: #6b7280;
-            font-weight: 700;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+            transition: all 0.4s ease;
         }
 
-        .modal-source strong {
-            color: #111827;
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-card-content {
+            padding: 2rem;
+        }
+
+        .team-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .team-card .role {
+            color: #f43f5e;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .cta-section {
+            padding: 8rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            color: #1a1a1a;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* ============================================
            FOOTER
            ============================================ */
         footer {
-            background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #1a1a2e 100%);
+            background: #1a1a1a;
             color: white;
-            padding: 5rem 1rem 3rem;
-            border-top: 4px solid #f43f5e;
+            padding: 4rem 2rem 2rem;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 4rem;
-            max-width: 1280px;
-            margin: 0 auto 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-section h4 {
-            font-size: 1.4rem;
-            font-weight: 900;
+        .footer-section h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 1.5rem;
-            color: #f8a5cc;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            color: #f43f5e;
         }
 
+        .footer-section a,
         .footer-section p {
-            color: #d1d5db;
-            font-size: 1rem;
-            line-height: 1.9;
-            font-weight: 500;
+            color: #b0b0b0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 2;
+            transition: color 0.3s ease;
         }
 
-        .footer-divider {
-            border-top: 2px solid #374151;
-            padding-top: 3rem;
-            margin-top: 3rem;
+        .footer-section a:hover {
+            color: white;
         }
 
         .footer-bottom {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            font-size: 0.95rem;
-            color: #9ca3af;
-            max-width: 1280px;
-            margin: 0 auto;
-            font-weight: 600;
-        }
-
-        .footer-logos {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .footer-logo {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
             font-size: 0.85rem;
-            color: #9ca3af;
-            padding: 0.8rem 1.2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-weight: 700;
-            transition: all 0.3s ease;
-        }
-
-        .footer-logo:hover {
-            background: rgba(244, 63, 94, 0.2);
-            border-color: #f43f5e;
         }
 
         /* ============================================
            RESPONSIVE
            ============================================ */
-        @media (max-width: 640px) {
-            .welcome-box {
-                margin-top: -30px;
-                padding: 1.8rem;
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header-content {
+                padding: 0 1rem;
             }
 
             .hero {
-                height: 450px;
-                border-radius: 12px;
+                min-height: auto;
+                padding: 3rem 1rem;
             }
 
-            .hero-title {
-                font-size: 1.875rem;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .cards-grid {
+            .intro-grid {
                 grid-template-columns: 1fr;
-                gap: 1.8rem;
             }
 
-            .modal {
-                max-width: 95vw;
-                padding: 1.8rem;
+            .showcase-grid,
+            .team-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
 
-            .timeline::before {
-                left: 0;
-            }
-
-            .timeline-item {
-                padding-left: 50px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-            }
-
-            .timeline-item::before {
-                left: -11px;
-            }
-
-            .section-heading h2 {
-                font-size: 1.875rem;
+            .cta-section h2 {
+                font-size: 2rem;
             }
 
             nav {
-                gap: 0.5rem;
-            }
-
-            nav a {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
+                display: none;
             }
         }
     </style>
@@ -1234,302 +632,242 @@
 <body>
     <!-- HEADER -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <svg class="logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#ec4899;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <!-- رمز الأم والطفل -->
-                        <circle cx="8" cy="6" r="3" fill="url(#logoGrad)"/>
-                        <path d="M6 10c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2H6z" fill="url(#logoGrad)"/>
-                        <circle cx="16" cy="8" r="2.5" fill="url(#logoGrad)"/>
-                        <path d="M14 12c-0.8 0-1.5.6-1.5 1.5v1.5c0 0.8.7 1.5 1.5 1.5h4c0.8 0 1.5-.7 1.5-1.5V13.5c0-.9-.7-1.5-1.5-1.5h-4z" fill="url(#logoGrad)" opacity="0.8"/>
-                    </svg>
-                    <span class="logo-text">Mother's Care</span>
-                </div>
-                <nav>
-                    <a href="#cards">الأقسام</a>
-                    <a href="#faq">الأسئلة</a>
-                    <a href="#tips">النصائح</a>
-                    <a href="#blog">المقالات</a>
-                </nav>
-            </div>
+        <div class="header-content">
+            <div class="logo">Mother's Care</div>
+            <nav>
+                <a href="#intro">عن المنصة</a>
+                <a href="#services">الخدمات</a>
+                <a href="#sections">الأقسام</a>
+                <a href="#process">المراحل</a>
+                <a href="#team">الفريق</a>
+                <a href="#contact">التواصل</a>
+            </nav>
         </div>
     </header>
 
-    <!-- HERO CAROUSEL -->
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-carousel">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=1200&h=600&fit=crop')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop')"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1559839734945-a94582aa747c?w=1200&h=600&fit=crop')"></div>
-        </div>
         <div class="hero-content">
-            <h2 class="hero-title">صحة الأم والطفل أولويتنا</h2>
-            <p class="hero-subtitle">معلومات موثوقة وشاملة عن الرعاية الصحية للأمومة والطفل والعمليات القيصرية</p>
-        </div>
-        <div class="carousel-indicators">
-            <div class="indicator active" onclick="goToSlide(0)"></div>
-            <div class="indicator" onclick="goToSlide(1)"></div>
-            <div class="indicator" onclick="goToSlide(2)"></div>
-        </div>
-    </section>
-
-    <!-- WELCOME BOX -->
-    <div class="container">
-        <div class="welcome-box">
-            <div class="welcome-header">
-                <div style="font-size: 2.5rem;">🤍</div>
-                <div>
-                    <h3>مرحباً بكِ في Mother's Care</h3>
-                    <p>منصة متخصصة توفر معلومات موثوقة وشاملة عن صحة الأم والطفل، الحمل، الولادة، والعمليات القيصرية.</p>
-                    <p style="color: #6b7280; font-style: italic; font-weight: 600;">رعاية صحية شاملة لك ولطفلك</p>
-                </div>
-            </div>
-            <div class="button-group">
-                <button class="btn btn-primary" onclick="document.getElementById('cards').scrollIntoView({behavior:'smooth'})">
-                    ✨ تصفّحي المعلومات
-                </button>
-                <button class="btn btn-secondary" onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
-                    ❓ اكتشفي الأسئلة الشائعة
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- KNOWLEDGE BAR -->
-    <section class="knowledge-bar" style="margin: 2rem 1rem; border-radius: 16px;">
-        <div class="container">
-            <div class="knowledge-content">
-                <div class="knowledge-emoji">💡</div>
-                <div>
-                    <h3>هل تعلمين؟</h3>
-                    <p>الولادة القيصرية هي تدخل جراحي آمن عندما تكون ضرورية طبياً. بالوعي والمتابعة الطبية المنتظمة، يمكنك ضمان صحة أفضل لك ولطفلك.</p>
-                </div>
+            <h1>صحة الأم والطفل أولويتنا الأولى</h1>
+            <p>منصة طبية موثوقة متخصصة في الرعاية الصحية الشاملة، الحمل، الولادة، والعمليات القيصرية بمعايير عالمية</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">ابدأي الآن</button>
+                <button class="btn btn-secondary">تعرفي أكثر</button>
             </div>
         </div>
     </section>
 
-    <!-- CARDS SECTION -->
-    <section id="cards" class="cards-section">
+    <!-- INTRO SECTION -->
+    <section class="intro-section" id="intro">
         <div class="container">
-            <div class="section-heading">
-                <h2>أقسام منصتنا الرئيسية</h2>
-                <p>معلومات شاملة وموثوقة عن صحة الأمومة والطفل</p>
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <h2>منصة تؤمن بقوة المعلومات الطبية الموثوقة</h2>
+                    <p>Mother's Care هي منصة متخصصة تجمع معلومات شاملة من مصادر طبية عالمية موثوقة. نحن نؤمن أن المرأة المطلعة هي التي تتخذ القرارات الصحيحة لها ولطفلها.</p>
+                    <p>من الحمل إلى ما بعد الولادة، نرافقك في كل خطوة من رحلتك نحو أمومة آمنة وصحية.</p>
+                </div>
+                <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=500&h=400&fit=crop" alt="الأم والطفل" class="intro-image">
             </div>
+        </div>
+    </section>
 
-            <div class="cards-grid">
-                <div class="card card-pink">
-                    <img src="https://images.unsplash.com/photo-1559839734945-a94582aa747c?w=400&h=200&fit=crop" alt="دليل القيصرية" class="card-image">
-                    <h3>دليل الولادة القيصرية</h3>
-                    <p>معلومات شاملة عن الولادة القيصرية، التحضير لها، والتعافي بعدها من مصادر طبية موثوقة.</p>
-                    <a class="card-link" onclick="openModal('caesarean')">اكتشفي المزيد →</a>
+    <!-- WHAT WE DO -->
+    <section class="what-we-do" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>ما نقدمه</h2>
+                <p>خدمات طبية شاملة ومعلومات موثوقة لصحة الأم والطفل</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>استشارات طبية</h3>
+                    <p>معلومات شاملة من أطباء متخصصين حول الحمل والولادة والرعاية بعد الولادة</p>
                 </div>
-
-                <div class="card card-blue">
-                    <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=200&fit=crop" alt="إحصائيات طبية" class="card-image">
-                    <h3>إحصائيات وحقائق طبية</h3>
-                    <p>أرقام وإحصائيات موثوقة من منظمة الصحة العالمية عن الولادة والعمليات القيصرية.</p>
-                    <a class="card-link" onclick="openModal('statistics')">اكتشفي المزيد →</a>
+                <div class="service-card">
+                    <h3>أدلة صحية</h3>
+                    <p>أدلة مفصلة وسهلة الفهم عن مراحل الحمل وكيفية التعامل معها بشكل صحي</p>
                 </div>
-
-                <div class="card card-purple">
-                    <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=200&fit=crop" alt="رعاية الطفل" class="card-image">
-                    <h3>رعاية وحماية الطفل</h3>
-                    <p>أهمية الرضاعة الطبيعية، جدول التطعيمات، ومؤشرات النمو السليم للطفل.</p>
-                    <a class="card-link" onclick="openModal('childcare')">اكتشفي المزيد →</a>
+                <div class="service-card">
+                    <h3>جداول ومتابعة</h3>
+                    <p>جداول تطعيمات وجداول متابعة النمو والتطور الصحي للطفل</p>
                 </div>
-
-                <div class="card card-green">
-                    <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=200&fit=crop" alt="صحة الأم" class="card-image">
-                    <h3>صحة وتغذية الأم</h3>
-                    <p>نصائح طبية عن التغذية السليمة، الرعاية الذاتية، والصحة النفسية أثناء الحمل وبعده.</p>
-                    <a class="card-link" onclick="alert('سيتم إضافة المحتوى قريباً')">اكتشفي المزيد →</a>
+                <div class="service-card">
+                    <h3>نصائح عملية</h3>
+                    <p>نصائح يومية عملية وآمنة للعناية بالصحة الجسدية والنفسية</p>
+                </div>
+                <div class="service-card">
+                    <h3>إحصائيات موثوقة</h3>
+                    <p>بيانات وإحصائيات من منظمة الصحة العالمية والمنظمات الدولية</p>
+                </div>
+                <div class="service-card">
+                    <h3>مقالات متخصصة</h3>
+                    <p>مقالات متعمقة كتبها أطباء متخصصون في مختلف فروع الأمومة</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section id="faq" class="faq-section">
+    <!-- SECTIONS SHOWCASE -->
+    <section class="sections-showcase" id="sections">
         <div class="container">
-            <div class="section-heading">
-                <h2>الأسئلة الشائعة</h2>
-                <p>إجابات على أكثر الأسئلة التي تطرحها الأمهات</p>
+            <div class="section-title">
+                <h2>أقسام المنصة الرئيسية</h2>
+                <p>معلومات شاملة موثوقة في مختلف جوانب الأمومة والطفولة</p>
             </div>
-
-            <div class="faq-container">
-                <div class="faq-item active">
-                    <div class="faq-question">
-                        <span>ما الفرق بين الولادة الطبيعية والقيصرية؟</span>
-                        <span class="faq-toggle">❯</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>الولادة الطبيعية تحدث عبر قناة الولادة بشكل طبيعي، بينما الولادة القيصرية هي عملية جراحية يتم فيها استخراج الجنين مباشرة من الرحم. لكل منهما مميزاتها وحالاتها الطبية المناسبة.</p>
+            <div class="showcase-grid">
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1559839734945-a94582aa747c?w=400&h=280&fit=crop" alt="الولادة القيصرية">
+                    <div class="showcase-card-content">
+                        <h3>دليل الولادة القيصرية</h3>
+                        <p>معلومات شاملة عن العملية، التحضير لها، والتعافي الصحيح بعدها من مصادر طبية موثوقة</p>
+                        <a href="#sections">اكتشفي المزيد</a>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>ما هي دواعي الولادة القيصرية؟</span>
-                        <span class="faq-toggle">❯</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>تشمل دواعي القيصرية عدم نزول الجنين، مشاكل المشيمة، فشل المخاض، حالات العدوى، الحمل المتعدد، وأسباب أخرى يحددها الطبيب المختص.</p>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=280&fit=crop" alt="إحصائيات طبية">
+                    <div class="showcase-card-content">
+                        <h3>إحصائيات وحقائق طبية</h3>
+                        <p>أرقام موثوقة من منظمة الصحة العالمية عن الولادة والصحة الإنجابية</p>
+                        <a href="#sections">اكتشفي المزيد</a>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>كم مدة التعافي من القيصرية؟</span>
-                        <span class="faq-toggle">❯</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>عادة ما تستغرق فترة التعافي من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة ورفع الأشياء الثقيلة. الحركة الخفيفة والمشي مفيد جداً للتعافي السريع.</p>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=280&fit=crop" alt="رعاية الطفل">
+                    <div class="showcase-card-content">
+                        <h3>رعاية وحماية الطفل</h3>
+                        <p>الرضاعة الطبيعية، جداول التطعيمات، ومؤشرات النمو السليم للطفل</p>
+                        <a href="#sections">اكتشفي المزيد</a>
                     </div>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>هل يمكن الرضاعة بعد القيصرية مباشرة؟</span>
-                        <span class="faq-toggle">❯</span>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=280&fit=crop" alt="صحة الأم">
+                    <div class="showcase-card-content">
+                        <h3>صحة وتغذية الأم</h3>
+                        <p>نصائح طبية عن التغذية السليمة والصحة النفسية أثناء الحمل وبعد الولادة</p>
+                        <a href="#sections">اكتشفي المزيد</a>
                     </div>
-                    <div class="faq-answer">
-                        <p>نعم، يمكن البدء بالرضاعة فوراً بعد الاستيقاظ من التخدير. لا توجد موانع طبية. في الحقيقة، الرضاعة المبكرة تساعد على تقلصات رحمية مفيدة وسرعة التعافي.</p>
+                </div>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1584308666744-24d5f400f628?w=400&h=280&fit=crop" alt="التطعيمات">
+                    <div class="showcase-card-content">
+                        <h3>جداول التطعيمات</h3>
+                        <p>جداول التطعيمات الموصى به عالمياً وتوقيتاتها الصحيحة</p>
+                        <a href="#sections">اكتشفي المزيد</a>
+                    </div>
+                </div>
+                <div class="showcase-card">
+                    <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=280&fit=crop" alt="الأسئلة الشائعة">
+                    <div class="showcase-card-content">
+                        <h3>الأسئلة الشائعة</h3>
+                        <p>إجابات شاملة على أكثر الأسئلة التي تطرحها الأمهات الجدد</p>
+                        <a href="#sections">اكتشفي المزيد</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- QUICK TIPS -->
-    <section id="tips" class="tips-section">
+    <!-- PROCESS SECTION -->
+    <section class="process-section" id="process">
         <div class="container">
-            <div class="section-heading">
-                <h2>نصائح صحية يومية</h2>
-                <p>معلومات عملية لتحسين صحتك وصحة طفلك</p>
+            <div class="section-title">
+                <h2>رحلتك معنا</h2>
+                <p>مراحل الرعاية الصحية الشاملة من البداية إلى النهاية</p>
             </div>
-
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h4>💧 الترطيب الكافي</h4>
-                    <p>اشربي 8-10 أكواب ماء يومياً أثناء الرضاعة لدعم إنتاج الحليب والتعافي السريع.</p>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>الفهم والمعلومات</h3>
+                    <p>نبدأ بتوفير معلومات شاملة موثوقة عن حالتك الصحية الحالية</p>
                 </div>
-
-                <div class="tip-card">
-                    <h4>😴 النوم والراحة</h4>
-                    <p>احصلي على 7-8 ساعات نوم لتسريع التعافي وتحسين الحالة النفسية والجسدية.</p>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>التخطيط والاستعداد</h3>
+                    <p>نساعدك في التخطيط والاستعداد لكل مرحلة من مراحل الحمل والولادة</p>
                 </div>
-
-                <div class="tip-card">
-                    <h4>🥗 تغذية سليمة</h4>
-                    <p>تناولي طعاماً صحياً غنياً بالبروتينات والفيتامينات والحديد للشعور بالطاقة.</p>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>المتابعة والدعم</h3>
+                    <p>نرافقك خلال رحلتك بمعلومات محدثة وإرشادات طبية دقيقة</p>
                 </div>
-
-                <div class="tip-card">
-                    <h4>🏃 حركة بسيطة</h4>
-                    <p>المشي والحركة الخفيفة تساعد على التعافي السريع وتحسن المزاج والصحة النفسية.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h4>👶 الوقت مع الطفل</h4>
-                    <p>أمضي وقتاً جميلاً مع طفلك. العلاقة القوية والحب مهمة لصحته النفسية.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h4>🩺 المتابعة الطبية</h4>
-                    <p>لا تتأخري عن فحوصات المتابعة المنتظمة. التشخيص المبكر ينقذ الأرواح.</p>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>بعد الولادة</h3>
+                    <p>نواصل دعمك بعد الولادة مع نصائح الرعاية والتعافي</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TIMELINE -->
-    <section class="timeline-section">
+    <!-- STATS SECTION -->
+    <section class="stats-section">
         <div class="container">
-            <div class="section-heading">
-                <h2>مراحل الحمل والولادة</h2>
-                <p>رحلة الحمل من البداية إلى ما بعد الولادة</p>
+            <div class="section-title">
+                <h2>الأرقام والإحصائيات</h2>
+                <p>معلومات موثوقة من منظمة الصحة العالمية</p>
             </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">21%</div>
+                    <div class="stat-label">معدل الولادات القيصرية عالمياً</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">أسابيع متوسط التعافي</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">معدل نجاح الرضاعة الطبيعية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">معلومات من مصادر موثوقة</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="timeline-container">
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>الثلث الأول (الأسابيع 1-13)</h3>
-                            <p>تكوين الأعضاء الحيوية، فحوصات مهمة، قد تشعرين بالإرهاق والغثيان والتعب.</p>
-                        </div>
+    <!-- TEAM SECTION -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>فريقنا الطبي</h2>
+                <p>متخصصون في مختلف فروع الأمومة والطفولة والصحة النسائية</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1559839734945-a94582aa747c?w=400&h=250&fit=crop" alt="دكتور متخصص">
+                    <div class="team-card-content">
+                        <h3>د. فاطمة علي</h3>
+                        <span class="role">أخصائي أمراض النساء والتوليد</span>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>الثلث الثاني (الأسابيع 14-26)</h3>
-                            <p>نمو الجنين بسرعة، الشعور بحركة الجنين، تحسن الأعراض تدريجياً.</p>
-                        </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=250&fit=crop" alt="دكتور متخصص">
+                    <div class="team-card-content">
+                        <h3>د. نور حسن</h3>
+                        <span class="role">استشاري طب الأطفال</span>
                     </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>الثلث الثالث (الأسابيع 27-40)</h3>
-                            <p>التحضير للولادة، الفحوصات النهائية، قد تشعرين بالقلق والاستعداد.</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>بعد الولادة</h3>
-                            <p>التعافي، الرضاعة، الرعاية الأساسية، الاستمتاع بالأمومة.</p>
-                        </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=250&fit=crop" alt="دكتور متخصص">
+                    <div class="team-card-content">
+                        <h3>د. علي محمد</h3>
+                        <span class="role">متخصص التغذية والصحة النسائية</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BLOG SECTION -->
-    <section id="blog" class="blog-section">
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="contact">
         <div class="container">
-            <div class="section-heading">
-                <h2>المقالات والمدونة</h2>
-                <p>محتوى شامل وموثوق عن الأمومة والصحة</p>
-            </div>
-
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=240&fit=crop" alt="التعافي" class="blog-image">
-                    <div class="blog-content">
-                        <h3>التعافي السريع بعد العملية القيصرية</h3>
-                        <div class="blog-meta">📅 15 يناير 2024 | 👨‍⚕️ د. فاطمة علي</div>
-                        <div class="blog-excerpt">نصائح عملية وطبية لتسريع التعافي بعد الولادة القيصرية من الحركة البسيطة إلى التغذية السليمة والعناية بالجرح.</div>
-                        <a onclick="alert('المقالة الكاملة قريباً...')" class="blog-link" style="cursor: pointer;">اقرأ المزيد →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=240&fit=crop" alt="الرضاعة" class="blog-image">
-                    <div class="blog-content">
-                        <h3>فوائد الرضاعة الطبيعية الصحية</h3>
-                        <div class="blog-meta">📅 10 يناير 2024 | 👨‍⚕️ د. نور حسن</div>
-                        <div class="blog-excerpt">الرضاعة الطبيعية توفر كل الفيتامينات والبروتينات والحماية للطفل. تعرفي على الفوائد الصحية والنفسية الكاملة.</div>
-                        <a onclick="alert('المقالة الكاملة قريباً...')" class="blog-link" style="cursor: pointer;">اقرأ المزيد →</a>
-                    </div>
-                </div>
-
-                <div class="blog-card">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5f400f628?w=400&h=240&fit=crop" alt="التطعيمات" class="blog-image">
-                    <div class="blog-content">
-                        <h3>جدول التطعيمات الموصى به عالمياً</h3>
-                        <div class="blog-meta">📅 5 يناير 2024 | 👨‍⚕️ د. علي محمد</div>
-                        <div class="blog-excerpt">التطعيمات تحمي طفلك من الأمراض الخطيرة. تعرفي على الجدول الموصى به من منظمة الصحة العالمية والتوقيتات الصحيحة.</div>
-                        <a onclick="alert('المقالة الكاملة قريباً...')" class="blog-link" style="cursor: pointer;">اقرأ المزيد →</a>
-                    </div>
-                </div>
+            <h2>هل لديك أسئلة؟</h2>
+            <p>تواصلي معنا للحصول على استشارة طبية أو معلومات إضافية</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">تواصلي معنا</button>
+                <button class="btn btn-secondary">اقرأي المزيد</button>
             </div>
         </div>
     </section>
@@ -1539,255 +877,64 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <h4>❤️ Mother's Care</h4>
-                    <p>منصة متخصصة في رعاية صحة الأم والطفل، بمعايير طبية عالية وبرؤية إنسانية شاملة للأمومة والعمليات القيصرية.</p>
+                    <h3>عن المنصة</h3>
+                    <p>Mother's Care هي منصة طبية موثوقة متخصصة في صحة الأم والطفل بمعايير عالمية</p>
                 </div>
-
                 <div class="footer-section">
-                    <h4>📍 الجهة المسؤولة</h4>
-                    <p><strong>الإعداد والتطوير:</strong><br>قسم الصحة العامة<br>كلية التقنية الطبية (جامعة طرابلس)</p>
+                    <h3>الأقسام</h3>
+                    <a href="#">الولادة القيصرية</a>
+                    <a href="#">رعاية الطفل</a>
+                    <a href="#">صحة الأم</a>
+                    <a href="#">التطعيمات</a>
                 </div>
-
                 <div class="footer-section">
-                    <h4>📞 التواصل</h4>
-                    <p><strong>البريد الإلكتروني:</strong><br>info@motherscare.ly</p>
+                    <h3>التواصل</h3>
+                    <p>البريد: info@motherscare.ly</p>
+                    <p>الهاتف: +218 21 444 5555</p>
+                    <p>العنوان: طرابلس، ليبيا</p>
                 </div>
             </div>
-
-            <div class="footer-divider">
-                <div style="margin-bottom: 2rem;">
-                    <h4 style="color: #f8a5cc; margin-bottom: 1.5rem; font-size: 1.1rem;">🏥 المصادر الموثوقة</h4>
-                    <div class="footer-logos">
-                        <div class="footer-logo">WHO</div>
-                        <div class="footer-logo">UNICEF</div>
-                        <div class="footer-logo">NIH</div>
-                        <div class="footer-logo">AAP</div>
-                        <div class="footer-logo">ACOG</div>
-                        <div class="footer-logo">CDC</div>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p><strong>ملاحظة:</strong> جميع المعلومات مستندة لأبحاث ودلائل من منظمات صحية عالمية موثوقة.</p>
-                    <p>© 2024 Mother's Care. جميع الحقوق محفوظة.</p>
-                </div>
+            <div class="footer-bottom">
+                <p>جميع المعلومات من مصادر طبية عالمية موثوقة | آخر تحديث: 2024</p>
+                <p>© 2024 Mother's Care - جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
 
-    <!-- MODALS -->
-    <div class="modal-overlay" id="caesareanModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>📋 دليل الولادة القيصرية</h2>
-                <button class="modal-close" onclick="closeModal('caesarean')">✕</button>
-            </div>
-            <div class="modal-content">
-                <h3>ما هي الولادة القيصرية؟</h3>
-                <p>الولادة القيصرية هي إجراء جراحي يتم من خلاله استخراج الجنين من الرحم مباشرة بدلاً من الولادة الطبيعية عبر قناة الولادة.</p>
-
-                <h3>دواعي إجراء العملية</h3>
-                <ul>
-                    <li>عدم نزول الجنين في الحوض</li>
-                    <li>وجود مشاكل في المشيمة</li>
-                    <li>فشل المخاض الطبيعي</li>
-                    <li>وجود عدوى نشطة</li>
-                    <li>حالات الحمل المتعدد</li>
-                    <li>مضاعفات صحية للأم أو الجنين</li>
-                </ul>
-
-                <h3>فترة التعافي</h3>
-                <p>عادة ما تستغرق من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة وتتبع تعليمات الطبيب بعناية لضمان التعافي السريع والسليم.</p>
-
-                <h3>العناية بالجرح</h3>
-                <ul>
-                    <li>الحفاظ على الجرح نظيفاً وجافاً</li>
-                    <li>تجنب الاستحمام حتى يسمح الطبيب</li>
-                    <li>عدم رفع أشياء ثقيلة</li>
-                    <li>مراقبة علامات العدوى</li>
-                    <li>ارتداء ملابس فضفاضة مريحة</li>
-                </ul>
-
-                <div class="modal-source">
-                    <strong>المصادر الموثوقة:</strong><br>
-                    • منظمة الصحة العالمية (WHO)<br>
-                    • المعهد الوطني للصحة (NIH)<br>
-                    • الجمعية الأمريكية لأمراض النساء (ACOG)
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="statisticsModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>📊 إحصائيات طبية موثوقة</h2>
-                <button class="modal-close" onclick="closeModal('statistics')">✕</button>
-            </div>
-            <div class="modal-content">
-                <h3>إحصائيات عالمية (منظمة الصحة العالمية 2023)</h3>
-                <div class="stats-infographic">
-                    <div class="stat-item">
-                        <div class="stat-number">21%</div>
-                        <div class="stat-label">معدل القيصرية عالمياً</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">45%</div>
-                        <div class="stat-label">النسبة في الدول المتقدمة</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15%</div>
-                        <div class="stat-label">المعدل الموصى به من WHO</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">5-15%</div>
-                        <div class="stat-label">نسبة المضاعفات الخطيرة</div>
-                    </div>
-                </div>
-
-                <h3>الأسباب الرئيسية للارتفاع</h3>
-                <ul>
-                    <li>تأخر سن الحمل الأول</li>
-                    <li>زيادة حالات السمنة</li>
-                    <li>الخوف من المضاعفات</li>
-                    <li>عوامل طبية ضرورية</li>
-                </ul>
-
-                <div class="modal-source">
-                    <strong>المصادر:</strong><br>
-                    • منظمة الصحة العالمية (WHO)<br>
-                    • اليونيسيف (UNICEF)
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="childcareModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>👶 رعاية وحماية الطفل</h2>
-                <button class="modal-close" onclick="closeModal('childcare')">✕</button>
-            </div>
-            <div class="modal-content">
-                <h3>الرضاعة الطبيعية</h3>
-                <ul>
-                    <li>ابدئي الرضاعة في الساعة الأولى من الولادة</li>
-                    <li>الرضاعة الحصرية لمدة 6 أشهر</li>
-                    <li>استمرري حتى سنتين على الأقل</li>
-                </ul>
-
-                <h3>جدول التطعيمات</h3>
-                <ul>
-                    <li><strong>عند الولادة:</strong> الدرن، شلل الأطفال، التهاب الكبد B</li>
-                    <li><strong>شهر واحد:</strong> الالتهاب السحائي</li>
-                    <li><strong>شهرين:</strong> الثلاثي والتطعيمات الأخرى</li>
-                </ul>
-
-                <h3>مؤشرات النمو الصحي</h3>
-                <ul>
-                    <li>الوزن: يتضاعف في 4-6 أشهر</li>
-                    <li>الطول: ينمو حوالي 25 سم في السنة الأولى</li>
-                    <li>المهارات: الابتسامة، الجلوس، المشي</li>
-                </ul>
-
-                <div class="modal-source">
-                    <strong>المصادر:</strong><br>
-                    • منظمة الصحة العالمية (WHO)<br>
-                    • اليونيسيف (UNICEF)<br>
-                    • الأكاديمية الأمريكية لطب الأطفال (AAP)
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT -->
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.hero-slide');
-        const indicators = document.querySelectorAll('.indicator');
-        const totalSlides = slides.length;
-
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-            slides[n].classList.add('active');
-            indicators[n].classList.add('active');
-        }
-
-        function goToSlide(n) {
-            currentSlide = n;
-            showSlide(currentSlide);
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-        }
-
-        setInterval(nextSlide, 5000);
-
-        function openModal(type) {
-            const modalMap = {
-                'caesarean': 'caesareanModal',
-                'statistics': 'statisticsModal',
-                'childcare': 'childcareModal'
-            };
-            const modal = document.getElementById(modalMap[type]);
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal(type) {
-            const modalMap = {
-                'caesarean': 'caesareanModal',
-                'statistics': 'statisticsModal',
-                'childcare': 'childcareModal'
-            };
-            const modal = document.getElementById(modalMap[type]);
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', (e) => {
-                if (e.target === overlay) {
-                    overlay.classList.remove('active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelectorAll('.modal-overlay.active').forEach(modal => {
-                    modal.classList.remove('active');
-                });
-                document.body.style.overflow = 'auto';
-            }
-        });
-
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-
+        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
-                if (href !== '#') {
+                if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
+        });
+
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .showcase-card, .team-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
