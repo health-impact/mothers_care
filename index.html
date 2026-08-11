@@ -3,138 +3,1428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mother's Care - منصة طبية موثوقة متخصصة في صحة الأم والطفل والرعاية الشاملة">
     <title>Mother's Care - صحة الأمومة والطفل</title>
+    
     <style>
-        :root {
-            --primary-pink: #f43f5e;
-            --soft-pink: #ffe4e6;
-            --dark-text: #1a1a1a;
-            --gray-text: #4b5563;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
-        body { background: #ffffff; color: var(--dark-text); overflow-x: hidden; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* Header */
-        header { padding: 20px 0; border-bottom: 1px solid #f0f0f0; background: #fff; position: sticky; top: 0; z-index: 1000; }
-        .nav-bar { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.5rem; text-decoration: none; color: var(--dark-text); }
 
-        /* Hero */
-        .hero { min-height: 80vh; display: flex; align-items: center; background: linear-gradient(135deg, var(--soft-pink), #fff); padding: 50px 0; }
-        .hero-content { flex: 1; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
-        
-        /* Stats Infographic */
-        .stats-section { padding: 60px 0; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .stat-card { background: linear-gradient(135deg, #fff0f5, #ffe4e6); padding: 30px; border-radius: 20px; text-align: center; border: 1px solid #ffccd5; transition: 0.3s; }
-        .stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary-pink); display: block; }
-        
-        /* Interactive Sections */
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px 0; }
-        .card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(244, 63, 94, 0.1); }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card-body { padding: 20px; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        /* Footer */
-        footer { background: #1a1a1a; color: #fff; padding: 60px 20px; text-align: center; }
-        .email-input { padding: 12px; border-radius: 5px; border: none; width: 300px; }
-        .subscribe-btn { padding: 12px 25px; background: var(--primary-pink); color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .credit { margin-top: 30px; font-size: 0.9rem; color: #888; }
-        .designer { color: var(--primary-pink); font-weight: bold; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
 
-        /* Modal */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; justify-content: center; align-items: center; }
-        .modal-content { background: white; padding: 40px; border-radius: 20px; max-width: 600px; width: 90%; position: relative; }
-        .close-btn { position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 1.5rem; }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #f0f0f0;
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(244, 63, 94, 0.2);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f43f5e, #ec4899);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            
+            .header-content {
+                padding: 0 1rem;
+            }
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            min-height: 95vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 50%, #fff5e6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(244, 63, 94, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 50%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #4b5563;
+            margin-bottom: 3rem;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.8rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            color: white;
+            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.4);
+        }
+
+        .btn-secondary {
+            border: 2px solid #1a1a1a;
+            color: #1a1a1a;
+            background: white;
+        }
+
+        .btn-secondary:hover {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        /* ============================================
+           INTRO SECTION
+           ============================================ */
+        .intro-section {
+            padding: 8rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
+        }
+
+        .intro-content p {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .intro-image {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #fdf2f8, #f0f9ff);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ============================================
+           WHAT WE DO
+           ============================================ */
+        .what-we-do {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            color: #1a1a1a;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+            border-color: #f43f5e;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            color: #4b5563;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           SECTIONS SHOWCASE
+           ============================================ */
+        .sections-showcase {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .showcase-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            border: 1px solid #f0f0f0;
+            cursor: pointer;
+        }
+
+        .showcase-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(244, 63, 94, 0.2);
+        }
+
+        .showcase-card-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #fdf2f8, #f0f9ff);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .showcase-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .showcase-card:hover .showcase-card-image img {
+            transform: scale(1.08);
+        }
+
+        .showcase-card-content {
+            padding: 2rem;
+        }
+
+        .showcase-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .showcase-card p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .showcase-card a {
+            color: #f43f5e;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .showcase-card a:hover {
+            gap: 1rem;
+        }
+
+        /* ============================================
+           DETAILED SECTION MODAL
+           ============================================ */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3rem auto;
+            padding: 3rem;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            animation: slideIn 0.3s ease;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            color: #999;
+            float: left;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #1a1a1a;
+        }
+
+        .modal h2 {
+            color: #1a1a1a;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            margin-top: 0;
+            clear: both;
+        }
+
+        .modal h3 {
+            color: #f43f5e;
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .modal ul, .modal ol {
+            color: #4b5563;
+            line-height: 1.9;
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* ============================================
+           TIPS SECTION
+           ============================================ */
+        .tips-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #f43f5e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateX(-8px);
+            box-shadow: 0 20px 50px rgba(244, 63, 94, 0.2);
+        }
+
+        .tip-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        .tip-card p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           PREGNANCY STAGES
+           ============================================ */
+        .pregnancy-section {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .pregnancy-timeline {
+            position: relative;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .pregnancy-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 5rem;
+            align-items: center;
+        }
+
+        .pregnancy-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .pregnancy-item:nth-child(even) .pregnancy-content {
+            direction: ltr;
+        }
+
+        .pregnancy-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #fdf2f8, #f0f9ff);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.2);
+        }
+
+        .pregnancy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .pregnancy-content h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .pregnancy-content p {
+            color: #4b5563;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .pregnancy-item {
+                grid-template-columns: 1fr;
+            }
+
+            .pregnancy-item:nth-child(even) {
+                direction: ltr;
+            }
+        }
+
+        /* ============================================
+           FAQ SECTION
+           ============================================ */
+        .faq-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 4rem auto 0;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #fdf2f8, #f0f9ff);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: #1a1a1a;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: linear-gradient(135deg, #f0f9ff, #fdf2f8);
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            padding: 1.5rem;
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        /* ============================================
+           STATS SECTION - ANIMATED INFOGRAPHIC
+           ============================================ */
+        .stats-section {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
+            border-radius: 12px;
+            border: 1px solid #f0f0f0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f43f5e, #ec4899, #3b82f6);
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: fillBar 1.2s ease forwards;
+        }
+
+        @keyframes fillBar {
+            to { transform: scaleX(1); }
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(244, 63, 94, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f43f5e, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.8rem;
+            animation: countUp 1.2s ease-out;
+            display: block;
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-label {
+            font-size: 1.05rem;
+            color: #4b5563;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .stat-bar {
+            width: 100%;
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f43f5e, #ec4899);
+            border-radius: 10px;
+            animation: fillWidth 1.5s ease forwards;
+        }
+
+        @keyframes fillWidth {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-section h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            color: #f43f5e;
+        }
+
+        .footer-section p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            line-height: 2;
+        }
+
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #f43f5e;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .designer-credit {
+            color: #f43f5e;
+            font-weight: 700;
+            margin-top: 0.5rem;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image {
+                height: 300px;
+            }
+
+            .showcase-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .pregnancy-item {
+                grid-template-columns: 1fr;
+            }
+
+            .pregnancy-image {
+                height: 250px;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                margin: 1rem auto;
+                width: 95%;
+            }
+        }
     </style>
 </head>
 <body>
-
+    <!-- HEADER -->
     <header>
-        <div class="container nav-bar">
-            <a href="#" class="logo">
-                <svg width="50" height="50" viewBox="0 0 100 100">
-                    <path d="M50 20 C 30 20, 20 40, 50 80 C 80 40, 70 20, 50 20 Z" fill="#f43f5e"/>
-                </svg>
-                Mother's Care
+        <div class="header-content">
+            <a href="#" class="logo-section" style="text-decoration: none;">
+                <!-- تم استبدال الـ SVG بصورة واقعية كـ لوجو -->
+                <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=150&h=150&fit=crop" alt="Mother's Care Logo" class="logo-icon">
+                <span class="logo-text">Mother's Care</span>
             </a>
+            <nav>
+                <a href="#intro">عن المنصة</a>
+                <a href="#services">الخدمات</a>
+                <a href="#sections">الأقسام</a>
+                <a href="#tips">النصائح</a>
+                <a href="#pregnancy">مراحل الحمل</a>
+                <a href="#faq">الأسئلة</a>
+            </nav>
         </div>
     </header>
 
+    <!-- HERO -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>رعاية طبية تليق بأمومة آمنة</h1>
-                <p>منصة متكاملة توفر لكِ معلومات موثوقة ومتابعة دقيقة لصحة طفلك وصحتك.</p>
+        <div class="hero-content">
+            <h1>صحة الأم والطفل أولويتنا الأولى</h1>
+            <p>منصة طبية موثوقة متخصصة في الرعاية الصحية الشاملة، الحمل، الولادة، والعمليات القيصرية بمعايير عالمية</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})">ابدأي الآن</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">تعرفي أكثر</button>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
+    <!-- INTRO SECTION -->
+    <section class="intro-section" id="intro">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-content">
+                    <h2>منصة تؤمن بقوة المعلومات الطبية الموثوقة</h2>
+                    <p>Mother's Care هي منصة متخصصة تجمع معلومات شاملة من مصادر طبية عالمية موثوقة. نحن نؤمن أن المرأة المطلعة هي التي تتخذ القرارات الصحيحة لها ولطفلها.</p>
+                    <p>من الحمل إلى ما بعد الولادة، نرافقك في كل خطوة من رحلتك نحو أمومة آمنة وصحية.</p>
+                </div>
+                <div class="intro-image">
+                    <!-- صورة أم وطفل بواقعية ودفء -->
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&h=900&fit=crop" alt="أم تحمل طفلها بحنان">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="what-we-do" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>ما نقدمه</h2>
+                <p>خدمات طبية شاملة ومعلومات موثوقة لصحة الأم والطفل</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>أدلة صحية شاملة</h3>
+                    <p>أدلة مفصلة وسهلة الفهم عن مراحل الحمل وكيفية التعامل معها بشكل صحي وآمن من الألف للياء</p>
+                </div>
+                <div class="service-card">
+                    <h3>جداول ومتابعة</h3>
+                    <p>جداول تطعيمات وجداول متابعة النمو والتطور الصحي للطفل من الميلاد حتى سنوات العمر</p>
+                </div>
+                <div class="service-card">
+                    <h3>نصائح عملية يومية</h3>
+                    <p>نصائح يومية عملية وآمنة للعناية بالصحة الجسدية والنفسية للأم والطفل في مختلف المراحل</p>
+                </div>
+                <div class="service-card">
+                    <h3>إحصائيات موثوقة</h3>
+                    <p>بيانات وإحصائيات من منظمة الصحة العالمية والمنظمات الدولية الموثوقة والمعتمدة</p>
+                </div>
+                <div class="service-card">
+                    <h3>مقالات متخصصة</h3>
+                    <p>مقالات متعمقة كتبها أطباء متخصصون في مختلف فروع الأمومة والطفولة والرعاية الصحية</p>
+                </div>
+                <div class="service-card">
+                    <h3>معلومات محدثة</h3>
+                    <p>محتوى محدث باستمرار يتابع أحدث الأبحاث والتطورات الطبية في مجال صحة الأم والطفل</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTIONS SHOWCASE -->
+    <section class="sections-showcase" id="sections">
+        <div class="container">
+            <div class="section-title">
+                <h2>أقسام المنصة الرئيسية</h2>
+                <p>معلومات شاملة موثوقة في مختلف جوانب الأمومة والطفولة</p>
+            </div>
+            <div class="showcase-grid">
+                <div class="showcase-card" onclick="openModal('caesareanModal')">
+                    <div class="showcase-card-image">
+                        <!-- صورة مستشفى/طبية واقعية -->
+                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=560&fit=crop" alt="الرعاية الطبية والعمليات">
+                    </div>
+                    <div class="showcase-card-content">
+                        <h3>دليل الولادة القيصرية</h3>
+                        <p>معلومات شاملة عن العملية، التحضير لها، التعافي الصحيح والرعاية بعد الولادة</p>
+                        <a href="#">اكتشفي المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="showcase-card" onclick="openModal('statisticsModal')">
+                    <div class="showcase-card-image">
+                        <!-- صورة إحصائيات/أوراق طبية -->
+                        <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800&h=560&fit=crop" alt="إحصائيات وأبحاث طبية">
+                    </div>
+                    <div class="showcase-card-content">
+                        <h3>إحصائيات وحقائق طبية</h3>
+                        <p>أرقام موثوقة من منظمة الصحة العالمية والمراجع الطبية المعتمدة دولياً</p>
+                        <a href="#">اكتشفي المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="showcase-card" onclick="openModal('childcareModal')">
+                    <div class="showcase-card-image">
+                        <!-- صورة عناية بالطفل (حضانة أنيقة) -->
+                        <img src="https://images.unsplash.com/photo-1522771930-78848d9293e8?w=800&h=560&fit=crop" alt="رعاية الطفل الحديث الولادة">
+                    </div>
+                    <div class="showcase-card-content">
+                        <h3>رعاية وحماية الطفل</h3>
+                        <p>الرضاعة الطبيعية وجداول التطعيمات والعناية الصحيحة بالطفل الحديث الولادة</p>
+                        <a href="#">اكتشفي المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="showcase-card" onclick="openModal('motherHealthModal')">
+                    <div class="showcase-card-image">
+                        <!-- صورة أم تمارس نشاط صحي -->
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&h=560&fit=crop" alt="صحة وتغذية الأم الحامل">
+                    </div>
+                    <div class="showcase-card-content">
+                        <h3>صحة وتغذية الأم</h3>
+                        <p>التغذية السليمة والصحة النفسية والجسدية والعناية بصحتك أثناء الحمل وبعده</p>
+                        <a href="#">اكتشفي المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="showcase-card" onclick="openModal('vaccinationModal')">
+                    <div class="showcase-card-image">
+                        <!-- صورة رعاية طبية/طبيب -->
+                        <img src="https://images.unsplash.com/photo-1632052999498-8ec1ea74d39c?w=800&h=560&fit=crop" alt="جداول التطعيمات الموصى بها">
+                    </div>
+                    <div class="showcase-card-content">
+                        <h3>جداول التطعيمات</h3>
+                        <p>الجدول الموصى به عالمياً والتوقيتات الصحيحة وأهمية التطعيمات للطفل</p>
+                        <a href="#">اكتشفي المزيد →</a>
+                    </div>
+                </div>
+
+                <div class="showcase-card" onclick="openModal('faqModalContent')">
+                    <div class="showcase-card-image">
+                        <!-- صورة امرأة تتساءل أو تقرأ بتركيز -->
+                        <img src="https://images.unsplash.com/photo-1517677129300-07b130802f46?w=800&h=560&fit=crop" alt="أسئلة شائعة حول الحمل والولادة">
+                    </div>
+                    <div class="showcase-card-content">
+                        <h3>الأسئلة الشائعة</h3>
+                        <p>إجابات شاملة على أكثر الأسئلة التي تطرحها الأمهات حول الحمل والولادة</p>
+                        <a href="#">اكتشفي المزيد →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIPS SECTION -->
+    <section class="tips-section" id="tips">
+        <div class="container">
+            <div class="section-title">
+                <h2>نصائح صحية يومية</h2>
+                <p>معلومات عملية لتحسين صحتك وصحة طفلك</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>الترطيب الكافي</h3>
+                    <p>اشربي 8-10 أكواب ماء يومياً أثناء الرضاعة لدعم إنتاج الحليب والتعافي السريع</p>
+                </div>
+                <div class="tip-card">
+                    <h3>النوم والراحة</h3>
+                    <p>احصلي على 7-8 ساعات نوم يومياً لتسريع التعافي وتحسين الحالة النفسية والمزاج</p>
+                </div>
+                <div class="tip-card">
+                    <h3>تغذية سليمة</h3>
+                    <p>تناولي طعاماً غنياً بالبروتينات والفيتامينات والحديد للشعور بالطاقة واللياقة</p>
+                </div>
+                <div class="tip-card">
+                    <h3>حركة بسيطة</h3>
+                    <p>المشي والحركة الخفيفة تساعد على التعافي السريع وتحسن المزاج والدورة الدموية</p>
+                </div>
+                <div class="tip-card">
+                    <h3>الوقت مع الطفل</h3>
+                    <p>أمضي وقتاً جميلاً مع طفلك وتحدثي معه. العلاقة القوية والحب مهمة جداً للنمو</p>
+                </div>
+                <div class="tip-card">
+                    <h3>المتابعة الطبية</h3>
+                    <p>لا تتأخري عن فحوصات المتابعة المنتظمة. التشخيص المبكر مهم جداً للصحة الجيدة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGNANCY STAGES -->
+    <section class="pregnancy-section" id="pregnancy">
+        <div class="container">
+            <div class="section-title">
+                <h2>مراحل الحمل الثلاثة</h2>
+                <p>رحلة الحمل من البداية إلى ما بعد الولادة</p>
+            </div>
+            <div class="pregnancy-timeline">
+                <div class="pregnancy-item">
+                    <div class="pregnancy-image">
+                        <!-- صورة الثلث الأول (إيكو/بداية الحمل) -->
+                        <img src="https://images.unsplash.com/photo-1515086884671-55c2d3080e2f?w=1000&h=700&fit=crop" alt="الثلث الأول من الحمل">
+                    </div>
+                    <div class="pregnancy-content">
+                        <h3>الثلث الأول (1-13 أسابيع)</h3>
+                        <p>يحدث تكوين الأعضاء الحيوية للجنين في هذه المرحلة المهمة جداً. قد تشعرين بالإرهاق والغثيان والتعب الشديد.</p>
+                        <p>هذه الفترة مهمة جداً لفحوصات التشخيص المبكرة والعناية الطبية المنتظمة.</p>
+                        <p><strong>نصيحة:</strong> احصلي على الراحة الكافية وتناولي الفيتامينات والمكملات الموصى بها من طبيبك.</p>
+                    </div>
+                </div>
+
+                <div class="pregnancy-item">
+                    <div class="pregnancy-image">
+                        <!-- صورة الثلث الثاني (حيوية ونشاط) -->
+                        <img src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1000&h=700&fit=crop" alt="الثلث الثاني من الحمل">
+                    </div>
+                    <div class="pregnancy-content">
+                        <h3>الثلث الثاني (14-26 أسابيع)</h3>
+                        <p>ينمو الجنين بسرعة ملحوظة وستشعرين بحركته للمرة الأولى. تبدأ أعراض الحمل بالتحسن والمزاج يصبح أفضل.</p>
+                        <p>هذا هو أفضل ثلث في الحمل حيث تشعرين بالراحة النسبية والطاقة.</p>
+                        <p><strong>نصيحة:</strong> مارسي تمارين آمنة بانتظام ومحافظي على نظام غذائي صحي متوازن.</p>
+                    </div>
+                </div>
+
+                <div class="pregnancy-item">
+                    <div class="pregnancy-image">
+                        <!-- صورة الثلث الثالث (تجهيز للطفل) -->
+                        <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=1000&h=700&fit=crop" alt="الثلث الثالث من الحمل">
+                    </div>
+                    <div class="pregnancy-content">
+                        <h3>الثلث الثالث (27-40 أسبوع)</h3>
+                        <p>تحضيري للولادة وإجراء الفحوصات النهائية المهمة جداً لسلامتك وسلامة طفلك. قد تشعرين بالقلق والاستعداد النفسي.</p>
+                        <p>جسدك يستعد لعملية الولادة والتغييرات الضرورية تحدث بشكل طبيعي.</p>
+                        <p><strong>نصيحة:</strong> حضري دروس الولادة وناقشي مع طبيبك خطة الولادة المفضلة والخيارات المتاحة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
     <section class="stats-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">أرقامنا في خدمة عائلتك</h2>
+            <div class="section-title">
+                <h2>الأرقام والإحصائيات</h2>
+                <p>معلومات موثوقة من منظمة الصحة العالمية</p>
+            </div>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <span class="stat-number">21%</span>
-                    <p>معدل الولادات الآمنة</p>
+                    <div class="stat-number">21%</div>
+                    <div class="stat-label">معدل الولادات القيصرية عالمياً</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="animation-delay: 0s; width: 21%;"></div>
+                    </div>
                 </div>
+
                 <div class="stat-card">
-                    <span class="stat-number">100%</span>
-                    <p>دقة المعلومات</p>
+                    <div class="stat-number">6-8</div>
+                    <div class="stat-label">أسابيع متوسط التعافي بعد القيصرية</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="animation-delay: 0.2s; width: 75%;"></div>
+                    </div>
                 </div>
+
                 <div class="stat-card">
-                    <span class="stat-number">24/7</span>
-                    <p>دعم متواصل</p>
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">نسبة نجاح الرضاعة الطبيعية</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="animation-delay: 0.4s; width: 99%;"></div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">معلومات من مصادر موثوقة</div>
+                    <div class="stat-bar">
+                        <div class="stat-bar-fill" style="animation-delay: 0.6s; width: 100%;"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sections -->
-    <section class="container" id="services">
-        <h2 style="text-align: center; margin-bottom: 30px;">أقسامنا الرئيسية</h2>
-        <div class="card-grid">
-            <div class="card" onclick="showModal('mod1')">
-                <img src="https://images.unsplash.com/photo-1555109516-16a41cf32747?auto=format&fit=crop&w=600&q=80" alt="صحة الحمل">
-                <div class="card-body"><h3>دليل الحمل والولادة</h3><p>كل ما تحتاجين معرفته عن مراحل الحمل والولادة الآمنة.</p></div>
-            </div>
-            <div class="card" onclick="showModal('mod2')">
-                <img src="https://images.unsplash.com/photo-1599573325501-229472719a66?auto=format&fit=crop&w=600&q=80" alt="رعاية الطفل">
-                <div class="card-body"><h3>رعاية المولود</h3><p>نصائح ذهبية للعناية بطفلك منذ اللحظة الأولى.</p></div>
-            </div>
-            <div class="card" onclick="showModal('mod3')">
-                <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?auto=format&fit=crop&w=600&q=80" alt="تطعيمات">
-                <div class="card-body"><h3>جدول التطعيمات</h3><p>تابعي التطعيمات الضرورية لنمو طفل سليم.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
         <div class="container">
-            <h3>اشتركي معنا</h3>
-            <div style="margin: 20px 0;">
-                <input type="email" class="email-input" placeholder="البريد الإلكتروني الخاص بك">
-                <button class="subscribe-btn">اشتراك</button>
+            <div class="section-title">
+                <h2>الأسئلة الشائعة</h2>
+                <p>إجابات على أكثر الأسئلة التي تطرحها الأمهات</p>
             </div>
-            <div class="credit">
-                <p>جميع الحقوق محفوظة © 2026</p>
-                <p>صمم بواسطة <span class="designer">Mohamed Jalal Alnfati</span></p>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>ما الفرق بين الولادة الطبيعية والقيصرية؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>الولادة الطبيعية تحدث عبر قناة الولادة بشكل طبيعي، بينما الولادة القيصرية هي عملية جراحية يتم فيها استخراج الجنين مباشرة من الرحم. لكل منهما مميزاتها وحالاتها الطبية المناسبة. اختيار نوع الولادة يعتمد على الحالة الصحية والتوصيات الطبية.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>ما هي دواعي الولادة القيصرية؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>تشمل دواعي القيصرية: عدم نزول الجنين في الحوض بعد محاولات الولادة الطبيعية، مشاكل المشيمة، فشل المخاض الطبيعي، حالات العدوى، الحمل المتعدد، والمضاعفات الصحية للأم أو الجنين. يجب استشارة الطبيب لتحديد الخيار الأفضل.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>كم مدة التعافي من القيصرية؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>عادة ما تستغرق فترة التعافي من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة ورفع الأشياء الثقيلة خلال هذه الفترة. الحركة الخفيفة والمشي مفيدان جداً للتعافي السريع. استشيري طبيبك حول متى يمكن العودة للأنشطة الطبيعية.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>هل يمكن الرضاعة بعد القيصرية مباشرة؟</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>نعم، يمكن البدء بالرضاعة فوراً بعد الاستيقاظ من التخدير. لا توجد موانع طبية من أي نوع. الرضاعة المبكرة مفيدة جداً للأم والطفل وتساعد على سرعة التعافي والعودة للحياة الطبيعية.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h3>عن المنصة</h3>
+                <p>Mother's Care هي منصة طبية موثوقة متخصصة في صحة الأم والطفل بمعايير عالمية. نقدم معلومات دقيقة وموثوقة لكل أم.</p>
+            </div>
+            <div class="footer-section">
+                <h3>الأقسام الرئيسية</h3>
+                <p>الولادة القيصرية | رعاية الطفل | صحة الأم | التطعيمات | الأسئلة الشائعة | مراحل الحمل</p>
+            </div>
+            <div class="footer-section">
+                <h3>التواصل</h3>
+                <p><strong>البريد الإلكتروني:</strong></p>
+                <p><a href="mailto:info@motherscare.ly">info@motherscare.ly</a></p>
+                <p><strong>الهاتف:</strong> +218 21 444 5555</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 Mother's Care - جميع الحقوق محفوظة | قسم الصحة العامة - جامعة طرابلس</p>
+            <p>جميع المعلومات من مصادر طبية عالمية موثوقة | آخر تحديث: 2024</p>
+            <p class="designer-credit">صمم بواسطة Mohamed Jalal Alnfati</p>
         </div>
     </footer>
 
-    <!-- Modals -->
-    <div id="mod1" class="modal" onclick="hideModal('mod1')"><div class="modal-content"><span class="close-btn">&times;</span><h2>دليل الحمل والولادة</h2><p>معلومات تفصيلية عن التغذية، التمارين، والتحضير للولادة بمعايير عالمية.</p></div></div>
-    <div id="mod2" class="modal" onclick="hideModal('mod2')"><div class="modal-content"><span class="close-btn">&times;</span><h2>رعاية المولود</h2><p>كيفية التعامل مع الرضاعة الطبيعية، النوم، واحتياجات طفلك الصحية اليومية.</p></div></div>
-    <div id="mod3" class="modal" onclick="hideModal('mod3')"><div class="modal-content"><span class="close-btn">&times;</span><h2>جدول التطعيمات</h2><p>دليل شامل ومحدث للتطعيمات الأساسية التي تحمي طفلك من الأمراض.</p></div></div>
+    <!-- MODALS -->
+    <div id="caesareanModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('caesareanModal')">&times;</span>
+            <h2>دليل الولادة القيصرية الشامل</h2>
+            
+            <h3>ما هي الولادة القيصرية؟</h3>
+            <p>الولادة القيصرية هي إجراء جراحي آمن يتم من خلاله استخراج الجنين من الرحم مباشرة بدلاً من الولادة الطبيعية عبر قناة الولادة. تتم العملية تحت التخدير الكامل أو النصفي.</p>
+            
+            <h3>دواعي إجراء العملية</h3>
+            <ul>
+                <li>عدم نزول الجنين في الحوض بعد محاولات الولادة الطبيعية</li>
+                <li>وجود مشاكل في المشيمة (انزياح أو انفصال)</li>
+                <li>فشل المخاض الطبيعي بعد فترة زمنية كافية</li>
+                <li>وجود عدوى نشطة تهدد سلامة الجنين</li>
+                <li>حالات الحمل المتعدد (توأم أو أكثر)</li>
+                <li>المضاعفات الصحية للأم (السكري الحملي، ارتفاع ضغط الدم)</li>
+            </ul>
+            
+            <h3>فترة التعافي</h3>
+            <p>عادة ما تستغرق من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة ورفع الأشياء الثقيلة. الحركة الخفيفة والمشي مفيد جداً للتعافي السريع.</p>
+        </div>
+    </div>
+
+    <div id="statisticsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('statisticsModal')">&times;</span>
+            <h2>إحصائيات طبية موثوقة</h2>
+            
+            <h3>إحصائيات عالمية (منظمة الصحة العالمية)</h3>
+            <ul>
+                <li><strong>معدل الولادات القيصرية عالمياً:</strong> 21%</li>
+                <li><strong>النسبة في الدول المتقدمة:</strong> 45%</li>
+                <li><strong>المعدل الموصى به من WHO:</strong> 15%</li>
+                <li><strong>نسبة المضاعفات الخطيرة:</strong> 5-15%</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="childcareModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('childcareModal')">&times;</span>
+            <h2>رعاية وحماية الطفل الشاملة</h2>
+            
+            <h3>الرضاعة الطبيعية</h3>
+            <ul>
+                <li>ابدئي الرضاعة في الساعة الأولى من الولادة إن أمكن</li>
+                <li>الرضاعة الحصرية لمدة 6 أشهر</li>
+                <li>استمري في الرضاعة مع الأطعمة الإضافية حتى سنتين أو أكثر</li>
+            </ul>
+            
+            <h3>مؤشرات النمو الصحي</h3>
+            <ul>
+                <li>الوزن: يتضاعف في 4-6 أشهر ويتضاعف ثلاث مرات في السنة الأولى</li>
+                <li>الطول: ينمو حوالي 25 سم في السنة الأولى من الحياة</li>
+                <li>المهارات: الابتسامة، الجلوس، الحبو، ثم المشي والكلام</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="motherHealthModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('motherHealthModal')">&times;</span>
+            <h2>صحة وتغذية الأم</h2>
+            
+            <h3>التغذية السليمة أثناء الحمل</h3>
+            <ul>
+                <li><strong>البروتينات:</strong> اللحوم، الدواجن، الأسماك، البقول</li>
+                <li><strong>الكالسيوم:</strong> الألبان والجبن والخضار الورقية</li>
+                <li><strong>الحديد:</strong> اللحم الأحمر والدواجن والبقول</li>
+                <li><strong>حمض الفوليك:</strong> الخضار الورقية والحبوب المدعمة</li>
+            </ul>
+            
+            <h3>الصحة النفسية</h3>
+            <p>الصحة النفسية مهمة جداً أثناء الحمل وبعد الولادة. تحدثي مع أحبائك عن مشاعرك ولا تترددي في طلب المساعدة من متخصص.</p>
+        </div>
+    </div>
+
+    <div id="vaccinationModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('vaccinationModal')">&times;</span>
+            <h2>جداول التطعيمات</h2>
+            
+            <h3>جدول التطعيمات الموصى به عالمياً</h3>
+            <ul>
+                <li><strong>عند الولادة:</strong> الدرن، شلل الأطفال، التهاب الكبد B</li>
+                <li><strong>شهر واحد:</strong> الالتهاب السحائي البكتيري</li>
+                <li><strong>شهرين:</strong> الثلاثي والتطعيمات الأخرى</li>
+                <li><strong>4 أشهر:</strong> الثلاثي الثاني وشلل الأطفال الثاني</li>
+                <li><strong>6 أشهر:</strong> الثلاثي الثالث وشلل الأطفال الثالث</li>
+            </ul>
+            
+            <h3>أهمية التطعيمات</h3>
+            <p>التطعيمات تحمي طفلك من الأمراض الخطيرة والمعدية. تأكدي من اتباع الجدول الموصى به من قبل طبيبك.</p>
+        </div>
+    </div>
+
+    <div id="faqModalContent" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('faqModalContent')">&times;</span>
+            <h2>الأسئلة الشائعة - الإجابات الشاملة</h2>
+            
+            <h3>هل الولادة القيصرية آمنة؟</h3>
+            <p>نعم، الولادة القيصرية آمنة جداً عندما تتم في ظروف طبية صحيحة مع طبيب متخصص.</p>
+            
+            <h3>متى يمكن الرجوع إلى الحياة الطبيعية؟</h3>
+            <p>بعد 6-8 أسابيع من الولادة يمكنك العودة تدريجياً إلى أنشطتك اليومية العادية.</p>
+            
+            <h3>هل الرضاعة تسبب ألم بعد القيصرية؟</h3>
+            <p>قد تشعري بعدم الراحة في البداية لكنه يزول سريعاً مع الاستمرار في الرضاعة.</p>
+        </div>
+    </div>
 
     <script>
-        function showModal(id) { document.getElementById(id).style.display = 'flex'; }
-        function hideModal(id) { document.getElementById(id).style.display = 'none'; }
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function toggleFAQ(element) {
+            const item = element.parentElement;
+            
+            document.querySelectorAll('.faq-item').forEach(el => {
+                if (el !== item) {
+                    el.classList.remove('active');
+                }
+            });
+            
+            item.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
