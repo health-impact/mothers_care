@@ -58,11 +58,13 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            text-decoration: none;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
+            flex-shrink: 0;
         }
 
         .logo-text {
@@ -904,24 +906,47 @@
     <header>
         <div class="header-content">
             <a href="#" class="logo-section" style="text-decoration: none;">
-                <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- أم تحمل طفلها -->
+                <svg class="logo-icon" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+                        <linearGradient id="gradientPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFB6D9;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="gradientGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#FFD699;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFC266;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    <!-- الأم -->
-                    <circle cx="35" cy="30" r="15" fill="url(#logoGradient)"/>
-                    <path d="M 20 45 Q 20 50 25 55 L 45 55 Q 50 50 50 45 Z" fill="url(#logoGradient)"/>
-                    <rect x="15" y="55" width="8" height="20" rx="4" fill="url(#logoGradient)"/>
-                    <rect x="47" y="55" width="8" height="20" rx="4" fill="url(#logoGradient)"/>
-                    <!-- الطفل -->
-                    <circle cx="65" cy="45" r="12" fill="url(#logoGradient)" opacity="0.8"/>
-                    <path d="M 57 55 Q 57 58 60 62 L 70 62 Q 73 58 73 55 Z" fill="url(#logoGradient)" opacity="0.8"/>
-                    <!-- خط الحب -->
-                    <path d="M 50 40 Q 55 42 60 45" stroke="url(#logoGradient)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    
+                    <!-- خلفية دائرية ناعمة -->
+                    <circle cx="60" cy="60" r="55" fill="none" stroke="url(#gradientPink)" stroke-width="1" opacity="0.2"/>
+                    
+                    <!-- رأس الأم -->
+                    <circle cx="48" cy="35" r="13" fill="url(#gradientPink)"/>
+                    
+                    <!-- جسم الأم -->
+                    <path d="M 35 48 Q 35 52 38 58 L 58 58 Q 61 52 61 48 Z" fill="url(#gradientPink)" stroke="url(#gradientPink)" stroke-width="1.5"/>
+                    
+                    <!-- ذراع الأم الأيسر -->
+                    <path d="M 35 50 Q 28 52 25 60" fill="none" stroke="url(#gradientPink)" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- ذراع الأم الأيمن (تحتضن الطفل) -->
+                    <path d="M 60 50 Q 72 50 75 62" fill="none" stroke="url(#gradientPink)" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- رأس الطفل -->
+                    <circle cx="76" cy="48" r="10" fill="url(#gradientGold)"/>
+                    
+                    <!-- جسم الطفل الصغير -->
+                    <path d="M 70 58 Q 70 62 72 68 L 80 68 Q 82 62 82 58 Z" fill="url(#gradientGold)" stroke="url(#gradientGold)" stroke-width="1"/>
+                    
+                    <!-- قلب صغير يرمز للحب والعناية -->
+                    <path d="M 58 42 Q 60 38 62 42 Q 62 44 60 46 Q 58 44 58 42" fill="url(#gradientPink)" opacity="0.7"/>
+                    
+                    <!-- خط ناعم يربط الأم والطفل (الحب) -->
+                    <path d="M 62 45 Q 68 45 74 48" fill="none" stroke="url(#gradientPink)" stroke-width="2" stroke-dasharray="3,2" opacity="0.6" stroke-linecap="round"/>
+                    
+                    <!-- شعاع من الدفء -->
+                    <circle cx="48" cy="35" r="16" fill="none" stroke="url(#gradientPink)" stroke-width="1" opacity="0.3" stroke-dasharray="2,3"/>
                 </svg>
                 <span class="logo-text">Mother's Care</span>
             </a>
@@ -958,7 +983,7 @@
                     <p>من الحمل إلى ما بعد الولادة، نرافقك في كل خطوة من رحلتك نحو أمومة آمنة وصحية.</p>
                 </div>
                 <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&h=450&fit=crop" alt="أم وطفل">
+                    <img src="https://images.unsplash.com/photo-1505628346881-b72b27e84530?w=500&h=450&fit=crop&q=80" alt="أم تحمل وليدها بحنان وابتسامة">
                 </div>
             </div>
         </div>
@@ -1010,7 +1035,7 @@
             <div class="showcase-grid">
                 <div class="showcase-card" onclick="openModal('caesareanModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=280&fit=crop" alt="الولادة القيصرية">
+                        <img src="https://images.unsplash.com/photo-1576091160550-112173f2ad5a?w=400&h=280&fit=crop&q=80" alt="عملية الولادة القيصرية الآمنة">
                     </div>
                     <div class="showcase-card-content">
                         <h3>دليل الولادة القيصرية</h3>
@@ -1021,7 +1046,7 @@
 
                 <div class="showcase-card" onclick="openModal('statisticsModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=280&fit=crop" alt="الإحصائيات">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=280&fit=crop&q=80" alt="إحصائيات طبية موثوقة">
                     </div>
                     <div class="showcase-card-content">
                         <h3>إحصائيات وحقائق طبية</h3>
@@ -1032,7 +1057,7 @@
 
                 <div class="showcase-card" onclick="openModal('childcareModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=280&fit=crop" alt="رعاية الطفل">
+                        <img src="https://images.unsplash.com/photo-1503454537688-e6a7a9e6b354?w=400&h=280&fit=crop&q=80" alt="رعاية الطفل الحديث الولادة">
                     </div>
                     <div class="showcase-card-content">
                         <h3>رعاية وحماية الطفل</h3>
@@ -1043,7 +1068,7 @@
 
                 <div class="showcase-card" onclick="openModal('motherHealthModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=280&fit=crop" alt="صحة الأم">
+                        <img src="https://images.unsplash.com/photo-1631217314830-ead1ee32be95?w=400&h=280&fit=crop&q=80" alt="صحة وتغذية الأم الحامل">
                     </div>
                     <div class="showcase-card-content">
                         <h3>صحة وتغذية الأم</h3>
@@ -1054,7 +1079,7 @@
 
                 <div class="showcase-card" onclick="openModal('vaccinationModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1584308666744-24d5f400f628?w=400&h=280&fit=crop" alt="التطعيمات">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5f400f628?w=400&h=280&fit=crop&q=80" alt="جداول التطعيمات الموصى بها">
                     </div>
                     <div class="showcase-card-content">
                         <h3>جداول التطعيمات</h3>
@@ -1065,7 +1090,7 @@
 
                 <div class="showcase-card" onclick="openModal('faqModalContent')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=280&fit=crop" alt="الأسئلة الشائعة">
+                        <img src="https://images.unsplash.com/photo-1576091160399-f2eca7c27565?w=400&h=280&fit=crop&q=80" alt="أسئلة شائعة حول الحمل والولادة">
                     </div>
                     <div class="showcase-card-content">
                         <h3>الأسئلة الشائعة</h3>
@@ -1123,7 +1148,7 @@
             <div class="pregnancy-timeline">
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1555109516-16a41cf32747?w=500&h=350&fit=crop" alt="الثلث الأول">
+                        <img src="https://images.unsplash.com/photo-1555109516-16a41cf32747?w=500&h=350&fit=crop&q=80" alt="الثلث الأول من الحمل">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الأول (1-13 أسابيع)</h3>
@@ -1135,7 +1160,7 @@
 
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=350&fit=crop" alt="الثلث الثاني">
+                        <img src="https://images.unsplash.com/photo-1493895542010-e9886d8e63c0?w=500&h=350&fit=crop&q=80" alt="الثلث الثاني من الحمل">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الثاني (14-26 أسابيع)</h3>
@@ -1147,7 +1172,7 @@
 
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1519125117126-a56e06a0b838?w=500&h=350&fit=crop" alt="الثلث الثالث">
+                        <img src="https://images.unsplash.com/photo-1519125117126-a56e06a0b838?w=500&h=350&fit=crop&q=80" alt="الثلث الثالث من الحمل">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الثالث (27-40 أسبوع)</h3>
@@ -1296,14 +1321,10 @@
                 <li>وجود عدوى نشطة تهدد سلامة الجنين</li>
                 <li>حالات الحمل المتعدد (توأم أو أكثر)</li>
                 <li>المضاعفات الصحية للأم (السكري الحملي، ارتفاع ضغط الدم)</li>
-                <li>صعوبات التنفس عند الجنين أثناء المخاض</li>
             </ul>
             
             <h3>فترة التعافي</h3>
-            <p>عادة ما تستغرق من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة ورفع الأشياء الثقيلة. الحركة الخفيفة والمشي مفيد جداً للتعافي السريع. استشيري طبيبك حول متى يمكن العودة للأنشطة الطبيعية.</p>
-            
-            <h3>العناية بعد الولادة</h3>
-            <p>يجب العناية بموقع الجرح، تجنب الماء البارد جداً، تناول المسكنات حسب وصفة الطبيب، والراحة الكافية. لا تترددي في طلب المساعدة من الأسرة والأصدقاء.</p>
+            <p>عادة ما تستغرق من 6 إلى 8 أسابيع. يجب تجنب الأنشطة الثقيلة ورفع الأشياء الثقيلة. الحركة الخفيفة والمشي مفيد جداً للتعافي السريع.</p>
         </div>
     </div>
 
@@ -1318,19 +1339,7 @@
                 <li><strong>النسبة في الدول المتقدمة:</strong> 45%</li>
                 <li><strong>المعدل الموصى به من WHO:</strong> 15%</li>
                 <li><strong>نسبة المضاعفات الخطيرة:</strong> 5-15%</li>
-                <li><strong>نسبة نجاح الرضاعة الطبيعية:</strong> 99%</li>
             </ul>
-            
-            <h3>الأسباب الرئيسية للقيصرية</h3>
-            <ul>
-                <li>تأخر سن الحمل الأول (بعد 35 سنة): 30%</li>
-                <li>زيادة معدلات السمنة بين النساء الحوامل: 25%</li>
-                <li>الخوف من مضاعفات الولادة الطبيعية: 20%</li>
-                <li>زيادة الحالات الطبية الضرورية للعملية: 25%</li>
-            </ul>
-            
-            <h3>معايير الصحة</h3>
-            <p>تركز منظمة الصحة العالمية على الحفاظ على معدلات آمنة للولادة القيصرية مع ضمان سلامة الأم والطفل. يجب اتباع الإرشادات الطبية والاستشارة مع الطبيب المتخصص.</p>
         </div>
     </div>
 
@@ -1342,22 +1351,16 @@
             <h3>الرضاعة الطبيعية</h3>
             <ul>
                 <li>ابدئي الرضاعة في الساعة الأولى من الولادة إن أمكن</li>
-                <li>الرضاعة الحصرية لمدة 6 أشهر (بدون ماء أو غذاء)</li>
+                <li>الرضاعة الحصرية لمدة 6 أشهر</li>
                 <li>استمري في الرضاعة مع الأطعمة الإضافية حتى سنتين أو أكثر</li>
-                <li>تأكدي من وضعية الرضاعة الصحيحة</li>
-                <li>اشربي الماء الكافي وتناولي طعاماً صحياً</li>
             </ul>
             
             <h3>مؤشرات النمو الصحي</h3>
             <ul>
-                <li><strong>الوزن:</strong> يتضاعف في 4-6 أشهر ويتضاعف ثلاث مرات في السنة الأولى</li>
-                <li><strong>الطول:</strong> ينمو حوالي 25 سم في السنة الأولى من الحياة</li>
-                <li><strong>المهارات:</strong> الابتسامة، الجلوس، الحبو، ثم المشي والكلام</li>
-                <li><strong>النوم:</strong> من 16-17 ساعة في الأسابيع الأولى تدريجياً 10-12 ساعة</li>
+                <li>الوزن: يتضاعف في 4-6 أشهر ويتضاعف ثلاث مرات في السنة الأولى</li>
+                <li>الطول: ينمو حوالي 25 سم في السنة الأولى من الحياة</li>
+                <li>المهارات: الابتسامة، الجلوس، الحبو، ثم المشي والكلام</li>
             </ul>
-            
-            <h3>العناية اليومية</h3>
-            <p>النظافة الشخصية، تغيير الحفاضات بانتظام، القياس الدوري للوزن والطول، الفحوصات الطبية المنتظمة، والحب والاهتمام العاطفي.</p>
         </div>
     </div>
 
@@ -1367,20 +1370,15 @@
             <h2>صحة وتغذية الأم</h2>
             
             <h3>التغذية السليمة أثناء الحمل</h3>
-            <p>تحتاجين إلى تناول طعام صحي متوازن يحتوي على جميع العناصر الغذائية الأساسية:</p>
             <ul>
-                <li><strong>البروتينات:</strong> اللحوم، الدواجن، الأسماك، البقول (3 حصص يومياً)</li>
-                <li><strong>الكالسيوم:</strong> الألبان والجبن والخضار الورقية (3 حصص يومياً)</li>
-                <li><strong>الحديد:</strong> اللحم الأحمر والدواجن والبقول (حصتان يومياً)</li>
-                <li><strong>حمض الفوليك:</strong> الخضار الورقية والحبوب المدعمة (400 ميكروجرام يومياً)</li>
-                <li><strong>الفيتامينات والمعادن:</strong> الفواكه والخضروات الملونة</li>
+                <li><strong>البروتينات:</strong> اللحوم، الدواجن، الأسماك، البقول</li>
+                <li><strong>الكالسيوم:</strong> الألبان والجبن والخضار الورقية</li>
+                <li><strong>الحديد:</strong> اللحم الأحمر والدواجن والبقول</li>
+                <li><strong>حمض الفوليك:</strong> الخضار الورقية والحبوب المدعمة</li>
             </ul>
             
             <h3>الصحة النفسية</h3>
-            <p>الصحة النفسية مهمة جداً أثناء الحمل وبعد الولادة. تحدثي مع أحبائك عن مشاعرك ولا تترددي في طلب المساعدة من متخصص إذا شعرتِ بالاكتئاب أو القلق الشديد.</p>
-            
-            <h3>النشاط البدني</h3>
-            <p>المشي المنتظم والتمارين الخفيفة آمنة جداً أثناء الحمل. استشيري طبيبك حول التمارين المناسبة لحالتك الصحية.</p>
+            <p>الصحة النفسية مهمة جداً أثناء الحمل وبعد الولادة. تحدثي مع أحبائك عن مشاعرك ولا تترددي في طلب المساعدة من متخصص.</p>
         </div>
     </div>
 
@@ -1391,35 +1389,31 @@
             
             <h3>جدول التطعيمات الموصى به عالمياً</h3>
             <ul>
-                <li><strong>عند الولادة:</strong> الدرن (BCG)، شلل الأطفال (IPV)، التهاب الكبد B</li>
-                <li><strong>شهر واحد:</strong> الالتهاب السحائي البكتيري، الثلاثي الفيروسي</li>
-                <li><strong>شهرين:</strong> الثلاثي (DPT) والتطعيمات الأخرى حسب البرنامج الوطني</li>
-                <li><strong>4 أشهر:</strong> الثلاثي الثاني (DPT) وشلل الأطفال الثاني</li>
-                <li><strong>6 أشهر:</strong> الثلاثي الثالث (DPT) وشلل الأطفال الثالث والتطعيمات الإضافية</li>
-                <li><strong>سنة:</strong> الحصبة والنكاف والحصبة الألمانية (MMR)</li>
+                <li><strong>عند الولادة:</strong> الدرن، شلل الأطفال، التهاب الكبد B</li>
+                <li><strong>شهر واحد:</strong> الالتهاب السحائي البكتيري</li>
+                <li><strong>شهرين:</strong> الثلاثي والتطعيمات الأخرى</li>
+                <li><strong>4 أشهر:</strong> الثلاثي الثاني وشلل الأطفال الثاني</li>
+                <li><strong>6 أشهر:</strong> الثلاثي الثالث وشلل الأطفال الثالث</li>
             </ul>
             
             <h3>أهمية التطعيمات</h3>
-            <p>التطعيمات تحمي طفلك من الأمراض الخطيرة والمعدية التي قد تكون قاتلة. تأكدي من اتباع الجدول الموصى به من قبل طبيبك والسلطات الصحية.</p>
+            <p>التطعيمات تحمي طفلك من الأمراض الخطيرة والمعدية. تأكدي من اتباع الجدول الموصى به من قبل طبيبك.</p>
         </div>
     </div>
 
     <div id="faqModalContent" class="modal">
         <div class="modal-content">
             <span class="modal-close" onclick="closeModal('faqModalContent')">&times;</span>
-            <h2>الأسئلة الشائعة الإجابات الشاملة</h2>
+            <h2>الأسئلة الشائعة - الإجابات الشاملة</h2>
             
             <h3>هل الولادة القيصرية آمنة؟</h3>
-            <p>نعم، الولادة القيصرية آمنة جداً عندما تتم في ظروف طبية صحيحة مع طبيب متخصص وفريق طبي مدرب. المضاعفات الخطيرة نادرة جداً في المستشفيات الحديثة.</p>
+            <p>نعم، الولادة القيصرية آمنة جداً عندما تتم في ظروف طبية صحيحة مع طبيب متخصص.</p>
             
             <h3>متى يمكن الرجوع إلى الحياة الطبيعية؟</h3>
-            <p>بعد 6-8 أسابيع من الولادة يمكنك العودة تدريجياً إلى أنشطتك اليومية العادية. ابدئي بالأنشطة الخفيفة ثم زيدي التدريج حسب الشعور.</p>
+            <p>بعد 6-8 أسابيع من الولادة يمكنك العودة تدريجياً إلى أنشطتك اليومية العادية.</p>
             
             <h3>هل الرضاعة تسبب ألم بعد القيصرية؟</h3>
-            <p>قد تشعري بعدم الراحة في البداية لكنه يزول سريعاً مع الاستمرار في الرضاعة. اطلبي المساعدة من أخصائية الرضاعة إذا واجهتِ صعوبات.</p>
-            
-            <h3>ما هي علامات مشاكل التطعيم؟</h3>
-            <p>الحمى الخفيفة والألم في موقع الحقن طبيعي. لكن إذا حدثت حمى عالية جداً أو طفح جلدي استثنائي فيجب الاتصال بالطبيب فوراً.</p>
+            <p>قد تشعري بعدم الراحة في البداية لكنه يزول سريعاً مع الاستمرار في الرضاعة.</p>
         </div>
     </div>
 
@@ -1450,7 +1444,6 @@
         function toggleFAQ(element) {
             const item = element.parentElement;
             
-            // إغلاق جميع العناصر الأخرى
             document.querySelectorAll('.faq-item').forEach(el => {
                 if (el !== item) {
                     el.classList.remove('active');
@@ -1459,15 +1452,6 @@
             
             item.classList.toggle('active');
         }
-
-        // إضافة مستمعي النقر على البطاقات
-        document.querySelectorAll('.showcase-card').forEach(card => {
-            card.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    this.click();
-                }
-            });
-        });
     </script>
 </body>
 </html>
