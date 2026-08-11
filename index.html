@@ -129,9 +129,9 @@
             align-items: center;
             text-align: center;
             padding: 5rem 2rem;
-            /* تم زيادة التغميق هنا ليكون النص بارزاً ومقروءاً (تعديل 2) */
-            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
-                        url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1600&fit=crop') center/cover no-repeat;
+            /* تم تخفيف التعتيم لتصبح الصورة واضحة تماماً */
+            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.4)), 
+                        url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600&fit=crop') center/cover no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -148,17 +148,18 @@
             line-height: 1.15;
             margin-bottom: 1.5rem;
             letter-spacing: -1.5px;
-            color: #ffffff; /* تم تحويل اللون للأبيض ليناسب الخلفية الغامقة */
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: #ffffff; 
+            /* زيادة الظل ليبقى النص واضحاً رغم تفتيح الخلفية */
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #f1f5f9; /* لون فاتح متناسق مع الخلفية */
+            color: #ffffff;
             margin-bottom: 3rem;
             font-weight: 600;
             line-height: 1.8;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
         }
 
         .hero-buttons {
@@ -196,7 +197,7 @@
         .btn-secondary {
             border: 2px solid #ffffff;
             color: #ffffff;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(5px);
         }
 
@@ -500,13 +501,12 @@
             align-items: center;
         }
 
-        /* جعل الثلث الثاني (أو أي قسم ياخد الكلاس ده) من اليسار لليمين */
         .pregnancy-item.reverse-layout {
-            direction: ltr; /* يعكس التخطيط ليصبح من اليسار */
+            direction: ltr; 
         }
 
         .pregnancy-item.reverse-layout .pregnancy-content {
-            direction: rtl; /* يحافظ على المحتوى العربي من اليمين لليسار داخلياً */
+            direction: rtl; 
         }
 
         .pregnancy-image {
@@ -747,7 +747,7 @@
                 grid-template-columns: 1fr;
             }
             .pregnancy-item.reverse-layout {
-                direction: rtl; /* إعادة الترتيب للموبايل */
+                direction: rtl; 
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -761,8 +761,8 @@
     <header>
         <div class="header-content">
             <a href="#" class="logo-section">
-                <!-- 1. تغيير اللوقو لصورة تدل على الرعاية الصحية للأم والطفل بتناسق -->
-                <img src="https://images.unsplash.com/photo-1584820927498-cafe8c1c9535?w=150&h=150&fit=crop" alt="Mother's Care Logo" class="logo-icon">
+                <!-- تم التعديل: رابط جديد يعمل لصورة لوقو تعبر عن الأم والطفل -->
+                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=150&h=150&fit=crop" alt="Mother's Care Logo" class="logo-icon">
                 <span class="logo-text">Mother's Care</span>
             </a>
             <nav>
@@ -777,7 +777,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (تم تغميق الخلفية وتعديل ألوان النص) -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h1>صحة الأم والطفل أولويتنا الأولى</h1>
@@ -841,7 +841,7 @@
         </div>
     </section>
 
-    <!-- SECTIONS SHOWCASE (تم تحديث صور الكروت حسب الطلب) -->
+    <!-- SECTIONS SHOWCASE -->
     <section class="sections-showcase" id="sections">
         <div class="container">
             <div class="section-title">
@@ -849,7 +849,7 @@
                 <p>معلومات شاملة موثوقة في مختلف جوانب الأمومة والطفولة</p>
             </div>
             <div class="showcase-grid">
-                <!-- كرت القيصرية -->
+                
                 <div class="showcase-card" onclick="openModal('caesareanModal')">
                     <div class="showcase-card-image">
                         <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=560&fit=crop" alt="الرعاية الطبية للعملية القيصرية">
@@ -861,7 +861,6 @@
                     </div>
                 </div>
 
-                <!-- 3. كرت الإحصائيات (صورة إحصائية/بيانية طبية) -->
                 <div class="showcase-card" onclick="openModal('statisticsModal')">
                     <div class="showcase-card-image">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop" alt="أبحاث وإحصائيات طبية">
@@ -873,10 +872,10 @@
                     </div>
                 </div>
 
-                <!-- 4. كرت رعاية وحماية الطفل (صورة تدل على حماية الطفل بأمان) -->
+                <!-- تم التعديل: صورة تعبر عن رعاية وحماية الطفل (أم تحتضن طفلها بلطف) -->
                 <div class="showcase-card" onclick="openModal('childcareModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=560&fit=crop" alt="رعاية وحماية الطفل">
+                        <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=800&h=560&fit=crop" alt="رعاية وحماية الطفل">
                     </div>
                     <div class="showcase-card-content">
                         <h3>رعاية وحماية الطفل</h3>
@@ -885,10 +884,9 @@
                     </div>
                 </div>
 
-                <!-- كرت صحة وتغذية الأم -->
                 <div class="showcase-card" onclick="openModal('motherHealthModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&h=560&fit=crop" alt="التغذية الصحية للأم">
+                        <img src="https://images.unsplash.com/photo-1504151932400-72d4384f0e6d?w=800&h=560&fit=crop" alt="التغذية الصحية للأم">
                     </div>
                     <div class="showcase-card-content">
                         <h3>صحة وتغذية الأم</h3>
@@ -897,10 +895,10 @@
                     </div>
                 </div>
 
-                <!-- 5. كرت جداول التطعيمات (صورة لقاحات إبرية) -->
+                <!-- تم التعديل: صورة مخصصة للتطعيمات واللقاحات وتعمل بشكل سليم -->
                 <div class="showcase-card" onclick="openModal('vaccinationModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1615461065675-927163c4e3cb?w=800&h=560&fit=crop" alt="لقاحات وإبر المواليد">
+                        <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=800&h=560&fit=crop" alt="لقاحات وتطعيمات">
                     </div>
                     <div class="showcase-card-content">
                         <h3>جداول التطعيمات</h3>
@@ -909,10 +907,10 @@
                     </div>
                 </div>
 
-                <!-- 6. كرت الأسئلة الشائعة (صورة استشارة طبية / جلسة حوارية لنساء) -->
+                <!-- تم التعديل: صورة جلسة استشارة بين مريضة وطبيبة -->
                 <div class="showcase-card" onclick="openModal('faqModalContent')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=800&h=560&fit=crop" alt="استشارة طبية وجلسة حوارية">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=560&fit=crop" alt="استشارة طبية بين طبيبة ومريضة">
                     </div>
                     <div class="showcase-card-content">
                         <h3>الأسئلة الشائعة</h3>
@@ -933,10 +931,10 @@
             </div>
             <div class="pregnancy-timeline">
                 
-                <!-- 7. الثلث الأول: صورة جنين في بطن الأم (تكوين الأعضاء) -->
+                <!-- تم التعديل: الثلث الأول (صورة فحص بالموجات فوق الصوتية) -->
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1563821731671-55ec3298c9f5?w=1000&h=700&fit=crop" alt="تكوين الأعضاء الحيوية للجنين في الثلث الأول">
+                        <img src="https://images.unsplash.com/photo-1585842360565-d41a79f0ec14?w=1000&h=700&fit=crop" alt="تكوين الأعضاء الحيوية للجنين - الموجات فوق الصوتية">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الأول (1-13 أسابيع)</h3>
@@ -946,10 +944,10 @@
                     </div>
                 </div>
 
-                <!-- 8. الثلث الثاني: تخطيط عكسي (من اليسار لليمين) وصورة لجنين يتحرك (منتصف الرحلة) -->
+                <!-- تم التعديل: الثلث الثاني (صورة بروز بطن الأم في منتصف الحمل) -->
                 <div class="pregnancy-item reverse-layout">
                     <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1000&h=700&fit=crop" alt="جنين يتحرك في بطن الأم في منتصف الحمل">
+                        <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=1000&h=700&fit=crop" alt="بطن الأم في منتصف الحمل">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الثاني (14-26 أسابيع)</h3>
@@ -959,10 +957,10 @@
                     </div>
                 </div>
 
-                <!-- 9. الثلث الثالث: صورة لجنين جاهز للولادة -->
+                <!-- تم التعديل: الثلث الثالث (صورة لمراحل متقدمة قريبة من الولادة) -->
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1531525645387-7f14be1bfc3d?w=1000&h=700&fit=crop" alt="جنين جاهز للولادة في الثلث الأخير">
+                        <img src="https://images.unsplash.com/photo-1531525645387-7f14be1bfc3d?w=1000&h=700&fit=crop" alt="مراحل الحمل المتقدمة في الثلث الأخير">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الثالث (27-40 أسبوع)</h3>
