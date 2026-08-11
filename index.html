@@ -119,7 +119,7 @@
         }
 
         /* ============================================
-           HERO (مع خلفية خافتة للأم والطفل)
+           HERO
            ============================================ */
         .hero {
             min-height: 90vh;
@@ -129,8 +129,8 @@
             align-items: center;
             text-align: center;
             padding: 5rem 2rem;
-            /* خلفية صورة خافتة للام والطفل مع طبقة شفافة */
-            background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
+            /* تم زيادة التغميق هنا ليكون النص بارزاً ومقروءاً (تعديل 2) */
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), 
                         url('https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=1600&fit=crop') center/cover no-repeat;
             position: relative;
             overflow: hidden;
@@ -148,18 +148,17 @@
             line-height: 1.15;
             margin-bottom: 1.5rem;
             letter-spacing: -1.5px;
-            background: linear-gradient(135deg, #e11d48 0%, #ec4899 50%, #2563eb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #ffffff; /* تم تحويل اللون للأبيض ليناسب الخلفية الغامقة */
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: #374151;
+            color: #f1f5f9; /* لون فاتح متناسق مع الخلفية */
             margin-bottom: 3rem;
             font-weight: 600;
             line-height: 1.8;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero-buttons {
@@ -195,18 +194,19 @@
         }
 
         .btn-secondary {
-            border: 2px solid #1a1a1a;
-            color: #1a1a1a;
-            background: white;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
         }
 
         .btn-secondary:hover {
-            background: #1a1a1a;
-            color: white;
+            background: #ffffff;
+            color: #1a1a1a;
         }
 
         /* ============================================
-           INTRO SECTION (من نحن)
+           INTRO SECTION
            ============================================ */
         .intro-section {
             padding: 8rem 2rem;
@@ -386,7 +386,7 @@
         }
 
         /* ============================================
-           INFOGRAPHIC STATS SECTION (إنفوجرافيك عصري)
+           INFOGRAPHIC STATS SECTION
            ============================================ */
         .stats-section {
             padding: 8rem 2rem;
@@ -481,7 +481,7 @@
         }
 
         /* ============================================
-           PREGNANCY STAGES (صور مخصصة لكل مرحلة)
+           PREGNANCY STAGES
            ============================================ */
         .pregnancy-section {
             padding: 8rem 2rem;
@@ -500,8 +500,13 @@
             align-items: center;
         }
 
-        .pregnancy-item:nth-child(even) {
-            direction: rtl;
+        /* جعل الثلث الثاني (أو أي قسم ياخد الكلاس ده) من اليسار لليمين */
+        .pregnancy-item.reverse-layout {
+            direction: ltr; /* يعكس التخطيط ليصبح من اليسار */
+        }
+
+        .pregnancy-item.reverse-layout .pregnancy-content {
+            direction: rtl; /* يحافظ على المحتوى العربي من اليمين لليسار داخلياً */
         }
 
         .pregnancy-image {
@@ -741,8 +746,8 @@
             .intro-grid, .pregnancy-item {
                 grid-template-columns: 1fr;
             }
-            .pregnancy-item:nth-child(even) {
-                direction: ltr;
+            .pregnancy-item.reverse-layout {
+                direction: rtl; /* إعادة الترتيب للموبايل */
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -756,8 +761,8 @@
     <header>
         <div class="header-content">
             <a href="#" class="logo-section">
-                <!-- 1. تغيير اللوجو إلى صورة واقعية لأم تحمل طفل -->
-                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=150&h=150&fit=crop" alt="Mother's Care Logo" class="logo-icon">
+                <!-- 1. تغيير اللوقو لصورة تدل على الرعاية الصحية للأم والطفل بتناسق -->
+                <img src="https://images.unsplash.com/photo-1584820927498-cafe8c1c9535?w=150&h=150&fit=crop" alt="Mother's Care Logo" class="logo-icon">
                 <span class="logo-text">Mother's Care</span>
             </a>
             <nav>
@@ -772,7 +777,7 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (2. خلفية خافتة للأم والطفل خلف العنوان الرئيسي) -->
+    <!-- HERO SECTION (تم تغميق الخلفية وتعديل ألوان النص) -->
     <section class="hero">
         <div class="hero-content">
             <h1>صحة الأم والطفل أولويتنا الأولى</h1>
@@ -784,7 +789,7 @@
         </div>
     </section>
 
-    <!-- INTRO SECTION (3. صورة أمومة وطفولة تحت قسم من نحن) -->
+    <!-- INTRO SECTION -->
     <section class="intro-section" id="intro">
         <div class="container">
             <div class="intro-grid">
@@ -836,7 +841,7 @@
         </div>
     </section>
 
-    <!-- SECTIONS SHOWCASE -->
+    <!-- SECTIONS SHOWCASE (تم تحديث صور الكروت حسب الطلب) -->
     <section class="sections-showcase" id="sections">
         <div class="container">
             <div class="section-title">
@@ -856,10 +861,10 @@
                     </div>
                 </div>
 
-                <!-- كرت الإحصائيات -->
+                <!-- 3. كرت الإحصائيات (صورة إحصائية/بيانية طبية) -->
                 <div class="showcase-card" onclick="openModal('statisticsModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?w=800&h=560&fit=crop" alt="أبحاث وإحصائيات طبية">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop" alt="أبحاث وإحصائيات طبية">
                     </div>
                     <div class="showcase-card-content">
                         <h3>إحصائيات وحقائق طبية</h3>
@@ -868,10 +873,10 @@
                     </div>
                 </div>
 
-                <!-- 4. كرت رعاية وحماية الطفل (صورة تدل على عناية وحماية حديث الولادة) -->
+                <!-- 4. كرت رعاية وحماية الطفل (صورة تدل على حماية الطفل بأمان) -->
                 <div class="showcase-card" onclick="openModal('childcareModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&h=560&fit=crop" alt="رعاية وحماية الطفل">
+                        <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&h=560&fit=crop" alt="رعاية وحماية الطفل">
                     </div>
                     <div class="showcase-card-content">
                         <h3>رعاية وحماية الطفل</h3>
@@ -880,7 +885,7 @@
                     </div>
                 </div>
 
-                <!-- 5. كرت صحة وتغذية الأم (صورة تدل على التغذية الصحية) -->
+                <!-- كرت صحة وتغذية الأم -->
                 <div class="showcase-card" onclick="openModal('motherHealthModal')">
                     <div class="showcase-card-image">
                         <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&h=560&fit=crop" alt="التغذية الصحية للأم">
@@ -892,10 +897,10 @@
                     </div>
                 </div>
 
-                <!-- 6. كرت جداول التطعيمات (صورة لقاحات المواليد والأطفال) -->
+                <!-- 5. كرت جداول التطعيمات (صورة لقاحات إبرية) -->
                 <div class="showcase-card" onclick="openModal('vaccinationModal')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?w=800&h=560&fit=crop" alt="لقاحات وتطعيمات المواليد">
+                        <img src="https://images.unsplash.com/photo-1615461065675-927163c4e3cb?w=800&h=560&fit=crop" alt="لقاحات وإبر المواليد">
                     </div>
                     <div class="showcase-card-content">
                         <h3>جداول التطعيمات</h3>
@@ -904,10 +909,10 @@
                     </div>
                 </div>
 
-                <!-- 7. كرت الأسئلة الشائعة (صورة حلقة نقاش نسائية ودعم) -->
+                <!-- 6. كرت الأسئلة الشائعة (صورة استشارة طبية / جلسة حوارية لنساء) -->
                 <div class="showcase-card" onclick="openModal('faqModalContent')">
                     <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=560&fit=crop" alt="حلقة نقاش واستشارة نسائية">
+                        <img src="https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=800&h=560&fit=crop" alt="استشارة طبية وجلسة حوارية">
                     </div>
                     <div class="showcase-card-content">
                         <h3>الأسئلة الشائعة</h3>
@@ -919,7 +924,7 @@
         </div>
     </section>
 
-    <!-- 8. PREGNANCY STAGES (صور مخصصة لكل مرحلة من مراحل الحمل) -->
+    <!-- PREGNANCY STAGES -->
     <section class="pregnancy-section" id="pregnancy">
         <div class="container">
             <div class="section-title">
@@ -927,11 +932,11 @@
                 <p>رحلة الحمل من البداية إلى ما بعد الولادة</p>
             </div>
             <div class="pregnancy-timeline">
-                <!-- الثلث الأول -->
+                
+                <!-- 7. الثلث الأول: صورة جنين في بطن الأم (تكوين الأعضاء) -->
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <!-- صورة الثلث الأول: بدايه الحمل والعناية المبكرة -->
-                        <img src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?w=1000&h=700&fit=crop" alt="الثلث الأول من الحمل">
+                        <img src="https://images.unsplash.com/photo-1563821731671-55ec3298c9f5?w=1000&h=700&fit=crop" alt="تكوين الأعضاء الحيوية للجنين في الثلث الأول">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الأول (1-13 أسابيع)</h3>
@@ -941,25 +946,23 @@
                     </div>
                 </div>
 
-                <!-- الثلث الثاني -->
-                <div class="pregnancy-item">
+                <!-- 8. الثلث الثاني: تخطيط عكسي (من اليسار لليمين) وصورة لجنين يتحرك (منتصف الرحلة) -->
+                <div class="pregnancy-item reverse-layout">
                     <div class="pregnancy-image">
-                        <!-- صورة الثلث الثاني: انتفاخ البطن المتوسط والطاقة -->
-                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1000&h=700&fit=crop" alt="الثلث الثاني من الحمل">
+                        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1000&h=700&fit=crop" alt="جنين يتحرك في بطن الأم في منتصف الحمل">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الثاني (14-26 أسابيع)</h3>
                         <p>ينمو الجنين بسرعة ملحوظة وستشعرين بحركته للمرة الأولى. تبدأ أعراض الحمل بالتحسن والمزاج يصبح أفضل.</p>
-                        <p>هذا هو أكثر أسابيع الحمل راحة حيث تشعرين بالنشاط والحيوية مقارنة بالبداية.</p>
+                        <p>هذا هو أكثر أسابيع الحمل راحة حيث تشعرين بالنشاط والحيوية مقارنة بالبداية وتستمتعين بحركة طفلك.</p>
                         <p><strong>نصيحة:</strong> مارسي تمارين خفيفة وآمنة بانتظام وحافظي على التغذية المتوازنة.</p>
                     </div>
                 </div>
 
-                <!-- الثلث الثالث -->
+                <!-- 9. الثلث الثالث: صورة لجنين جاهز للولادة -->
                 <div class="pregnancy-item">
                     <div class="pregnancy-image">
-                        <!-- صورة الثلث الثالث: اكتمال الحمل والتهيؤ للولادة -->
-                        <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=1000&h=700&fit=crop" alt="الثلث الثالث من الحمل">
+                        <img src="https://images.unsplash.com/photo-1531525645387-7f14be1bfc3d?w=1000&h=700&fit=crop" alt="جنين جاهز للولادة في الثلث الأخير">
                     </div>
                     <div class="pregnancy-content">
                         <h3>الثلث الثالث (27-40 أسبوع)</h3>
@@ -968,11 +971,12 @@
                         <p><strong>نصيحة:</strong> جهزي حقيبة المستشفى وناقشي مع طبيبك خطة الولادة المناسبة لك.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- 9. INFOGRAPHIC STATS SECTION (قسم الإحصائيات بتصميم إنفوجرافيك عصري) -->
+    <!-- INFOGRAPHIC STATS SECTION -->
     <section class="stats-section" id="stats">
         <div class="container">
             <div class="section-title">
@@ -981,7 +985,6 @@
             </div>
             <div class="infographic-grid">
                 
-                <!-- كرت إنفوجرافيك 1 -->
                 <div class="infographic-card">
                     <div class="infographic-icon">
                         <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
@@ -993,7 +996,6 @@
                     </div>
                 </div>
 
-                <!-- كرت إنفوجرافيك 2 -->
                 <div class="infographic-card">
                     <div class="infographic-icon">
                         <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
@@ -1005,7 +1007,6 @@
                     </div>
                 </div>
 
-                <!-- كرت إنفوجرافيك 3 -->
                 <div class="infographic-card">
                     <div class="infographic-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -1017,7 +1018,6 @@
                     </div>
                 </div>
 
-                <!-- كرت إنفوجرافيك 4 -->
                 <div class="infographic-card">
                     <div class="infographic-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
