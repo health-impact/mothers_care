@@ -1,1217 +1,696 @@
-<!DOCTYPE html>
+<!DOCTYPE Html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mother's Care - منصة طبية موثوقة متخصصة في صحة الأم والطفل والرعاية الشاملة">
-    <title>Mother's Care - صحة الأمومة والطفل</title>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* ============================================
-           HEADER
-           ============================================ */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #f0f0f0;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 55px;
-            height: 55px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 4px 12px rgba(244, 63, 94, 0.25);
-            border: 2px solid #f43f5e;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-            color: #1a1a1a;
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #1a1a1a;
-            font-size: 0.95rem;
-            font-weight: 600;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #f43f5e, #ec4899);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mother's Care | صحة الأم والطفل والعمليات القيصرية</title>
+  <meta name="description" content="منصة طبية موثوقة متخصصة في صحة الأم والطفل والرعاية الشاملة ومراحل الحمل والولادة القيصرية" />
+  
+  <!-- خطوط عربية متميزة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN للتصميم الفوري -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            tajawal: ['Tajawal', 'sans-serif'],
+            cairo: ['Cairo', 'sans-serif'],
+          },
+          colors: {
+            rose: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              800: '#9f1239',
+              900: '#881337',
+              950: '#4c0519',
             }
-            .header-content {
-                padding: 0 1rem;
-            }
-        }
-
-        /* ============================================
-           HERO
-           ============================================ */
-        .hero {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 5rem 2rem;
-            /* تم تخفيف التعتيم لتصبح الصورة واضحة تماماً */
-            background: linear-gradient(rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.4)), 
-                        url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=1600&fit=crop') center/cover no-repeat;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 7vw, 4.8rem);
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1.5px;
-            color: #ffffff; 
-            /* زيادة الظل ليبقى النص واضحاً رغم تفتيح الخلفية */
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #ffffff;
-            margin-bottom: 3rem;
-            font-weight: 600;
-            line-height: 1.8;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.1rem 2.8rem;
-            border-radius: 50px;
-            border: none;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #f43f5e, #ec4899);
-            color: white;
-            box-shadow: 0 10px 25px rgba(244, 63, 94, 0.35);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(244, 63, 94, 0.45);
-        }
-
-        .btn-secondary {
-            border: 2px solid #ffffff;
-            color: #ffffff;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(5px);
-        }
-
-        .btn-secondary:hover {
-            background: #ffffff;
-            color: #1a1a1a;
-        }
-
-        /* ============================================
-           INTRO SECTION
-           ============================================ */
-        .intro-section {
-            padding: 8rem 2rem;
-            background: white;
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .intro-content h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 900;
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            letter-spacing: -0.5px;
-            color: #1a1a1a;
-        }
-
-        .intro-content p {
-            font-size: 1.1rem;
-            color: #4b5563;
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-weight: 500;
-        }
-
-        .intro-image {
-            width: 100%;
-            height: 480px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-        }
-
-        .intro-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ============================================
-           WHAT WE DO
-           ============================================ */
-        .what-we-do {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .section-title p {
-            font-size: 1.2rem;
-            color: #6b7280;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.8rem;
-            border-radius: 16px;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            border: 1px solid #f0f0f0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(244, 63, 94, 0.15);
-            border-color: #f43f5e;
-        }
-
-        .service-card h3 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .service-card p {
-            color: #4b5563;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           SECTIONS SHOWCASE
-           ============================================ */
-        .sections-showcase {
-            padding: 8rem 2rem;
-            background: white;
-        }
-
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .showcase-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
-            transition: all 0.4s ease;
-            border: 1px solid #f0f0f0;
-            cursor: pointer;
-        }
-
-        .showcase-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(244, 63, 94, 0.18);
-        }
-
-        .showcase-card-image {
-            width: 100%;
-            height: 260px;
-            overflow: hidden;
-        }
-
-        .showcase-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .showcase-card:hover .showcase-card-image img {
-            transform: scale(1.08);
-        }
-
-        .showcase-card-content {
-            padding: 2rem;
-        }
-
-        .showcase-card h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-            color: #1a1a1a;
-        }
-
-        .showcase-card p {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .showcase-card a {
-            color: #f43f5e;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* ============================================
-           INFOGRAPHIC STATS SECTION
-           ============================================ */
-        .stats-section {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-        }
-
-        .stats-section .section-title h2 {
-            color: white;
-        }
-
-        .stats-section .section-title p {
-            color: #94a3b8;
-        }
-
-        .infographic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .infographic-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .infographic-card:hover {
-            transform: translateY(-8px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: #f43f5e;
-            box-shadow: 0 20px 40px rgba(244, 63, 94, 0.2);
-        }
-
-        .infographic-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(244, 63, 94, 0.2), rgba(236, 72, 153, 0.2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(244, 63, 94, 0.4);
-        }
-
-        .infographic-icon svg {
-            width: 35px;
-            height: 35px;
-            fill: #f43f5e;
-        }
-
-        .infographic-number {
-            font-size: 3.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #f43f5e, #fb7185, #38bdf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .infographic-label {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin-bottom: 1.5rem;
-        }
-
-        .infographic-progress-bg {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .infographic-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #f43f5e, #ec4899);
-            border-radius: 20px;
-        }
-
-        /* ============================================
-           PREGNANCY STAGES
-           ============================================ */
-        .pregnancy-section {
-            padding: 8rem 2rem;
-            background: white;
-        }
-
-        .pregnancy-timeline {
-            margin-top: 4rem;
-        }
-
-        .pregnancy-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
-            align-items: center;
-        }
-
-        .pregnancy-item.reverse-layout {
-            direction: ltr; 
-        }
-
-        .pregnancy-item.reverse-layout .pregnancy-content {
-            direction: rtl; 
-        }
-
-        .pregnancy-image {
-            width: 100%;
-            height: 380px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-
-        .pregnancy-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .pregnancy-content h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            color: #f43f5e;
-        }
-
-        .pregnancy-content p {
-            color: #4b5563;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            margin-bottom: 1rem;
-        }
-
-        /* ============================================
-           TIPS SECTION
-           ============================================ */
-        .tips-section {
-            padding: 8rem 2rem;
-            background: linear-gradient(135deg, #fdf2f8 0%, #f0f9ff 100%);
-        }
-
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
-        }
-
-        .tip-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            border-right: 4px solid #f43f5e;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            transition: all 0.4s ease;
-        }
-
-        .tip-card:hover {
-            transform: translateX(-8px);
-            box-shadow: 0 20px 40px rgba(244, 63, 94, 0.15);
-        }
-
-        .tip-card h3 {
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 0.8rem;
-            color: #1a1a1a;
-        }
-
-        .tip-card p {
-            color: #4b5563;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* ============================================
-           FAQ SECTION
-           ============================================ */
-        .faq-section {
-            padding: 8rem 2rem;
-            background: white;
-        }
-
-        .faq-container {
-            max-width: 850px;
-            margin: 4rem auto 0;
-        }
-
-        .faq-item {
-            background: #f8fafc;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 700;
-            color: #1e293b;
-            font-size: 1.1rem;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background: white;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-answer p {
-            padding: 1.5rem;
-            color: #475569;
-            line-height: 1.8;
-        }
-
-        /* ============================================
-           MODALS
-           ============================================ */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(5px);
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: block;
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 3rem auto;
-            padding: 3rem;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 800px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-        }
-
-        .modal-close {
-            color: #94a3b8;
-            float: left;
-            font-size: 2rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .modal-close:hover {
-            color: #1e293b;
-        }
-
-        .modal h2 {
-            color: #1e293b;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal h3 {
-            color: #f43f5e;
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .modal p, .modal ul {
-            color: #475569;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .modal ul {
-            padding-right: 1.5rem;
-        }
-
-        /* ============================================
-           FOOTER
-           ============================================ */
-        footer {
-            background: #0f172a;
-            color: white;
-            padding: 4rem 2rem 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer-section h3 {
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-            color: #f43f5e;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 2;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #1e293b;
-            padding-top: 2rem;
-            text-align: center;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-
-        .designer-credit {
-            color: #f43f5e;
-            font-weight: 700;
-            margin-top: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            .intro-grid, .pregnancy-item {
-                grid-template-columns: 1fr;
-            }
-            .pregnancy-item.reverse-layout {
-                direction: rtl; 
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Lucide Icons & Confetti -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Cairo', sans-serif;
+    }
+  </style>
 </head>
-<body>
-
-    <!-- HEADER -->
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo-section">
-                <!-- تم التعديل: رابط جديد يعمل لصورة لوقو تعبر عن الأم والطفل -->
-                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=150&h=150&fit=crop" alt="Mother's Care Logo" class="logo-icon">
-                <span class="logo-text">Mother's Care</span>
-            </a>
-            <nav>
-                <a href="#intro">عن المنصة</a>
-                <a href="#services">الخدمات</a>
-                <a href="#sections">الأقسام</a>
-                <a href="#pregnancy">مراحل الحمل</a>
-                <a href="#stats">إحصائيات</a>
-                <a href="#tips">النصائح</a>
-                <a href="#faq">الأسئلة</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>صحة الأم والطفل أولويتنا الأولى</h1>
-            <p>منصة طبية موثوقة متخصصة في الرعاية الصحية الشاملة، الحمل، الولادة، والعمليات القيصرية بمعايير عالمية</p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})">ابدأي الآن</button>
-                <button class="btn btn-secondary" onclick="document.getElementById('sections').scrollIntoView({behavior: 'smooth'})">تصفحي الأقسام</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTRO SECTION -->
-    <section class="intro-section" id="intro">
-        <div class="container">
-            <div class="intro-grid">
-                <div class="intro-content">
-                    <h2>منصة تؤمن بقوة المعلومات الطبية الموثوقة</h2>
-                    <p>Mother's Care هي منصة متخصصة تجمع معلومات شاملة من مصادر طبية عالمية موثوقة. نحن نؤمن أن المرأة المطلعة هي التي تتخذ القرارات الصحيحة لها ولطفلها.</p>
-                    <p>من الحمل إلى ما بعد الولادة، نرافقك في كل خطوة من رحلتك نحو أمومة آمنة وصحية.</p>
-                </div>
-                <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=800&h=900&fit=crop" alt="أمومة وطفولة دافئة">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHAT WE DO -->
-    <section class="what-we-do" id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>ما نقدمه</h2>
-                <p>خدمات طبية شاملة ومعلومات موثوقة لصحة الأم والطفل</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>أدلة صحية شاملة</h3>
-                    <p>أدلة مفصلة وسهلة الفهم عن مراحل الحمل وكيفية التعامل معها بشكل صحي وآمن من الألف للياء</p>
-                </div>
-                <div class="service-card">
-                    <h3>جداول ومتابعة</h3>
-                    <p>جداول تطعيمات وجداول متابعة النمو والتطور الصحي للطفل من الميلاد حتى سنوات العمر الأولى</p>
-                </div>
-                <div class="service-card">
-                    <h3>نصائح عملية يومية</h3>
-                    <p>نصائح يومية عملية وآمنة للعناية بالصحة الجسدية والنفسية للأم والطفل في مختلف المراحل</p>
-                </div>
-                <div class="service-card">
-                    <h3>إحصائيات موثوقة</h3>
-                    <p>بيانات وإحصائيات من منظمة الصحة العالمية والمنظمات الدولية الموثوقة والمعتمدة</p>
-                </div>
-                <div class="service-card">
-                    <h3>مقالات متخصصة</h3>
-                    <p>مقالات متعمقة كتبها أطباء متخصصون في مختلف فروع الأمومة والطفولة والرعاية الصحية</p>
-                </div>
-                <div class="service-card">
-                    <h3>معلومات محدثة</h3>
-                    <p>محتوى محدث باستمرار يتابع أحدث الأبحاث والتطورات الطبية في مجال صحة الأم والطفل</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTIONS SHOWCASE -->
-    <section class="sections-showcase" id="sections">
-        <div class="container">
-            <div class="section-title">
-                <h2>أقسام المنصة الرئيسية</h2>
-                <p>معلومات شاملة موثوقة في مختلف جوانب الأمومة والطفولة</p>
-            </div>
-            <div class="showcase-grid">
-                
-                <div class="showcase-card" onclick="openModal('caesareanModal')">
-                    <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&h=560&fit=crop" alt="الرعاية الطبية للعملية القيصرية">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>دليل الولادة القيصرية</h3>
-                        <p>معلومات شاملة عن العملية، التحضير لها، التعافي الصحيح والرعاية بعد الولادة</p>
-                        <a href="#">اكتشفي المزيد ←</a>
-                    </div>
-                </div>
-
-                <div class="showcase-card" onclick="openModal('statisticsModal')">
-                    <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=560&fit=crop" alt="أبحاث وإحصائيات طبية">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>إحصائيات وحقائق طبية</h3>
-                        <p>أرقام موثوقة من منظمة الصحة العالمية والمراجع الطبية المعتمدة دولياً</p>
-                        <a href="#">اكتشفي المزيد ←</a>
-                    </div>
-                </div>
-
-                <!-- تم التعديل: صورة تعبر عن رعاية وحماية الطفل (أم تحتضن طفلها بلطف) -->
-                <div class="showcase-card" onclick="openModal('childcareModal')">
-                    <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=800&h=560&fit=crop" alt="رعاية وحماية الطفل">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>رعاية وحماية الطفل</h3>
-                        <p>الرضاعة الطبيعية وجداول التطعيمات والعناية الصحيحة بالطفل الحديث الولادة</p>
-                        <a href="#">اكتشفي المزيد ←</a>
-                    </div>
-                </div>
-
-                <div class="showcase-card" onclick="openModal('motherHealthModal')">
-                    <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1504151932400-72d4384f0e6d?w=800&h=560&fit=crop" alt="التغذية الصحية للأم">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>صحة وتغذية الأم</h3>
-                        <p>التغذية السليمة والصحة النفسية والجسدية والعناية بصحتك أثناء الحمل وبعده</p>
-                        <a href="#">اكتشفي المزيد ←</a>
-                    </div>
-                </div>
-
-                <!-- تم التعديل: صورة مخصصة للتطعيمات واللقاحات وتعمل بشكل سليم -->
-                <div class="showcase-card" onclick="openModal('vaccinationModal')">
-                    <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1584362917165-526a968579e8?w=800&h=560&fit=crop" alt="لقاحات وتطعيمات">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>جداول التطعيمات</h3>
-                        <p>الجدول الموصى به عالمياً والتوقيتات الصحيحة وأهمية التطعيمات للطفل</p>
-                        <a href="#">اكتشفي المزيد ←</a>
-                    </div>
-                </div>
-
-                <!-- تم التعديل: صورة جلسة استشارة بين مريضة وطبيبة -->
-                <div class="showcase-card" onclick="openModal('faqModalContent')">
-                    <div class="showcase-card-image">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=560&fit=crop" alt="استشارة طبية بين طبيبة ومريضة">
-                    </div>
-                    <div class="showcase-card-content">
-                        <h3>الأسئلة الشائعة</h3>
-                        <p>إجابات شاملة على أكثر الأسئلة التي تطرحها الأمهات حول الحمل والولادة</p>
-                        <a href="#">اكتشفي المزيد ←</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREGNANCY STAGES -->
-    <section class="pregnancy-section" id="pregnancy">
-        <div class="container">
-            <div class="section-title">
-                <h2>مراحل الحمل الثلاثة</h2>
-                <p>رحلة الحمل من البداية إلى ما بعد الولادة</p>
-            </div>
-            <div class="pregnancy-timeline">
-                
-                <!-- تم التعديل: الثلث الأول (صورة فحص بالموجات فوق الصوتية) -->
-                <div class="pregnancy-item">
-                    <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1585842360565-d41a79f0ec14?w=1000&h=700&fit=crop" alt="تكوين الأعضاء الحيوية للجنين - الموجات فوق الصوتية">
-                    </div>
-                    <div class="pregnancy-content">
-                        <h3>الثلث الأول (1-13 أسابيع)</h3>
-                        <p>يحدث تكوين الأعضاء الحيوية للجنين في هذه المرحلة المهمة جداً. قد تشعرين بالإرهاق والغثيان والتعب الشديد.</p>
-                        <p>هذه الفترة مهمة جداً لفحوصات التشخيص المبكرة والعناية الطبية المنتظمة.</p>
-                        <p><strong>نصيحة:</strong> احصلي على الراحة الكافية وتناولي حمض الفوليك والمكملات الموصى بها.</p>
-                    </div>
-                </div>
-
-                <!-- تم التعديل: الثلث الثاني (صورة بروز بطن الأم في منتصف الحمل) -->
-                <div class="pregnancy-item reverse-layout">
-                    <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?w=1000&h=700&fit=crop" alt="بطن الأم في منتصف الحمل">
-                    </div>
-                    <div class="pregnancy-content">
-                        <h3>الثلث الثاني (14-26 أسابيع)</h3>
-                        <p>ينمو الجنين بسرعة ملحوظة وستشعرين بحركته للمرة الأولى. تبدأ أعراض الحمل بالتحسن والمزاج يصبح أفضل.</p>
-                        <p>هذا هو أكثر أسابيع الحمل راحة حيث تشعرين بالنشاط والحيوية مقارنة بالبداية وتستمتعين بحركة طفلك.</p>
-                        <p><strong>نصيحة:</strong> مارسي تمارين خفيفة وآمنة بانتظام وحافظي على التغذية المتوازنة.</p>
-                    </div>
-                </div>
-
-                <!-- تم التعديل: الثلث الثالث (صورة لمراحل متقدمة قريبة من الولادة) -->
-                <div class="pregnancy-item">
-                    <div class="pregnancy-image">
-                        <img src="https://images.unsplash.com/photo-1531525645387-7f14be1bfc3d?w=1000&h=700&fit=crop" alt="مراحل الحمل المتقدمة في الثلث الأخير">
-                    </div>
-                    <div class="pregnancy-content">
-                        <h3>الثلث الثالث (27-40 أسبوع)</h3>
-                        <p>التحضير النهائي للولادة وإجراء الفحوصات النهائية المهمة لسلامتك وسلامة طفلك. يبدأ الجنين في أخذ وضعية الولادة.</p>
-                        <p>جسدك يستعد لعملية الولادة والتغييرات الضرورية تحدث بشكل طبيعي ومتسارع.</p>
-                        <p><strong>نصيحة:</strong> جهزي حقيبة المستشفى وناقشي مع طبيبك خطة الولادة المناسبة لك.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- INFOGRAPHIC STATS SECTION -->
-    <section class="stats-section" id="stats">
-        <div class="container">
-            <div class="section-title">
-                <h2>إحصائيات وأرقام موثوقة</h2>
-                <p>إنفوجرافيك يستعرض أهم الحقائق الطبية من منظمة الصحة العالمية</p>
-            </div>
-            <div class="infographic-grid">
-                
-                <div class="infographic-card">
-                    <div class="infographic-icon">
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-                    </div>
-                    <div class="infographic-number">21%</div>
-                    <div class="infographic-label">معدل الولادات القيصرية حول العالم</div>
-                    <div class="infographic-progress-bg">
-                        <div class="infographic-progress-fill" style="width: 21%;"></div>
-                    </div>
-                </div>
-
-                <div class="infographic-card">
-                    <div class="infographic-icon">
-                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                    </div>
-                    <div class="infographic-number">6-8</div>
-                    <div class="infographic-label">أسابيع متوسط التعافي التام بعد القيصرية</div>
-                    <div class="infographic-progress-bg">
-                        <div class="infographic-progress-fill" style="width: 75%;"></div>
-                    </div>
-                </div>
-
-                <div class="infographic-card">
-                    <div class="infographic-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    </div>
-                    <div class="infographic-number">99%</div>
-                    <div class="infographic-label">نسبة أمان ونطاق نجاح الرضاعة الطبيعية</div>
-                    <div class="infographic-progress-bg">
-                        <div class="infographic-progress-fill" style="width: 99%;"></div>
-                    </div>
-                </div>
-
-                <div class="infographic-card">
-                    <div class="infographic-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-5.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-                    </div>
-                    <div class="infographic-number">100%</div>
-                    <div class="infographic-label">معلومات معتمدة ومراجعة من أطباء</div>
-                    <div class="infographic-progress-bg">
-                        <div class="infographic-progress-fill" style="width: 100%;"></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- TIPS SECTION -->
-    <section class="tips-section" id="tips">
-        <div class="container">
-            <div class="section-title">
-                <h2>نصائح صحية يومية</h2>
-                <p>خطوات عملية بسيطة تدعم صحتك وصحة طفلك يومياً</p>
-            </div>
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <h3>الترطيب الكافي</h3>
-                    <p>اشربي 8-10 أكواب ماء يومياً أثناء الرضاعة لدعم إنتاج الحليب والتعافي السريع</p>
-                </div>
-                <div class="tip-card">
-                    <h3>النوم والراحة</h3>
-                    <p>احصلي على قسط كافٍ من الراحة لتسريع التعافي وتحسين الحالة النفسية والمزاج</p>
-                </div>
-                <div class="tip-card">
-                    <h3>تغذية متوازنة</h3>
-                    <p>تناولي طعاماً غنياً بالبروتينات والفيتامينات والحديد للشعور بالحيوية والطاقة</p>
-                </div>
-                <div class="tip-card">
-                    <h3>حركة بسيطة</h3>
-                    <p>المشي والحركة الخفيفة تساعدان على التعافي السريع وتحسين الدورة الدموية</p>
-                </div>
-                <div class="tip-card">
-                    <h3>التواصل العاطفي</h3>
-                    <p>التلامس المباشر والتحدث مع طفلك يعززان شعوره بالأمان وينميان المهارات</p>
-                </div>
-                <div class="tip-card">
-                    <h3>الفحوصات الدورية</h3>
-                    <p>التزمي بزيارات المتابعة الطبية المحددة لك ولطفلك للطمأنينة والوقاية المبكرة</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>الأسئلة الشائعة</h2>
-                <p>إجابات مباشرة عن الاستفسارات الأكثر تكراراً</p>
-            </div>
-            <div class="faq-container">
-                <div class="faq-item active">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>ما الفرق بين الولادة الطبيعية والقيصرية؟</span>
-                        <span>▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>الولادة الطبيعية تتم عبر قناة الولادة بشكل طبيعي، بينما القيصرية عملية جراحية يتم فيها استخراج الجنين عبر فتحة في الرحم. يحدد الطبيب الخيار الأنسب وفق الحالة الطبية للأم والجنين.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>ما هي أكثر دواعي القيصرية شيوُعاً؟</span>
-                        <span>▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>تعسر المخاض، ضائقة الجنين، الوضعيات المقلوبة للجنين، ومشاكل المشيمة المتقدمة هي من أهم الدواعي الطبية للولادة القيصرية.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">
-                        <span>متى يمكن الرضاعة الطبيعية بعد القيصرية؟</span>
-                        <span>▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>يمكن البدء فور استقرار حالة الأم واستفاقتها من التخدير، وتساعد الممرضات في توفير الوضعية المريحة للأم للرضاعة بدون الضغط على الجرح.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-section">
-                <h3>عن المنصة</h3>
-                <p>Mother's Care منصة طبية توعوية موثوقة تهتم بنشر الثقافة الصحية الصحيحة للأم والطفل وفقاً لأحدث المراجع العالمية.</p>
-            </div>
-            <div class="footer-section">
-                <h3>روابط السريعة</h3>
-                <p><a href="#intro">عن المنصة</a> | <a href="#sections">الأقسام</a> | <a href="#pregnancy">الحمل</a> | <a href="#stats">إحصائيات</a></p>
-            </div>
-            <div class="footer-section">
-                <h3>التواصل</h3>
-                <p>البريد الإلكتروني: info@motherscare.ly</p>
-                <p>الهاتف: +218 21 444 5555</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2026 Mother's Care - جميع الحقوق محفوظة | قسم الصحة العامة - جامعة طرابلس</p>
-            <p class="designer-credit">صمم بواسطة Mohamed Jalal Alnfati</p>
-        </div>
-    </footer>
-
-    <!-- MODALS -->
-    <div id="caesareanModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('caesareanModal')">&times;</span>
-            <h2>دليل الولادة القيصرية الشامل</h2>
-            <h3>عن العملية والتعافي</h3>
-            <p>الولادة القيصرية إجـراء جراحي آمن يُنقذ الحياة عند وجود دواعي طبية. تستغرق فترة التعافي الكامل من 6 إلى 8 أسابيع مع ضرورة الراحة وتجنب حمل الأوزان الثقيلة.</p>
-        </div>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 antialiased selection:bg-rose-100 selection:text-rose-900">
+  <!-- ========================================================================= -->
+  <!-- 1. شريط التنبيهات الطبية الطارئة -->
+  <!-- ========================================================================= -->
+  <div class="bg-gradient-to-r from-rose-600 to-rose-700 text-white text-xs sm:text-sm py-2.5 px-4 shadow-sm relative z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 truncate">
+        <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+        <span class="font-bold">🚨 تنبيه الطوارئ الطبية:</span>
+        <span class="hidden md:inline text-rose-100">إذا شعرتِ بنزيف حاد، صداع شديد مفاجئ مصحوب بزغللة، أو حمى تتجاوز 38°C؛ تواصلي فوراً مع الطبيب.</span>
+      </div>
+      <button onclick="toggleModal('redFlagsModal')" class="bg-white/20 hover:bg-white/30 text-white px-3.5 py-1 rounded-full text-xs font-bold transition flex items-center gap-1.5 shrink-0 shadow-xs">
+        <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+        <span>دليل علامات الخطر</span>
+      </button>
     </div>
-
-    <div id="statisticsModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('statisticsModal')">&times;</span>
-            <h2>إحصائيات ومعايير دولية</h2>
-            <p>توصي منظمة الصحة العالمية بأن لا تتجاوز نسبة القيصرية 10-15% إلا في حالات الضرورة الطبية لضمان سلامة الأم والطفل.</p>
+  </div>
+  <!-- ========================================================================= -->
+  <!-- 2. شريط التنقل الرئيسي (NAVBAR) -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        
+        <!-- شعار المنصة -->
+        <a href="#hero" class="flex items-center gap-3">
+          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-700 text-white flex items-center justify-center shadow-md">
+            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-lg sm:text-xl font-black font-cairo text-slate-900 dark:text-white">Mother's Care</div>
+            <div class="text-[10px] sm:text-xs text-rose-600 dark:text-rose-400 font-bold">صحة الأم والطفل والقيصرية</div>
+          </div>
+        </a>
+        <!-- روابط التنقل -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-600 dark:text-slate-300">
+          <a href="#hero" class="hover:text-rose-600 dark:hover:text-rose-400 transition">الرئيسية</a>
+          <a href="#interactive-tools" class="text-rose-600 dark:text-rose-400 font-extrabold flex items-center gap-1 bg-rose-50 dark:bg-rose-950/60 px-3 py-1.5 rounded-xl border border-rose-200 dark:border-rose-900/50">
+            <i data-lucide="calculator" class="w-4 h-4"></i>
+            <span>الأدوات التفاعلية</span>
+          </a>
+          <a href="#pregnancy" class="hover:text-rose-600 dark:hover:text-rose-400 transition">مراحل الحمل</a>
+          <a href="#c-section" class="hover:text-rose-600 dark:hover:text-rose-400 transition">تعافي القيصرية</a>
+          <a href="#newborn" class="hover:text-rose-600 dark:hover:text-rose-400 transition">رعاية الرضيع</a>
+          <a href="#faq" class="hover:text-rose-600 dark:hover:text-rose-400 transition">الأسئلة الشائعة</a>
+        </nav>
+        <!-- أزرار الإجراءات (الوضع الليلي + الطوارئ) -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition" title="تبديل الوضع الليلي">
+            <i data-lucide="moon" id="themeIcon" class="w-5 h-5"></i>
+          </button>
+          
+          <button onclick="toggleModal('redFlagsModal')" class="bg-rose-600 hover:bg-rose-700 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition flex items-center gap-1.5">
+            <i data-lucide="shield-alert" class="w-4 h-4"></i>
+            <span>طوارئ الأمومة</span>
+          </button>
         </div>
+      </div>
     </div>
-
-    <div id="childcareModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('childcareModal')">&times;</span>
-            <h2>رعاية وحماية الطفل</h2>
-            <p>تشمل العناية بالسرة، النظافة اليومية، تهيئة بيئة نوم آمنة على الظهر لمنع متلازمة الموت المفاجئ، والحرص على التطعيمات في مواعيدها.</p>
+  </header>
+  <!-- ========================================================================= -->
+  <!-- 3. البانر الترحيبي (HERO SECTION) -->
+  <!-- ========================================================================= -->
+  <section id="hero" class="relative py-16 sm:py-24 bg-gradient-to-b from-rose-50/50 to-white dark:from-slate-900/60 dark:to-slate-950 border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      
+      <div class="inline-flex items-center gap-2 bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-rose-200 dark:border-rose-900">
+        <i data-lucide="sparkles" class="w-4 h-4 text-rose-600"></i>
+        <span>المرجع الطبي المعتمد لرحلة أمومة آمنة ومستقرة</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-cairo text-slate-900 dark:text-white leading-tight max-w-4xl mx-auto">
+        دليلكِ الطبي المتكامل لصحتكِ وصحة طفلكِ <span class="text-rose-600 dark:text-rose-400">خطوة بخطوة</span>
+      </h1>
+      <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        منصة علمية وتفاعلية شاملة تشمل حاسبات الحمل المتطورة، بروتوكولات التعافي من الولادة القيصرية، متابعة نمو الرضيع، وجداول التطعيمات المعتمدة.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 pt-4">
+        <a href="#interactive-tools" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-rose-600/30 transition flex items-center gap-2">
+          <i data-lucide="calculator" class="w-5 h-5"></i>
+          <span>استكشاف الحاسبات والأدوات التفاعلية</span>
+        </a>
+        <a href="#pregnancy" class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 rounded-2xl transition flex items-center gap-2">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <span>مراحل الحمل والتطور</span>
+        </a>
+      </div>
+      <!-- إحصائيات سريعة -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10">
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
+          <div class="text-2xl sm:text-3xl font-black font-cairo text-rose-600 dark:text-rose-400">7+</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">أدوات وحاسبات تفاعلية</div>
         </div>
-    </div>
-
-    <div id="motherHealthModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('motherHealthModal')">&times;</span>
-            <h2>صحة وتغذية الأم</h2>
-            <p>التركيز على الأطعمة الغنية بالحديد، الكالسيوم، الألياف، والبروتينات لتسريع بناء النسيج الجلدي والتعافي والحفاظ على إنتاج الحليب.</p>
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
+          <div class="text-2xl sm:text-3xl font-black font-cairo text-teal-600 dark:text-teal-400">40</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">أسبوعاً لمتابعة الجنين</div>
         </div>
-    </div>
-
-    <div id="vaccinationModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('vaccinationModal')">&times;</span>
-            <h2>جدول اللقاحات الأساسية</h2>
-            <p>يبدأ جدول التطعيمات من اليوم الأول بعد الولادة بجرعات شلل الأطفال والكبدي B والدرن، ثم تتوالى الجرعات حسب جدول وزارة الصحة.</p>
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
+          <div class="text-2xl sm:text-3xl font-black font-cairo text-indigo-600 dark:text-indigo-400">100%</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">إرشادات طبية معتمدة</div>
         </div>
-    </div>
-
-    <div id="faqModalContent" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('faqModalContent')">&times;</span>
-            <h2>الأسئلة الشائعة والملف الطبي</h2>
-            <p>تضم هذه الوحدة أهم الإرشادات الطبية والإجابات الشاملة المعتمدة من منظمة الصحة العالمية والأطباء المتخصصين.</p>
+        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
+          <div class="text-2xl sm:text-3xl font-black font-cairo text-amber-600 dark:text-amber-400">24/7</div>
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">دليل الطوارئ والأمان</div>
         </div>
+      </div>
     </div>
-
-    <script>
-        function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        function toggleFAQ(element) {
-            const item = element.parentElement;
-            document.querySelectorAll('.faq-item').forEach(el => {
-                if (el !== item) el.classList.remove('active');
-            });
-            item.classList.toggle('active');
-        }
-    </script>
+  </section>
+  <!-- ========================================================================= -->
+  <!-- 4. الأقسام التفاعلية والأدوات الذكية (INTERACTIVE TOOLS) -->
+  <!-- ========================================================================= -->
+  <section id="interactive-tools" class="py-16 sm:py-24 bg-slate-100/70 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <div class="inline-flex items-center gap-2 bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 px-4 py-1.5 rounded-full text-xs font-bold border border-rose-200 dark:border-rose-900/50">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>حاسبات وأقسام تفاعلية شاملة</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">
+          الأدوات الإضافية التفاعلية المقسمة تخصصياً
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
+          استخدمي هذه الحاسبات الطبية لمعرفة موعد ولادتك، خطة تعافي القيصرية، قياسات نمو رضيعك، ومتابعة نشاطه بدقة.
+        </p>
+      </div>
+      <!-- أداة 1: حاسبة موعد الولادة المتوقع -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center border border-rose-200 dark:border-rose-900/50">
+            <i data-lucide="calendar" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-rose-600 dark:text-rose-400">القسم التفاعلي 1</span>
+            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">حاسبة موعد الولادة المتوقع وأسابيع الحمل</h3>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end mb-6">
+          <div>
+            <label class="block text-xs sm:text-sm font-bold mb-2 text-slate-700 dark:text-slate-200">تاريخ أول يوم من آخر دورة شهرية (LMP):</label>
+            <input type="date" id="lmpInput" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-rose-500 outline-none" />
+          </div>
+          <button onclick="calculateDueDate()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>احسبي موعد الولادة وعمر الحمل</span>
+          </button>
+        </div>
+        <!-- نتيجة حاسبة الولادة -->
+        <div id="dueDateResult" class="hidden pt-6 border-t border-slate-200 dark:border-slate-800 space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-rose-50 dark:bg-rose-950/40 p-4 rounded-2xl border border-rose-200 dark:border-rose-900 text-center">
+              <span class="text-xs text-rose-800 dark:text-rose-300 font-bold block">📅 موعد الولادة المتوقع:</span>
+              <span id="resDueDate" class="text-lg font-black font-cairo text-rose-950 dark:text-rose-100 block mt-1">--</span>
+              <span id="resRemainingDays" class="text-xs text-rose-700 dark:text-rose-300 mt-1 block">--</span>
+            </div>
+            <div class="bg-teal-50 dark:bg-teal-950/40 p-4 rounded-2xl border border-teal-200 dark:border-teal-900 text-center">
+              <span class="text-xs text-teal-800 dark:text-teal-300 font-bold block">⏳ عمر الحمل الحالي:</span>
+              <span id="resWeeksDays" class="text-lg font-black font-cairo text-teal-950 dark:text-teal-100 block mt-1">--</span>
+              <span id="resTrimesterName" class="text-xs text-teal-700 dark:text-teal-300 mt-1 block">--</span>
+            </div>
+            <div class="bg-amber-50 dark:bg-amber-950/40 p-4 rounded-2xl border border-amber-200 dark:border-amber-900 text-center">
+              <span class="text-xs text-amber-800 dark:text-amber-300 font-bold block">🌱 حجم الجنين التقديري:</span>
+              <span id="resFruitSize" class="text-lg font-black font-cairo text-amber-950 dark:text-amber-100 block mt-1">--</span>
+              <span class="text-xs text-amber-700 dark:text-amber-300 mt-1 block">تطور مستمر</span>
+            </div>
+          </div>
+          <!-- صورة تطور الجنين -->
+          <div class="bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center gap-5">
+            <div class="w-full sm:w-44 h-36 rounded-xl overflow-hidden shrink-0 border border-slate-700">
+              <img id="fetusStageImg" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80" alt="شكل الجنين" class="w-full h-full object-cover" />
+            </div>
+            <div class="space-y-1.5 text-right flex-1">
+              <div class="inline-block bg-rose-500/20 text-rose-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-rose-500/30">
+                🔬 التطور الحيوي للجنين
+              </div>
+              <h4 id="fetusStageTitle" class="text-base font-bold font-cairo text-white">تطور ملامح وأعضاء الجنين</h4>
+              <p id="fetusStageDesc" class="text-slate-300 text-xs leading-relaxed">
+                في هذه المرحلة تتشكل جميع أعضاء طفلك الرئيسية، ويبدأ قلبه الصغير بالنبض وتتشكل أطرافه.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- أداة 2: متتبع تعافي القيصرية -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 flex items-center justify-center border border-pink-200 dark:border-pink-900/50">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-pink-600 dark:text-pink-400">القسم التفاعلي 2</span>
+            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">متتبع مراحل التعافي اليومي من القيصرية</h3>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end mb-6">
+          <div>
+            <label class="block text-xs sm:text-sm font-bold mb-2 text-slate-700 dark:text-slate-200">تاريخ إجراء العملية القيصرية:</label>
+            <input type="date" id="surgeryInput" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-pink-500 outline-none" />
+          </div>
+          <button onclick="calculateCSection()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+            <i data-lucide="activity" class="w-4 h-4"></i>
+            <span>متابعة حالة وخطة التعافي اليومية</span>
+          </button>
+        </div>
+        <div id="csectionResult" class="hidden pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="p-4 bg-pink-50 dark:bg-pink-950/40 rounded-2xl border border-pink-200 dark:border-pink-900">
+            <div class="flex items-center justify-between mb-2">
+              <span id="csDaysElapsed" class="text-xs font-bold text-pink-800 dark:text-pink-300 bg-pink-100 dark:bg-pink-900/60 px-3 py-1 rounded-full">اليوم --</span>
+              <span id="csPhaseTitle" class="text-xs font-bold text-slate-600 dark:text-slate-300">--</span>
+            </div>
+            <p id="csPhaseMsg" class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">--</p>
+          </div>
+        </div>
+      </div>
+      <!-- أداة 3: حاسبة نمو الرضيع (WHO) -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center border border-teal-200 dark:border-teal-900/50">
+            <i data-lucide="baby" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-teal-600 dark:text-teal-400">القسم التفاعلي 3</span>
+            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">حاسبة نمو ووزن وطول الرضيع (WHO)</h3>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          <div>
+            <label class="block text-xs font-bold mb-1.5 text-slate-700 dark:text-slate-200">عمر الطفل بالشهور (0-24):</label>
+            <input type="number" id="babyAgeInput" value="3" min="0" max="24" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold mb-1.5 text-slate-700 dark:text-slate-200">الوزن الحالي (كجم):</label>
+            <input type="number" step="0.1" id="babyWeightInput" value="6.0" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold mb-1.5 text-slate-700 dark:text-slate-200">الطول الحالي (سم):</label>
+            <input type="number" step="0.5" id="babyLengthInput" value="61" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm" />
+          </div>
+        </div>
+        <button onclick="calculateBabyGrowth()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+          <i data-lucide="trending-up" class="w-4 h-4"></i>
+          <span>تقييم قياسات الطفل ومقارنتها بمنحنيات النمو</span>
+        </button>
+        <div id="growthResult" class="hidden pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
+          <div class="p-4 bg-teal-50 dark:bg-teal-950/40 rounded-2xl border border-teal-200 dark:border-teal-900">
+            <span class="text-xs font-bold text-teal-800 dark:text-teal-300 block mb-1">📊 نتيجة التقييم:</span>
+            <p id="growthStatusText" class="text-xs sm:text-sm font-semibold text-teal-950 dark:text-teal-100">--</p>
+          </div>
+        </div>
+      </div>
+      <!-- أداة 4: عداد ومؤقت ركلات الجنين -->
+      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
+        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
+          <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-200 dark:border-purple-900/50">
+            <i data-lucide="activity" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-xs font-bold text-purple-600 dark:text-purple-400">القسم التفاعلي 4</span>
+            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">عداد ومؤقت ركلات الجنين (10 Kicks Count)</h3>
+          </div>
+        </div>
+        <div class="text-center max-w-md mx-auto space-y-4">
+          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">الهدف الطبي: حساب 10 حركات خلال ساعتين</div>
+          
+          <div class="flex items-center justify-center gap-6">
+            <div class="text-4xl sm:text-5xl font-black font-cairo text-purple-600 dark:text-purple-400" id="kickDisplay">0 / 10</div>
+            <div class="text-lg font-mono font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300" id="timerDisplay">00:00</div>
+          </div>
+          <div class="flex items-center justify-center gap-3 pt-2">
+            <button onclick="addKick()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
+              <i data-lucide="plus-circle" class="w-5 h-5"></i>
+              <span>تسجيل ركلة الآن</span>
+            </button>
+            <button onclick="resetKicks()" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-xl transition">
+              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================================= -->
+  <!-- 5. مراحل الحمل الثلاثة (PREGNANCY STAGES) -->
+  <!-- ========================================================================= -->
+  <section id="pregnancy" class="py-16 sm:py-24 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-3 py-1 rounded-full border border-rose-200 dark:border-rose-900">رحلة الـ 40 أسبوعاً</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">مراحل الحمل الثلاثة وتطور الجنين</h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">استكشفي تفاصيل كل ثلث من الحمل مع التغيرات الجسدية والنصائح الطبية لكل مرحلة.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- الثلث الأول -->
+        <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80" alt="الثلث الأول" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+            <span class="absolute top-3 right-3 text-xs font-bold bg-rose-600 text-white px-3 py-1 rounded-full shadow-md">الأسابيع 1 - 12</span>
+          </div>
+          <div class="p-6 space-y-3 flex-1 flex flex-col justify-between text-right">
+            <div>
+              <h3 class="text-xl font-black font-cairo text-slate-900 dark:text-white">الثلث الأول: تكوّن الأعضاء</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
+                تشكل الجهاز العصبي والقلب وبراعم الأطراف. تتطلب هذه المرحلة الالتزام بحمض الفوليك (400 ميكروغرام) والراحة الكافية وتجنب الأدوية دون استشارة.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-xs font-bold text-rose-600 dark:text-rose-400">
+              🔬 الفحص الأساسي: السونار المبكر وسماع نبض الجنين
+            </div>
+          </div>
+        </div>
+        <!-- الثلث الثاني -->
+        <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80" alt="الثلث الثاني" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+            <span class="absolute top-3 right-3 text-xs font-bold bg-teal-600 text-white px-3 py-1 rounded-full shadow-md">الأسابيع 13 - 26</span>
+          </div>
+          <div class="p-6 space-y-3 flex-1 flex flex-col justify-between text-right">
+            <div>
+              <h3 class="text-xl font-black font-cairo text-slate-900 dark:text-white">الثلث الثاني: النمو والنشاط</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
+                فترة الحيوية وتلاشي الغثيان وبدء الشعور بركلات الجنين الواضحة. يتم إجراء سونار تفاصيل التشريح وفحص سكر الحمل التراكمي.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-xs font-bold text-teal-600 dark:text-teal-400">
+              🔬 الفحص الأساسي: سونار التفاصيل (Anomaly Scan)
+            </div>
+          </div>
+        </div>
+        <!-- الثلث الثالث -->
+        <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm flex flex-col">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&auto=format&fit=crop&q=80" alt="الثلث الثالث" class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+            <span class="absolute top-3 right-3 text-xs font-bold bg-indigo-600 text-white px-3 py-1 rounded-full shadow-md">الأسابيع 27 - 40</span>
+          </div>
+          <div class="p-6 space-y-3 flex-1 flex flex-col justify-between text-right">
+            <div>
+              <h3 class="text-xl font-black font-cairo text-slate-900 dark:text-white">الثلث الثالث: اكتمال الرئتين والولادة</h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
+                زيادة وزن الجنين ونزول الرأس للحوض. مراقبة حركة الجنين اليومية والتحضير للولادة وتجهيز حقيبة المستشفى والتعرف على علامات الطلق.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+              🔬 الفحص الأساسي: تخطيط نبض الجنين ووضع المشيمة
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================================= -->
+  <!-- 6. قسم التعافي من الولادة القيصرية (C-SECTION) -->
+  <!-- ========================================================================= -->
+  <section id="c-section" class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-xs font-bold text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-950/60 px-3 py-1 rounded-full border border-pink-200 dark:border-pink-900">بروتوكول الشفاء السريري</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">دليل التعافي الشامل من الولادة القيصرية</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-pink-50 dark:bg-pink-950 text-pink-600 flex items-center justify-center font-bold font-cairo">01</div>
+          <h3 class="text-lg font-black font-cairo text-slate-900 dark:text-white">العناية بالجرح والضمادة</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            الحفاظ على الجرح نظيفاً وجافاً. الاستحمام بالماء الجاري دون فرك، والتجفيف بالطبطبة الخفيفة بقطعة قماش قطنية معقمة وتهوية الجرح.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950 text-teal-600 flex items-center justify-center font-bold font-cairo">02</div>
+          <h3 class="text-lg font-black font-cairo text-slate-900 dark:text-white">الحركة التدريجية وطرد الغازات</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            المشي الخفيف في الغرفة بعد 12-24 ساعة يساعد في تنشيط الدورة الدموية ومنع التجلطات، مع تناول السوائل الدافئة كالينسون والنعناع.
+          </p>
+        </div>
+        <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 flex items-center justify-center font-bold font-cairo">03</div>
+          <h3 class="text-lg font-black font-cairo text-slate-900 dark:text-white">حماية الجرح وإدارة الألم</h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            استخدام وسادة صغيرة لإسناد منطقة البطن عند السعال أو الضحك أو النهوض، والالتزام بجرعات المسكنات الموصوفة من الطبيب في مواعيدها.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================================= -->
+  <!-- 7. دليل رعاية وتغذية الرضيع (NEWBORN CARE) -->
+  <!-- ========================================================================= -->
+  <section id="newborn" class="py-16 sm:py-24 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-900">الأيام والشهور الأولى</span>
+        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">دليل رعاية وتغذية الرضيع</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div class="rounded-3xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-800 h-80">
+          <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=800&auto=format&fit=crop&q=80" alt="رعاية الطفل الرضيع" class="w-full h-full object-cover" />
+        </div>
+        <div class="space-y-4 text-right">
+          <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <h4 class="text-base font-bold font-cairo text-teal-600 dark:text-teal-400 mb-1">🍼 الرضاعة الطبيعية المطلقة:</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              تقديم الثدي كل 2 إلى 3 ساعات أو عند الطلب، ومتابعة بلل 6 حفاضات يومياً للتأكد من كفاية الحليب والشبع التام.
+            </p>
+          </div>
+          <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <h4 class="text-base font-bold font-cairo text-teal-600 dark:text-teal-400 mb-1">😴 النوم الآمن للرضيع:</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              نوم الرضيع دائماً على الظهر على سطح مستوٍ صلب وخالٍ من الوسائد أو الألعاب اللينة لتقليل خطر متلازمة موت الرضع المفاجئ (SIDS).
+            </p>
+          </div>
+          <div class="p-4 bg-slate-50 dark:bg-slate-950 rounded-2xl border border-slate-200 dark:border-slate-800">
+            <h4 class="text-base font-bold font-cairo text-teal-600 dark:text-teal-400 mb-1">🩹 العناية بالحبل السري:</h4>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              الحفاظ على بقايا الحبل السري جافة ونظيفة وتركها تسقط تلقائياً خلال 1-3 أسابيع دون شدها.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================================= -->
+  <!-- 8. الأسئلة الشائعة وخرافات طبية (FAQ & MYTHS) -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      
+      <div class="text-center space-y-3">
+        <span class="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-3 py-1 rounded-full border border-rose-200 dark:border-rose-900">حقائق وتصحيح مفاهيم</span>
+        <h2 class="text-3xl font-black font-cairo text-slate-900 dark:text-white">الأسئلة الشائعة وخرافات شائعة</h2>
+      </div>
+      <div class="space-y-4">
+        
+        <details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer group">
+          <summary class="font-bold font-cairo text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between">
+            <span>هل يجب على الحامل "أن تأكل لشخصين"؟</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-3">
+            <strong>حقيقة طبية:</strong> خرافة شائعة؛ الحامل تحتاج فقط إلى زيادة نوعية في الغذاء الغني بالبروتين والحديد والكالسيوم، مع زيادة تقارب 300 سعرة حرارية يومياً فقط في الثلثين الثاني والثالث.
+          </p>
+        </details>
+        <details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer group">
+          <summary class="font-bold font-cairo text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between">
+            <span>متى يمكن الاستحمام وممارسة الرياضة بعد القيصرية؟</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-3">
+            <strong>حقيقة طبية:</strong> يمكن الاستحمام السريع بعد 48 ساعة مع تجفيف الجرح بالطبطبة. أما الرياضة الشاقة وحمل الأثقال فيجب الانتظار حتى فحص الأسبوع السادس واستشارة الطبيب.
+          </p>
+        </details>
+        <details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer group">
+          <summary class="font-bold font-cairo text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between">
+            <span>هل شرب الماء بعد الولادة القيصرية يسبب "كرش" أو انتفاخ البطن؟</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed border-t border-slate-100 dark:border-slate-800 pt-3">
+            <strong>حقيقة طبية:</strong> خرافة خاطئة تماماً! شرب 2.5 - 3 لترات من الماء يومياً ضروري جداً لمنع الإمساك، تحفيز إدرار حليب الثدي، وتخليص الجسم من السوائل المحتبسة.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================================= -->
+  <!-- نافذة دليل علامات الخطر الطبية (MODAL) -->
+  <!-- ========================================================================= -->
+  <div id="redFlagsModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-slate-900 max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+        <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold font-cairo text-lg">
+          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          <span>علامات الخطر التي تستدعي الطوارئ</span>
+        </div>
+        <button onclick="toggleModal('redFlagsModal')" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+      <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed text-right">
+        <li class="flex items-start gap-2">
+          <span class="text-rose-600 font-bold">🔴</span>
+          <span>نزيف مهبلي مفاجئ أو تدفق إفرازات مائية قبل موعد الولادة.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-rose-600 font-bold">🔴</span>
+          <span>صداع شديد لا يزول بالمسكنات ومصحوب باضطراب في الرؤية أو ألم في فم المعدة.</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-rose-600 font-bold">🔴</span>
+          <span>قلة ملحوظة أو انعدام في حركة الجنين بعد الأسبوع 28 (أقل من 10 حركات في ساعتين).</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-rose-600 font-bold">🔴</span>
+          <span>ارتفاع درجة الحرارة فوق 38°C أو احمرار شديد وإفرازات ذات رائحة من جرح القيصرية.</span>
+        </li>
+      </ul>
+      <button onclick="toggleModal('redFlagsModal')" class="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold py-3 rounded-xl transition">
+        فهمت، إغلاق الدليل
+      </button>
+    </div>
+  </div>
+  <!-- تذييل الصفحة (FOOTER) -->
+  <footer class="py-12 bg-slate-900 text-slate-400 text-center text-xs border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 space-y-3">
+      <div class="flex items-center justify-center gap-2 text-white font-bold font-cairo text-base">
+        <i data-lucide="heart" class="w-4 h-4 text-rose-500"></i>
+        <span>Mother's Care - منصة رعاية الأمومة والطفولة</span>
+      </div>
+      <p class="max-w-xl mx-auto text-slate-500 leading-relaxed">
+        المعلومات الواردة بالمنصة للأغراض التثقيفية والإرشادية فقط ومبنية على التوصيات الطبية الرسمية، ولا تغني بأي حال عن الاستشارة والمتابعة الطبية المباشرة مع طبيبكِ المختص.
+      </p>
+      <div class="text-slate-600 pt-2">جميع الحقوق محفوظة © 2026 Mother's Care</div>
+    </div>
+  </footer>
+  <!-- ========================================================================= -->
+  <!-- البرمجة التشغيلية للحاسبات والوضع الليلي (JAVASCRIPT) -->
+  <!-- ========================================================================= -->
+  <script>
+    lucide.createIcons();
+    function toggleDarkMode() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      updateThemeIcon(isDark);
+    }
+    function updateThemeIcon(isDark) {
+      const icon = document.getElementById('themeIcon');
+      if (icon) {
+        icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+        lucide.createIcons();
+      }
+    }
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      updateThemeIcon(true);
+    }
+    function toggleModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.toggle('hidden');
+    }
+    function calculateDueDate() {
+      const lmpVal = document.getElementById('lmpInput').value;
+      if (!lmpVal) return;
+      const lmp = new Date(lmpVal);
+      const due = new Date(lmp.getTime() + 280 * 24 * 60 * 60 * 1000);
+      const now = new Date();
+      const diffDays = Math.max(0, Math.floor((now.getTime() - lmp.getTime()) / (1000 * 60 * 60 * 24)));
+      const weeks = Math.floor(diffDays / 7);
+      const days = diffDays % 7;
+      const remaining = Math.max(0, Math.floor((due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)));
+      let trimesterName = 'الثلث الأول (تكوّن الأعضاء)';
+      let fruit = 'حبة أرز أو تفاحة صغيرة';
+      let img = 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80';
+      let desc = 'في هذه المرحلة تتشكل جميع أعضاء طفلك الرئيسية، ويبدأ قلبه الصغير بالنبض وتتشكل أطرافه.';
+      if (weeks >= 13 && weeks < 27) {
+        trimesterName = 'الثلث الثاني (النمو السريع والحيوية)';
+        fruit = 'ثمرة مانجو / باذنجانة';
+        img = 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80';
+        desc = 'يستطيع طفلك الآن مص إصبعه والسمع وتنمية عضلاته، وتكون حركته وركلاته واضحة ومبهجة.';
+      } else if (weeks >= 27) {
+        trimesterName = 'الثلث الثالث (اكتمال الرئتين والتحضير للولادة)';
+        fruit = 'أناناس / بطيخة صغيرة';
+        img = 'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&auto=format&fit=crop&q=80';
+        desc = 'طفلك الآن بكامل حيويته ونموه ويكتسب طبقات الدهون ليصبح جاهزاً للولادة ورؤيتك قريباً.';
+      }
+      document.getElementById('resDueDate').innerText = due.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('resRemainingDays').innerText = `متبقي تقريباً ${remaining} يوماً`;
+      document.getElementById('resWeeksDays').innerText = `${weeks} أسبوع و ${days} يوم`;
+      document.getElementById('resTrimesterName').innerText = trimesterName;
+      document.getElementById('resFruitSize').innerText = fruit;
+      
+      document.getElementById('fetusStageImg').src = img;
+      document.getElementById('fetusStageTitle').innerText = trimesterName;
+      document.getElementById('fetusStageDesc').innerText = desc;
+      document.getElementById('dueDateResult').classList.remove('hidden');
+      confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+    }
+    function calculateCSection() {
+      const surgeryVal = document.getElementById('surgeryInput').value;
+      if (!surgeryVal) return;
+      const op = new Date(surgeryVal);
+      const now = new Date();
+      const days = Math.max(0, Math.floor((now.getTime() - op.getTime()) / (1000 * 60 * 60 * 24)));
+      let title = 'الأيام الأولى في المستشفى';
+      let msg = 'المشي التدريجي الخفيف، وتناول السوائل الدافئة لطرد الغازات، وحماية الجرح بوسادة عند السعال.';
+      if (days >= 4 && days <= 14) {
+        title = 'التعافي المنزلي الأولي (الأسبوع 1 - 2)';
+        msg = 'تجفيف الجرح بعد الاستحمام بلطف، تجنب رفع أوزان ثقيلة، وشرب كميات وفيرة من الماء والألياف.';
+      } else if (days > 14 && days <= 42) {
+        title = 'استعادة القوة وقاع الحوض (الأسابيع 3 - 6)';
+        msg = 'التئام الأنسجة الداخلية، المشي اليومي 20 دقيقة، وتمارين التنفس البطني وكيجل بلطف.';
+      } else if (days > 42) {
+        title = 'مرحلة الشفاء المتين (الأسبوع 6+)';
+        msg = 'التئام تام للجرح، بدء مساج الندبة بجل السيليكون، والعودة للأنشطة والرياضة بعد إذن الطبيب.';
+      }
+      document.getElementById('csDaysElapsed').innerText = `اليوم ${days} بعد العملية`;
+      document.getElementById('csPhaseTitle').innerText = title;
+      document.getElementById('csPhaseMsg').innerText = msg;
+      document.getElementById('csectionResult').classList.remove('hidden');
+    }
+    function calculateBabyGrowth() {
+      const age = parseInt(document.getElementById('babyAgeInput').value) || 0;
+      const weight = parseFloat(document.getElementById('babyWeightInput').value) || 0;
+      
+      const minW = (3.0 + age * 0.7).toFixed(1);
+      const maxW = (4.5 + age * 0.85).toFixed(1);
+      let text = `الوزن الطبيعي الموصى به لعمر ${age} شهر يتراوح بين ${minW} إلى ${maxW} كجم. قياس طفلك (${weight} كجم) يقع ضمن المنحنى الصحي الطبيعي المعتمد من منظمة الصحة العالمية.`;
+      document.getElementById('growthStatusText').innerText = text;
+      document.getElementById('growthResult').classList.remove('hidden');
+    }
+    let kicks = 0;
+    let timerSecs = 0;
+    let timerInterval = null;
+    function addKick() {
+      if (!timerInterval) {
+        timerInterval = setInterval(() => {
+          timerSecs++;
+          const m = Math.floor(timerSecs / 60).toString().padStart(2, '0');
+          const s = (timerSecs % 60).toString().padStart(2, '0');
+          document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+        }, 1000);
+      }
+      kicks++;
+      document.getElementById('kickDisplay').innerText = `${kicks} / 10`;
+      if (kicks >= 10) {
+        clearInterval(timerInterval);
+        confetti({ particleCount: 70, spread: 70, origin: { y: 0.6 } });
+        alert('تهانينا! تم تسجيل 10 حركات بنجاح واكتمال النشاط الطبي للجنين.');
+      }
+    }
+    function resetKicks() {
+      kicks = 0;
+      timerSecs = 0;
+      clearInterval(timerInterval);
+      timerInterval = null;
+      document.getElementById('kickDisplay').innerText = '0 / 10';
+      document.getElementById('timerDisplay').innerText = '00:00';
+    }
+  </script>
 </body>
 </html>
