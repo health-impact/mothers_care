@@ -1,804 +1,600 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mother's Care | صحة الأم والطفل والعمليات القيصرية</title>
-  <meta name="description" content="منصة طبية موثوقة وشاملة لصحة الأم والطفل والرعاية الشاملة ومراحل الحمل والولادة القيصرية والحاسبات التفاعلية." />
-  
-  <!-- الخطوط العربية المعتمدة -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- مكتبة Tailwind CSS للتنسيق الفوري -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            tajawal: ['Tajawal', 'sans-serif'],
-            cairo: ['Cairo', 'sans-serif'],
-          },
-          colors: {
-            rose: {
-              50: '#fff1f2',
-              100: '#ffe4e6',
-              200: '#fecdd3',
-              500: '#f43f5e',
-              600: '#e11d48',
-              700: '#be123c',
-              800: '#9f1239',
-              900: '#881337',
-              950: '#4c0519',
-            }
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رعاية الأم والطفل | Mother's Care</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Arabic Font (Tajawal) -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Tajawal', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                        url('https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
         }
-      }
-    }
-  </script>
-  
-  <!-- مكتبات الأيقونات والاحتفال (Lucide & Confetti) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
-  <style>
-    body {
-      font-family: 'Tajawal', sans-serif;
-      scroll-behavior: smooth;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Cairo', sans-serif;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #cbd5e1;
-      border-radius: 9999px;
-    }
-    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: #334155;
-    }
-  </style>
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200 antialiased selection:bg-rose-100 selection:text-rose-900">
+<body class="bg-slate-50 text-slate-800">
 
-  <!-- ========================================================================= -->
-  <!-- 1. شريط الإشعارات العلوي وعلامات الخطر الطارئة -->
-  <!-- ========================================================================= -->
-  <div class="bg-gradient-to-r from-rose-600 to-rose-700 text-white text-xs sm:text-sm py-2.5 px-4 shadow-sm relative z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      <div class="flex items-center gap-2 truncate">
-        <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
-        <span class="font-bold">🚨 تنبيه الطوارئ الطبية:</span>
-        <span class="hidden md:inline text-rose-100">إذا شعرتِ بنزيف حاد، صداع شديد مفاجئ مصحوب بزغللة، أو حمى تتجاوز 38°C؛ تواصلي فوراً مع الطبيب.</span>
-      </div>
-      <button onclick="toggleModal('redFlagsModal')" class="bg-white/20 hover:bg-white/30 text-white px-3.5 py-1 rounded-full text-xs font-bold transition flex items-center gap-1.5 shrink-0 shadow-xs">
-        <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
-        <span>دليل علامات الخطر</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- ========================================================================= -->
-  <!-- 2. شريط التنقل الرئيسي (NAVBAR) -->
-  <!-- ========================================================================= -->
-  <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 sm:h-20">
-        
-        <!-- شعار الموقع -->
-        <a href="#hero" class="flex items-center gap-3">
-          <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-rose-700 text-white flex items-center justify-center shadow-md">
-            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <div class="text-lg sm:text-xl font-black font-cairo text-slate-900 dark:text-white">Mother's Care</div>
-            <div class="text-[10px] sm:text-xs text-rose-600 dark:text-rose-400 font-bold">صحة الأم والطفل والقيصرية</div>
-          </div>
-        </a>
-
-        <!-- روابط التنقل السريع -->
-        <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-600 dark:text-slate-300">
-          <a href="#hero" class="hover:text-rose-600 dark:hover:text-rose-400 transition">الرئيسية</a>
-          <a href="#interactive-tools" class="text-rose-600 dark:text-rose-400 font-extrabold flex items-center gap-1 bg-rose-50 dark:bg-rose-950/60 px-3 py-1.5 rounded-xl border border-rose-200 dark:border-rose-900/50">
-            <i data-lucide="calculator" class="w-4 h-4"></i>
-            <span>الأدوات التفاعلية</span>
-          </a>
-          <a href="#pregnancy" class="hover:text-rose-600 dark:hover:text-rose-400 transition">مراحل الحمل</a>
-          <a href="#c-section" class="hover:text-rose-600 dark:hover:text-rose-400 transition">تعافي القيصرية</a>
-          <a href="#newborn" class="hover:text-rose-600 dark:hover:text-rose-400 transition">رعاية الرضيع</a>
-          <a href="#faq" class="hover:text-rose-600 dark:hover:text-rose-400 transition">الأسئلة الشائعة</a>
-        </nav>
-
-        <!-- أزرار الإجراءات -->
-        <div class="flex items-center gap-2 sm:gap-3">
-          <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition" title="تبديل الوضع الليلي">
-            <i data-lucide="moon" id="themeIcon" class="w-5 h-5"></i>
-          </button>
-          
-          <button onclick="toggleModal('redFlagsModal')" class="bg-rose-600 hover:bg-rose-700 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition flex items-center gap-1.5">
-            <i data-lucide="shield-alert" class="w-4 h-4"></i>
-            <span>طوارئ الأمومة</span>
-          </button>
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-sm border-b border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-rose-600 flex items-center gap-2">
+                <i class="fa-solid fa-heart-pulse"></i> صحة الأم والطفل
+            </a>
+            <nav class="hidden md:flex gap-6 font-medium text-slate-600">
+                <a href="#hero" class="hover:text-rose-600 transition">الرئيسية</a>
+                <a href="#vision" class="hover:text-rose-600 transition">رؤيتنا</a>
+                <a href="#services" class="hover:text-rose-600 transition">ما نقدمه</a>
+                <a href="#sections" class="hover:text-rose-600 transition">الأقسام</a>
+                <a href="#calculators" class="hover:text-rose-600 transition">الحاسبات الذكية</a>
+                <a href="#pregnancy-stages" class="hover:text-rose-600 transition">مراحل الحمل</a>
+                <a href="#faq" class="hover:text-rose-600 transition">الأسئلة الشائعة</a>
+            </nav>
+            <a href="#calculators" class="bg-rose-600 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-rose-700 transition">
+                الحاسبات التفاعلية
+            </a>
         </div>
+    </header>
 
-      </div>
-    </div>
-  </header>
-
-  <!-- ========================================================================= -->
-  <!-- 3. البانر الترحيبي (HERO SECTION) -->
-  <!-- ========================================================================= -->
-  <section id="hero" class="relative py-16 sm:py-24 bg-gradient-to-b from-rose-50/50 to-white dark:from-slate-900/60 dark:to-slate-950 border-b border-slate-200/80 dark:border-slate-800 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
-      
-      <div class="inline-flex items-center gap-2 bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-rose-200 dark:border-rose-900">
-        <i data-lucide="sparkles" class="w-4 h-4 text-rose-600"></i>
-        <span>المرجع الطبي المعتمد لرحلة أمومة آمنة ومستقرة</span>
-      </div>
-
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-cairo text-slate-900 dark:text-white leading-tight max-w-4xl mx-auto">
-        دليلكِ الطبي المتكامل لصحتكِ وصحة طفلكِ <span class="text-rose-600 dark:text-rose-400">خطوة بخطوة</span>
-      </h1>
-
-      <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-        منصة علمية وتفاعلية شاملة تشمل حاسبات الحمل المتطورة، بروتوكولات التعافي من الولادة القيصرية، متابعة نمو الرضيع، وجداول التطعيمات المعتمدة.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-3 sm:gap-4 pt-4">
-        <a href="#interactive-tools" class="bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 rounded-2xl shadow-lg hover:shadow-rose-600/30 transition flex items-center gap-2">
-          <i data-lucide="calculator" class="w-5 h-5"></i>
-          <span>استكشاف الحاسبات والأدوات التفاعلية</span>
-        </a>
-        <a href="#pregnancy" class="bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 rounded-2xl transition flex items-center gap-2">
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          <span>مراحل الحمل والتطور</span>
-        </a>
-      </div>
-
-      <!-- بطاقات الإحصائيات -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10">
-        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div class="text-2xl sm:text-3xl font-black font-cairo text-rose-600 dark:text-rose-400">7+</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">أدوات وحاسبات تفاعلية</div>
-        </div>
-        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div class="text-2xl sm:text-3xl font-black font-cairo text-teal-600 dark:text-teal-400">40</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">أسبوعاً لمتابعة الجنين</div>
-        </div>
-        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div class="text-2xl sm:text-3xl font-black font-cairo text-indigo-600 dark:text-indigo-400">100%</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">إرشادات طبية معتمدة</div>
-        </div>
-        <div class="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xs">
-          <div class="text-2xl sm:text-3xl font-black font-cairo text-amber-600 dark:text-amber-400">24/7</div>
-          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold mt-1">دليل الطوارئ والأمان</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 4. الأقسام التفاعلية والأدوات الذكية (INTERACTIVE TOOLS SECTIONS) -->
-  <!-- ========================================================================= -->
-  <section id="interactive-tools" class="py-16 sm:py-24 bg-slate-100/70 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      
-      <!-- رأس القسم -->
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <div class="inline-flex items-center gap-2 bg-rose-50 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 px-4 py-1.5 rounded-full text-xs font-bold border border-rose-200 dark:border-rose-900/50">
-          <i data-lucide="layers" class="w-4 h-4"></i>
-          <span>حاسبات وأقسام تفاعلية شاملة</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">
-          الأدوات الإضافية التفاعلية المقسمة تخصصياً
-        </h2>
-        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">
-          استخدمي هذه الحاسبات الطبية لمعرفة موعد ولادتك، خطة تعافي القيصرية، قياسات نمو رضيعك، ومتابعة نشاطه بدقة.
-        </p>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- أداة 1: حاسبة موعد الولادة وعمر الحمل -->
-      <!-- ------------------------------------------------------------- -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
-        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
-          <div class="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center border border-rose-200 dark:border-rose-900/50">
-            <i data-lucide="calendar" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <span class="text-xs font-bold text-rose-600 dark:text-rose-400">القسم التفاعلي 1</span>
-            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">حاسبة موعد الولادة المتوقع وأسابيع الحمل</h3>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end mb-6">
-          <div>
-            <label class="block text-xs sm:text-sm font-bold mb-2 text-slate-700 dark:text-slate-200">تاريخ أول يوم من آخر دورة شهرية (LMP):</label>
-            <input type="date" id="lmpInput" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-rose-500 outline-none" />
-          </div>
-          <button onclick="calculateDueDate()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md flex items-center justify-center gap-2">
-            <i data-lucide="sparkles" class="w-4 h-4"></i>
-            <span>احسبي موعد الولادة وعمر الحمل</span>
-          </button>
-        </div>
-
-        <!-- نتيجة حاسبة الولادة -->
-        <div id="dueDateResult" class="hidden pt-6 border-t border-slate-200 dark:border-slate-800 space-y-6">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div class="bg-rose-50 dark:bg-rose-950/40 p-4 rounded-2xl border border-rose-200 dark:border-rose-900 text-center">
-              <span class="text-xs text-rose-800 dark:text-rose-300 font-bold block">📅 موعد الولادة المتوقع:</span>
-              <span id="resDueDate" class="text-lg font-black font-cairo text-rose-950 dark:text-rose-100 block mt-1">--</span>
-              <span id="resRemainingDays" class="text-xs text-rose-700 dark:text-rose-300 mt-1 block">--</span>
-            </div>
-            <div class="bg-teal-50 dark:bg-teal-950/40 p-4 rounded-2xl border border-teal-200 dark:border-teal-900 text-center">
-              <span class="text-xs text-teal-800 dark:text-teal-300 font-bold block">⏳ عمر الحمل الحالي:</span>
-              <span id="resWeeksDays" class="text-lg font-black font-cairo text-teal-950 dark:text-teal-100 block mt-1">--</span>
-              <span id="resTrimesterName" class="text-xs text-teal-700 dark:text-teal-300 mt-1 block">--</span>
-            </div>
-            <div class="bg-amber-50 dark:bg-amber-950/40 p-4 rounded-2xl border border-amber-200 dark:border-amber-900 text-center">
-              <span class="text-xs text-amber-800 dark:text-amber-300 font-bold block">🌱 حجم الجنين التقديري:</span>
-              <span id="resFruitSize" class="text-lg font-black font-cairo text-amber-950 dark:text-amber-100 block mt-1">--</span>
-              <span class="text-xs text-amber-700 dark:text-amber-300 mt-1 block">تطور مستمر</span>
-            </div>
-          </div>
-
-          <!-- صورة السونار التفاعلية للجنين -->
-          <div class="bg-slate-900 text-white p-5 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center gap-5">
-            <div class="w-full sm:w-44 h-36 rounded-xl overflow-hidden shrink-0 border border-slate-700">
-              <img id="fetusStageImg" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80" alt="شكل الجنين" class="w-full h-full object-cover" />
-            </div>
-            <div class="space-y-1.5 text-right flex-1">
-              <div class="inline-block bg-rose-500/20 text-rose-300 text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-rose-500/30">
-                🔬 التطور الحيوي للجنين
-              </div>
-              <h4 id="fetusStageTitle" class="text-base font-bold font-cairo text-white">تطور ملامح وأعضاء الجنين</h4>
-              <p id="fetusStageDesc" class="text-slate-300 text-xs leading-relaxed">
-                في هذه المرحلة تتشكل جميع أعضاء طفلك الرئيسية، ويبدأ قلبه الصغير بالنبض وتتشكل أطرافه.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- أداة 2: متتبع تعافي القيصرية -->
-      <!-- ------------------------------------------------------------- -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
-        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
-          <div class="w-12 h-12 rounded-2xl bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-400 flex items-center justify-center border border-pink-200 dark:border-pink-900/50">
-            <i data-lucide="heart" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <span class="text-xs font-bold text-pink-600 dark:text-pink-400">القسم التفاعلي 2</span>
-            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">متتبع مراحل التعافي اليومي من القيصرية</h3>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end mb-6">
-          <div>
-            <label class="block text-xs sm:text-sm font-bold mb-2 text-slate-700 dark:text-slate-200">تاريخ إجراء العملية القيصرية:</label>
-            <input type="date" id="surgeryInput" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-pink-500 outline-none" />
-          </div>
-          <button onclick="calculateCSection()" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md flex items-center justify-center gap-2">
-            <i data-lucide="activity" class="w-4 h-4"></i>
-            <span>متابعة حالة وخطة التعافي اليومية</span>
-          </button>
-        </div>
-
-        <div id="csectionResult" class="hidden pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
-          <div class="p-5 bg-pink-50 dark:bg-pink-950/40 rounded-2xl border border-pink-200 dark:border-pink-900">
-            <div class="flex items-center justify-between mb-3">
-              <span id="csDaysElapsed" class="text-xs font-bold text-pink-800 dark:text-pink-300 bg-pink-100 dark:bg-pink-900/60 px-3 py-1 rounded-full">اليوم --</span>
-              <span id="csPhaseTitle" class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200">--</span>
-            </div>
-            <p id="csPhaseMsg" class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">--</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- أداة 3: حاسبة نمو الرضيع (WHO) -->
-      <!-- ------------------------------------------------------------- -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
-        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
-          <div class="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center border border-teal-200 dark:border-teal-900/50">
-            <i data-lucide="baby" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <span class="text-xs font-bold text-teal-600 dark:text-teal-400">القسم التفاعلي 3</span>
-            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">حاسبة نمو ووزن وطول الرضيع (WHO)</h3>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div>
-            <label class="block text-xs font-bold mb-1.5 text-slate-700 dark:text-slate-200">عمر الطفل بالشهور (0-24):</label>
-            <input type="number" id="babyAgeInput" value="3" min="0" max="24" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold mb-1.5 text-slate-700 dark:text-slate-200">الوزن الحالي (كجم):</label>
-            <input type="number" step="0.1" id="babyWeightInput" value="6.0" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold mb-1.5 text-slate-700 dark:text-slate-200">الطول الحالي (سم):</label>
-            <input type="number" step="0.5" id="babyLengthInput" value="61" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-sm" />
-          </div>
-        </div>
-
-        <button onclick="calculateBabyGrowth()" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-6 rounded-xl transition shadow-md flex items-center justify-center gap-2">
-          <i data-lucide="trending-up" class="w-4 h-4"></i>
-          <span>تقييم قياسات الطفل ومقارنتها بمنحنيات النمو العالمية</span>
-        </button>
-
-        <div id="growthResult" class="hidden pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
-          <div class="p-4 bg-teal-50 dark:bg-teal-950/40 rounded-2xl border border-teal-200 dark:border-teal-900">
-            <span class="text-xs font-bold text-teal-800 dark:text-teal-300 block mb-1">📊 نتيجة تقييم منظمة الصحة العالمية:</span>
-            <p id="growthStatusText" class="text-xs sm:text-sm font-semibold text-teal-950 dark:text-teal-100">--</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ------------------------------------------------------------- -->
-      <!-- أداة 4: عداد ومؤقت ركلات الجنين -->
-      <!-- ------------------------------------------------------------- -->
-      <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-sm">
-        <div class="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4 mb-6">
-          <div class="w-12 h-12 rounded-2xl bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center border border-purple-200 dark:border-purple-900/50">
-            <i data-lucide="activity" class="w-6 h-6"></i>
-          </div>
-          <div>
-            <span class="text-xs font-bold text-purple-600 dark:text-purple-400">القسم التفاعلي 4</span>
-            <h3 class="text-xl sm:text-2xl font-black font-cairo text-slate-900 dark:text-white">عداد ومؤقت ركلات ونشاط الجنين (10 Kicks Tracker)</h3>
-          </div>
-        </div>
-
-        <div class="text-center max-w-md mx-auto space-y-4">
-          <div class="text-xs text-slate-500 dark:text-slate-400 font-bold">الهدف الطبي: تسجيل 10 حركات للجنين خلال فترة ساعتين</div>
-          
-          <div class="flex items-center justify-center gap-6">
-            <div class="text-4xl sm:text-5xl font-black font-cairo text-purple-600 dark:text-purple-400" id="kickDisplay">0 / 10</div>
-            <div class="text-lg font-mono font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl text-slate-700 dark:text-slate-300" id="timerDisplay">00:00</div>
-          </div>
-
-          <div class="flex items-center justify-center gap-3 pt-2">
-            <button onclick="addKick()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-6 py-3 rounded-xl shadow-md transition flex items-center gap-2">
-              <i data-lucide="plus-circle" class="w-5 h-5"></i>
-              <span>تسجيل ركلة الآن</span>
-            </button>
-            <button onclick="resetKicks()" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-xl transition">
-              <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 5. مراحل الحمل الثلاثة وتطور الجنين (PREGNANCY STAGES) -->
-  <!-- ========================================================================= -->
-  <section id="pregnancy" class="py-16 sm:py-24 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-3 py-1 rounded-full border border-rose-200 dark:border-rose-900">رحلة الـ 40 أسبوعاً</span>
-        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">مراحل الحمل الثلاثة وتطور الجنين</h2>
-        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">تفضلي بمتابعة التغيرات الفسيولوجية لجسمك وتطور طفلك في كل مرحلة من مراحل الحمل.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- الثلث الأول -->
-        <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-md transition">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=600&auto=format&fit=crop&q=80" alt="الثلث الأول من الحمل" class="w-full h-full object-cover" />
-            <span class="absolute top-4 right-4 bg-rose-600 text-white text-xs font-bold px-3 py-1 rounded-full">الأسابيع 1 - 12</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-black font-cairo text-slate-900 dark:text-white">الثلث الأول: تكوّن الأعضاء</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              تشكل الجهاز العصبي والقلب وبراعم الأطراف. تتطلب هذه المرحلة الالتزام بتناول حمض الفوليك (400 ميكروغرام) وتجنب الأدوية دون استشارة طبية.
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg py-24 px-4 text-center border-b border-rose-100">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block bg-rose-100 text-rose-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                منصتكم الطبية التوعوية الشاملة
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+                صحة الأم والطفل أولويتنا الأولى
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
+                دليلكم العلمي المعتمد لمتابعة رحلة الحمل، التعافي بعد الولادة، ورعاية طفلك خطوة بخطوة بأعلى معايير الدقة والأمان.
             </p>
-            <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-500"></i> الغثيان الصباحي والإجهاد الطبيعي</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rose-500"></i> سماع نبض الجنين بالسونار الأول</li>
-            </ul>
-          </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#vision" class="bg-rose-600 text-white px-7 py-3 rounded-xl font-bold hover:bg-rose-700 transition shadow-lg shadow-rose-200">
+                    ابدأ الآن
+                </a>
+                <a href="#sections" class="bg-white text-rose-600 border border-rose-200 px-7 py-3 rounded-xl font-bold hover:bg-rose-50 transition">
+                    تصفح الأقسام
+                </a>
+                <a href="#calculators" class="bg-slate-800 text-white px-7 py-3 rounded-xl font-bold hover:bg-slate-900 transition">
+                    الحاسبات التفاعلية
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- الثلث الثاني -->
-        <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-md transition">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80" alt="الثلث الثاني من الحمل" class="w-full h-full object-cover" />
-            <span class="absolute top-4 right-4 bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full">الأسابيع 13 - 26</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-black font-cairo text-slate-900 dark:text-white">الثلث الثاني: النمو والنشاط</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              فترة استعادة الحيوية وتلاشي الغثيان وبدء الشعور بركلات الجنين الواضحة. يتم إجراء سونار تفاصيل التشريح وفحص سكر الحمل التراكمي.
+    <!-- Vision & Medical Mission Section -->
+    <section id="vision" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=800" 
+                     alt="أم وطفل ورعاية تمريضية" 
+                     class="rounded-3xl shadow-xl w-full h-[400px] object-cover">
+                <div class="absolute -bottom-6 -right-6 bg-rose-600 text-white p-4 rounded-2xl shadow-lg hidden sm:block">
+                    <p class="font-bold text-lg">100% إرشادات معتمدة</p>
+                    <p class="text-xs opacity-90">مصاغة وفق بروتوكولات الصحة العالمية</p>
+                </div>
+            </div>
+            <div>
+                <span class="text-rose-600 font-bold text-sm tracking-wider uppercase">رسالتنا ورؤيتنا الطبية</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-2 mb-4">
+                    رعاية فائقة وأمومة مطمئنة
+                </h2>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    إرشادات طبية معتمدة تم إعدادها وتدقيقها بالاستناد إلى نخبة من أطباء النساء والتوليد وطب الأطفال، لنضمن لكِ تجربة أمومة صحية، واعية، وآمنة في كل مرحلة.
+                </p>
+                
+                <!-- Medical References Box -->
+                <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
+                    <h4 class="font-bold text-slate-800 text-sm mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-book-medical text-rose-600"></i> المصادر والمراجع الطبية المستوحى منها:
+                    </h4>
+                    <ul class="text-xs text-slate-600 space-y-1 list-disc list-inside">
+                        <li>توصيات منظمة الصحة العالمية (WHO) لرعاية الأم والمولود.</li>
+                        <li>إرشادات الكلية الأمريكية لأطباء النساء والتوليد (ACOG).</li>
+                        <li>الأكاديمية الأمريكية لطب الأطفال (AAP).</li>
+                    </ul>
+                </div>
+
+                <a href="#emergency" class="inline-flex items-center gap-2 text-rose-600 font-bold hover:underline">
+                    تصفح إرشادات التعافي والأعراض الطارئة <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Offer Cards -->
+    <section id="services" class="py-16 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">ما نقدمه لكِ في المنصة</h2>
+                <p class="text-slate-600 mt-2">منظومة توعوية كاملة مصممة لتلبية احتياجاتك اليومية</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="font-bold text-lg mb-2">أدلة صحية شاملة</h3>
+                    <p class="text-sm text-slate-600">كتيبات تفصيلية تشمل كافة مراحل الحمل والولادة والتعافي.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3 class="font-bold text-lg mb-2">جداول متابعة</h3>
+                    <p class="text-sm text-slate-600">مخططات زمنية دقيقة لمتابعة تطعيمات الطفل ومواعيد الفحوصات.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3 class="font-bold text-lg mb-2">نصائح عملية يومية</h3>
+                    <p class="text-sm text-slate-600">إرشادات سريعة متجددة تتناول العناية اليومية والتغذية السليمة.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="font-bold text-lg mb-2">إحصائيات موثوقة</h3>
+                    <p class="text-sm text-slate-600">بيانات وأرقام قائمة على أبحاث علمية لزيادة الوعي الصحي.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-newspaper"></i></div>
+                    <h3 class="font-bold text-lg mb-2">مقالات متخصصة</h3>
+                    <p class="text-sm text-slate-600">مواضيع طبية معمقة صاغها أطباء ومختصون في صحة الطفل والمرأة.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center text-xl font-bold mb-4"><i class="fa-solid fa-rotate"></i></div>
+                    <h3 class="font-bold text-lg mb-2">معلومات محدثة</h3>
+                    <p class="text-sm text-slate-600">محتوى يراجع دورياً للتوافق مع أحدث التوصيات الطبية العالمية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Platform Sections -->
+    <section id="sections" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">أقسام المنصة الرئيسية</h2>
+                <p class="text-slate-600 mt-2">استكشفي المحتوى المصمم خصيصاً لكل مرحلة</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Section 1 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group">
+                    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=600" 
+                         alt="دكاترة شادين طفل حديث الولادة" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-2 text-slate-900">دليل الولادة القيصرية</h3>
+                        <p class="text-sm text-slate-600 mb-4">خطوات التحضير للعملية، خطوات التعافي، والعناية بجرح القيصرية بطرق آمنة.</p>
+                        <a href="#" class="text-rose-600 font-bold text-sm hover:underline">اقرأ المزيد ←</a>
+                    </div>
+                </div>
+
+                <!-- Section 2 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" 
+                         alt="إحصائيات وحقائق طبية" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-2 text-slate-900">إحصائيات وحقائق طبية</h3>
+                        <p class="text-sm text-slate-600 mb-4">بيانات تفاعلية توضح معدلات نمو الطفل، نسب التعافي، ومعلومات هامة بالأرقام.</p>
+                        <a href="#" class="text-rose-600 font-bold text-sm hover:underline">اقرأ المزيد ←</a>
+                    </div>
+                </div>
+
+                <!-- Section 3 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group">
+                    <img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&q=80&w=600" 
+                         alt="مولود جديد نايم في سريره" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-2 text-slate-900">رعاية وحماية الطفل</h3>
+                        <p class="text-sm text-slate-600 mb-4">روتين النوم الآمن، العناية بالسرة، التعامل مع المغص والطفح الجلدي.</p>
+                        <a href="#" class="text-rose-600 font-bold text-sm hover:underline">اقرأ المزيد ←</a>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group">
+                    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&q=80&w=600" 
+                         alt="أكل صحي على الطاولة للأم" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-2 text-slate-900">صحة وتغذية الأم</h3>
+                        <p class="text-sm text-slate-600 mb-4">أنظمة غذائية متوازنة لفترة الحمل والرضاعة الطبيعية لتعزيز طاقة الأم والمناعة.</p>
+                        <a href="#" class="text-rose-600 font-bold text-sm hover:underline">اقرأ المزيد ←</a>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div class="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 group">
+                    <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1cdb?auto=format&fit=crop&q=80&w=600" 
+                         alt="تطعيمات وحقن الأطفال" class="w-full h-48 object-cover group-hover:scale-105 transition duration-300">
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-2 text-slate-900">جدول التطعيمات الدوري</h3>
+                        <p class="text-sm text-slate-600 mb-4">مواعيد اللقاحات الموصى بها من الولادة وحتى عمر سنتين وملاحظات الآثار الجانبية.</p>
+                        <a href="#" class="text-rose-600 font-bold text-sm hover:underline">اقرأ المزيد ←</a>
+                    </div>
+                </div>
+
+                <!-- Section 6: Emergency Signs -->
+                <div id="emergency" class="bg-rose-50 border-2 border-rose-200 rounded-2xl overflow-hidden group">
+                    <div class="bg-rose-600 text-white p-3 font-bold text-center text-sm flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> هـــام للأمهات
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-xl mb-2 text-rose-900">دليل العلامات الطارئة (الخطر)</h3>
+                        <p class="text-sm text-rose-700 mb-4">الأعراض التي تستوجب التوجه الفوري للمستشفى أثناء الحمل أو للمولود الجديد.</p>
+                        <a href="#emergency-modal" class="inline-block bg-rose-600 text-white text-xs px-4 py-2 rounded-lg font-bold hover:bg-rose-700">عرض علامات الخطر</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrated Smart Calculators Section -->
+    <section id="calculators" class="py-16 px-4 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-rose-400 font-bold text-sm">أدوات تفاعلية دقيقة</span>
+                <h2 class="text-3xl font-extrabold mt-1">قسم الحاسبات الذكية المتكاملة</h2>
+                <p class="text-slate-400 mt-2 text-sm">احسبي مؤشراتك ومؤشرات طفلك بكل سهولة</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Calculator 1: Due Date -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> حاسبة موعد الولادة المتوقع
+                    </h3>
+                    <label class="block text-xs mb-2 text-slate-300">تاريخ أول يوم من آخر دورة شهرية:</label>
+                    <input type="date" id="lmp-date" class="w-full bg-slate-700 border border-slate-600 rounded-xl p-3 text-white text-sm mb-4 focus:outline-none focus:border-rose-500">
+                    <button onclick="calculateDueDate()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 rounded-xl text-sm transition">حساب الموعد</button>
+                    <div id="due-date-result" class="mt-4 p-3 bg-slate-700/50 rounded-xl text-xs text-rose-300 hidden"></div>
+                </div>
+
+                <!-- Calculator 2: C-Section Recovery Tracker -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-notes-medical"></i> متتبع مراحل تعافي القيصرية
+                    </h3>
+                    <label class="block text-xs mb-2 text-slate-300">حدد اليوم الحالي بعد الولادة:</label>
+                    <input type="number" id="csection-day" min="1" max="60" placeholder="مثال: 5" class="w-full bg-slate-700 border border-slate-600 rounded-xl p-3 text-white text-sm mb-4 focus:outline-none focus:border-rose-500">
+                    <button onclick="trackCSection()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 rounded-xl text-sm transition">عرض نصائح اليوم</button>
+                    <div id="csection-result" class="mt-4 p-3 bg-slate-700/50 rounded-xl text-xs text-slate-200 hidden leading-relaxed"></div>
+                </div>
+
+                <!-- Calculator 3: Baby Growth Calculator -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-child"></i> حاسبة نمو الوزن والطول للرضيع
+                    </h3>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <label class="block text-xs mb-1 text-slate-300">الوزن (كجم):</label>
+                            <input type="number" id="baby-weight" step="0.1" placeholder="3.5" class="w-full bg-slate-700 border border-slate-600 rounded-xl p-2.5 text-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs mb-1 text-slate-300">العمر (بالأشهر):</label>
+                            <input type="number" id="baby-age" placeholder="2" class="w-full bg-slate-700 border border-slate-600 rounded-xl p-2.5 text-white text-sm">
+                        </div>
+                    </div>
+                    <button onclick="checkBabyGrowth()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 rounded-xl text-sm transition">تقييم المؤشرات</button>
+                    <div id="baby-growth-result" class="mt-4 p-3 bg-slate-700/50 rounded-xl text-xs text-slate-200 hidden"></div>
+                </div>
+
+                <!-- Calculator 4: Milk Feeding Quantities -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-bottle-droplet"></i> حاسبة كميات وتكرار الرضاعة
+                    </h3>
+                    <label class="block text-xs mb-2 text-slate-300">وزن الرضيع الحالي (كجم):</label>
+                    <input type="number" id="feed-weight" step="0.1" placeholder="4.0" class="w-full bg-slate-700 border border-slate-600 rounded-xl p-3 text-white text-sm mb-4">
+                    <button onclick="calculateFeeding()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 rounded-xl text-sm transition">احتساب احتياج الحليب</button>
+                    <div id="feeding-result" class="mt-4 p-3 bg-slate-700/50 rounded-xl text-xs text-slate-200 hidden"></div>
+                </div>
+
+                <!-- Calculator 5: Kick Counter -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-stopwatch"></i> عداد مؤقت لركلات ونشاط الجنين
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-3">اضغطي على الزر مع كل حركة للوصول إلى 10 ركلات:</p>
+                    <div class="text-center py-2 bg-slate-900 rounded-xl mb-3">
+                        <span id="kick-count" class="text-3xl font-extrabold text-rose-500">0</span>
+                        <span class="text-xs text-slate-400 block">ركلات</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="addKick()" class="flex-1 bg-rose-600 hover:bg-rose-700 text-white font-bold py-2 rounded-xl text-xs">+ تسجيل ركلة</button>
+                        <button onclick="resetKicks()" class="bg-slate-700 hover:bg-slate-600 text-slate-300 px-3 py-2 rounded-xl text-xs">إعادة ضبط</button>
+                    </div>
+                </div>
+
+                <!-- Packing Checklist -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700">
+                    <h3 class="font-bold text-lg mb-4 text-rose-400 flex items-center gap-2">
+                        <i class="fa-solid fa-suitcase"></i> تجهيز حقيبة الولادة
+                    </h3>
+                    <div class="space-y-2 text-xs text-slate-300">
+                        <details class="bg-slate-700/60 p-2 rounded-lg">
+                            <summary class="font-bold cursor-pointer text-rose-300">حقيبة الأم (ملابس، فوائد، وثائق)</summary>
+                            <p class="mt-2 text-slate-400">قمصان نوم مريحة، فوائد صحية للولادة، أدوات العناية الشخصية، الهوية والملف الطبي.</p>
+                        </details>
+                        <details class="bg-slate-700/60 p-2 rounded-lg">
+                            <summary class="font-bold cursor-pointer text-rose-300">حقيبة الطفل (طقم الخروج، حفاضات)</summary>
+                            <p class="mt-2 text-slate-400">3 طقوم ملابس قطنية، حفاضات حديثي الولادة، بطانية ناعمة، قبعة وقفازات.</p>
+                        </details>
+                        <details class="bg-slate-700/60 p-2 rounded-lg">
+                            <summary class="font-bold cursor-pointer text-rose-300">حقيبة المرافق (شاحن، وجبات)</summary>
+                            <p class="mt-2 text-slate-400">شواحن الهواتف، وجبات خفيفة، وسادة مريحة، وملابس إضافية.</p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pregnancy Stages Section -->
+    <section id="pregnancy-stages" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">مراحل الحمل والتطور التوضيحي</h2>
+                <p class="text-slate-600 mt-2">تتبعي شكل نمو الجنين وتغيرات شكل بطن الأم عبر الأسابيع</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Stage 1 -->
+                <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full">الأسبوع 1 - 13</span>
+                    <h3 class="font-bold text-xl my-3 text-slate-800">الثلث الأول من الحمل</h3>
+                    <div class="space-y-3 mb-4">
+                        <img src="https://images.unsplash.com/photo-1537673156864-5d2c72de7824?auto=format&fit=crop&q=80&w=400" alt="صورة توضيحية لشكل الجنين والبطن" class="rounded-xl h-36 w-full object-cover">
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        يتشكل النبض والأعضاء الأساسية للجنين. يكون حجمه في البداية بحجم حبة الليمون، مع تغيرات بسيطة ظاهرة في شكل بطن الأم.
+                    </p>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full">الأسبوع 14 - 27</span>
+                    <h3 class="font-bold text-xl my-3 text-slate-800">الثلث الثاني (منتصف الحمل)</h3>
+                    <div class="space-y-3 mb-4">
+                        <img src="https://images.unsplash.com/photo-1518101645466-7795885ff8f5?auto=format&fit=crop&q=80&w=400" alt="شكل الجنين في منتصف الحمل" class="rounded-xl h-36 w-full object-cover">
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        يبدأ الجنين بالحركة بوضوح وترتسم ملامحه، وتستقر حركة النمو مع كبر حجم البطن بشكل متناسق وملاحظ.
+                    </p>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="border border-slate-200 rounded-2xl p-5 bg-slate-50">
+                    <span class="bg-rose-100 text-rose-700 text-xs font-bold px-3 py-1 rounded-full">الأسبوع 28 - 40</span>
+                    <h3 class="font-bold text-xl my-3 text-slate-800">الثلث الثالث (وضعية الولادة)</h3>
+                    <div class="space-y-3 mb-4">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&q=80&w=400" alt="شكل الجنين المكتمل في وضعية الولادة" class="rounded-xl h-36 w-full object-cover">
+                    </div>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        يكتمل نمو الرئتين وينزل الجنين برأسه للأسفل استعداداً للولادة، ويكون شكل البطن بارزاً وممتلئاً تماماً.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Infographics Stats Section -->
+    <section class="py-16 px-4 bg-rose-600 text-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-extrabold mb-10">إحصائيات وأرقام موثوقة (إنفوجرافيك)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl font-black mb-2">6 أشهر</div>
+                    <div class="text-xs opacity-90">مدة الرضاعة الطبيعية المطلقة الموصى بها عالمياً</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl font-black mb-2">10-14</div>
+                    <div class="text-xs opacity-90">حركة/ركلة للجنين في اليوم تعد مؤشراً ممتازاً للصحة</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl font-black mb-2">6 أسابيع</div>
+                    <div class="text-xs opacity-90">المرحلة الأساسية لالتئام الأنسجة بعد القيصرية</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl font-black mb-2">24 ساعة</div>
+                    <div class="text-xs opacity-90">الإطار الذهبي لبدء التلامس المباشر والرضاعة الأولى</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Literary Medical Quote -->
+    <section class="py-12 px-4 bg-amber-50 border-y border-amber-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <i class="fa-solid fa-quote-right text-3xl text-amber-500 mb-3 block"></i>
+            <h3 class="text-xl font-bold text-slate-800 mb-2">نصيحة اليوم للأم</h3>
+            <p class="text-slate-700 italic leading-relaxed font-serif">
+                "إن العناية بهدوء قلبكِ وراحتكِ النفسية أثناء الحمل ليست رفاهية، بل هي اللبنة الأولى لبناء جهاز عصبي متزن وصحي لمولودكِ."
             </p>
-            <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-500"></i> لمعان البشرة واستقرار المزاج</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-teal-500"></i> معرفة جنس الجنين ورؤية ملامحه</li>
-            </ul>
-          </div>
         </div>
+    </section>
 
-        <!-- الثلث الثالث -->
-        <div class="bg-slate-50 dark:bg-slate-950 rounded-3xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-xs hover:shadow-md transition">
-          <div class="h-48 overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&auto=format&fit=crop&q=80" alt="الثلث الثالث من الحمل" class="w-full h-full object-cover" />
-            <span class="absolute top-4 right-4 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">الأسابيع 27 - 40</span>
-          </div>
-          <div class="p-6 space-y-4">
-            <h3 class="text-xl font-black font-cairo text-slate-900 dark:text-white">الثلث الثالث: الاستعداد للولادة</h3>
-            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              زيادة سرعة نمو ووزن الجنين، اكتمال نمو الرئتين، نزول الرأس نحو الحوض، ومراقبة حركة الجنين والتحضير للولادة وتجهيز حقيبة المستشفى.
-            </p>
-            <ul class="text-xs text-slate-500 dark:text-slate-400 space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> انقباضات براكستون هيكس (الجمال الكاذب)</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-indigo-500"></i> الاستعداد الطبي لحقيبة الولادة</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 6. دليل التعافي من العملية القيصرية (C-SECTION RECOVERY) -->
-  <!-- ========================================================================= -->
-  <section id="c-section" class="py-16 sm:py-24 bg-slate-100/60 dark:bg-slate-900/40 border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-bold text-pink-600 dark:text-pink-400 bg-pink-50 dark:bg-pink-950/60 px-3 py-1 rounded-full border border-pink-200 dark:border-pink-900">الرعاية الجراحية المتقدمة</span>
-        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">بروتوكول التعافي والعناية بجرح القيصرية</h2>
-        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">إرشادات طبية دقيقة لالتئام جرح القيصرية بأمان وبدون مضاعفات.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-lg">
-          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?w=800&auto=format&fit=crop&q=80" alt="تعافي القيصرية" class="w-full h-80 sm:h-96 object-cover" />
-        </div>
-
-        <div class="space-y-6">
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/60 text-pink-600 dark:text-pink-300 flex items-center justify-center shrink-0 font-bold">1</div>
-            <div>
-              <h4 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white font-cairo">العناية ونظافة الندبة</h4>
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                حافظي على الجرح نظيفاً وجافاً. يمكنك الاستحمام بلطف وتجفيف المنطقة بالطبطبة بالمنشفة دون فرك الندبة.
-              </p>
+    <!-- FAQ Section (10 Questions with Image) -->
+    <section id="faq" class="py-16 px-4 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900">الأسئلة الشائعة والإجابات الطبية</h2>
+                <p class="text-slate-600 mt-2">إجابات عن أكثر الاستفسارات تكراراً لدى الحوامل والأمهات</p>
             </div>
-          </div>
 
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/60 text-pink-600 dark:text-pink-300 flex items-center justify-center shrink-0 font-bold">2</div>
-            <div>
-              <h4 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white font-cairo">الحركة والمشي الخفيف</h4>
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                المشي الخفيف والمبكر يمنع الجلطات الوريدية ويساعد على تنشيط حركة الأمعاء وطرد الغازات.
-              </p>
+            <div class="grid md:grid-cols-3 gap-8 items-start">
+                <div class="md:col-span-1">
+                    <img src="https://images.unsplash.com/photo-1594824813571-28a77885097a?auto=format&fit=crop&q=80&w=600" 
+                         alt="دكتورة مقعمزة مع أم حامل تسأل فيها" 
+                         class="rounded-2xl shadow-md w-full h-80 object-cover">
+                    <div class="bg-rose-100 p-4 rounded-xl mt-4 text-xs text-rose-800 font-medium">
+                        هل لديك سؤال أخر؟ يمكنك مراسلتنا دائماً للحصول على المساعدة والإرشاد.
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 space-y-3 text-sm">
+                    <!-- Q1 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">1. متى يجب عليّ البدء بزيارة طبيب النساء عند معرفة الحمل؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">تفضل الزيارة الأولى بين الأسبوع 6 و8 لتأكيد وجود الحمل داخل الرحم وسماع النبض وتحديد العمر الجنيني بدقة.</p>
+                    </details>
+                    <!-- Q2 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">2. ما هي الأعراض الشائعة في الثلث الأول من الحمل؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">الغثيان الصباحي، الإرهاق، التقلبات المزاجية، كثرة التبول، والشعور بانتفاخ خفيف في الثديين.</p>
+                    </details>
+                    <!-- Q3 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">3. كيف يتم حساب موعد الولادة المتوقع؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">يتم إضافة 280 يوماً (40 أسبوعاً) لتاريخ أول يوم من آخر دورة شهرية منتظمة.</p>
+                    </details>
+                    <!-- Q4 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">4. ما هي مدة التعافي المتوقعة بعد العملية القيصرية؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">تستغرق الأنسجة السطحية من 2 إلى 4 أسابيع للالتئام، بينما يحتاج الجسم بالكامل إلى 6 أسابيع للعودة للنشاط الطبيعي التدريجي.</p>
+                    </details>
+                    <!-- Q5 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">5. كيف أتأكد من أن حركة الجنين طبيعية؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">ابتداءً من الأسبوع 28، يجب الشعور بـ 10 حركات على الأقل خلال ساعتين متتاليتين في أوقات نشاط الجنين.</p>
+                    </details>
+                    <!-- Q6 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">6. متى يبدأ إعطاء الطفل التطعيمات الأساسية؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">تبدأ الجرعة الأولى (تطعيم الولادة ضد الكبد الوبائي ب والدرن) فور الولادة أو خلال الـ 24 ساعة الأولى.</p>
+                    </details>
+                    <!-- Q7 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">7. ما هي كمية الحليب المناسبة للرضيع يومياً؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">يحتاج الرضيع حوالي 150 مل من الحليب لكل كيلوجرام من وزنه يومياً، تقسم على 8 إلى 12 رضعة.</p>
+                    </details>
+                    <!-- Q8 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">8. ما هي علامات الخطر التي تتطلب التوجه السريع للعيادة؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">نزيف مهبلي، نزول السائل الأمنيوسي، ارتفاع الحرارة، صداع شديد مع زغللة في العين، أو توقف حركة الجنين.</p>
+                    </details>
+                    <!-- Q9 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">9. متى يمكن البدء بإدخال الطعام الصلب للطفل؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">عند إتمام الشائعة الشهر السادس من العمر مع القدرة على إسناد الرأس وجلوس الطفل بمساعدة.</p>
+                    </details>
+                    <!-- Q10 -->
+                    <details class="bg-white p-4 rounded-xl shadow-sm border border-slate-200">
+                        <summary class="font-bold text-slate-800 cursor-pointer">10. كيف أتعامل مع آلام الجرح بعد الولادة القيصرية في المنزل؟</summary>
+                        <p class="mt-2 text-slate-600 leading-relaxed text-xs">المحافظة على الجرح جافاً ونظيفاً، تناول المسكنات الموصوفة، وتجنب حمل الأجسام الثقيلة أعلى من وزن الطفل.</p>
+                    </details>
+                </div>
             </div>
-          </div>
+        </div>
+    </section>
 
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 rounded-xl bg-pink-100 dark:bg-pink-900/60 text-pink-600 dark:text-pink-300 flex items-center justify-center shrink-0 font-bold">3</div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 text-sm">
             <div>
-              <h4 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white font-cairo">حماية جدار البطن عند العطس أو السعال</h4>
-              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                ضعي وسادة ناعمة واضغطي بها بلطف على منطقة الجرح عند الضحك، العطس أو السعال لتخفيف الضغط على الخيوط الجراحية.
-              </p>
+                <h4 class="text-white font-bold text-lg mb-3">عن المنصة</h4>
+                <p class="text-xs leading-relaxed">منصة "صحة الأم والطفل" بوابة توعوية شاملة توفر معلومات وإرشادات طبية معتمدة لدعم الأم والطفل من مرحلة الحمل حتى النمو التكاملي.</p>
             </div>
-          </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-3">روابط سريعة</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#hero" class="hover:text-white">الرئيسية</a></li>
+                    <li><a href="#services" class="hover:text-white">خدمات المنصة</a></li>
+                    <li><a href="#calculators" class="hover:text-white">الحاسبات الذكية</a></li>
+                    <li><a href="#faq" class="hover:text-white">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-3">التواصل</h4>
+                <p class="text-xs mb-2">للإستفسارات والتواصل الإلكتروني:</p>
+                <a href="mailto:info@motherscare.com" class="text-rose-400 font-mono text-xs hover:underline">info@motherscare.com</a>
+                <p class="text-xs mt-4 text-slate-500">إعداد وتطوير بواسطة: فريق تطوير المنصة</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-lg mb-3">إخلاء مسؤولية طبية</h4>
+                <p class="text-[11px] leading-relaxed text-slate-500">
+                    جميع المعلومات والحاسبات المتاحة في هذا الموقع هي لأغراض التوعية والتثقيف الصحي فقط، ولا تغني بأي حال من الأحوال عن الاستشارة الطبية المباشرة أو التشخيص الطبي المتخصص.
+                </p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 7. رعاية وحليب الرضيع (NEWBORN CARE) -->
-  <!-- ========================================================================= -->
-  <section id="newborn" class="py-16 sm:py-24 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <span class="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-full border border-teal-200 dark:border-teal-900">العناية بالطفل الحديث</span>
-        <h2 class="text-3xl sm:text-4xl font-black font-cairo text-slate-900 dark:text-white">رعاية وتغذية حديث الولادة</h2>
-        <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base">دليل شامل عن الرضاعة الطبيعية، النوم الآمن، والعناية بالحبل السري.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-slate-50 dark:bg-slate-950 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/60 text-teal-600 dark:text-teal-300 flex items-center justify-center">
-            <i data-lucide="milk" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold font-cairo text-slate-900 dark:text-white">الرضاعة المطلقة</h3>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            الرضاعة الطبيعية المطلقة خلال أول 6 أشهر توفر كافة الأجسام المضادة والمغذيات دون الحاجة لإدخال الماء أو السوائل.
-          </p>
+        <div class="max-w-7xl mx-auto pt-6 border-t border-slate-800 text-center text-xs text-slate-600">
+            © 2026 جميع الحقوق محفوظة لـ منصة صحة الأم والطفل (Mother's Care).
         </div>
+    </footer>
 
-        <div class="bg-slate-50 dark:bg-slate-950 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/60 text-teal-600 dark:text-teal-300 flex items-center justify-center">
-            <i data-lucide="moon" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold font-cairo text-slate-900 dark:text-white">النوم الآمن للرضيع</h3>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            نوم الطفل دائماً على الظهر على فراش متماسك وخالٍ من الوسائد أو الألعاب المحشوة لتجنب متلازمة موت الرضع المفاجئ (SIDS).
-          </p>
-        </div>
+    <!-- Interactive JS logic for Calculators -->
+    <script>
+        function calculateDueDate() {
+            const lmpInput = document.getElementById('lmp-date').value;
+            const resultDiv = document.getElementById('due-date-result');
+            if(!lmpInput) {
+                resultDiv.classList.remove('hidden');
+                resultDiv.innerText = "يرجى تحديد تاريخ آخر دورة.";
+                return;
+            }
+            let lmp = new Date(lmpInput);
+            lmp.setDate(lmp.getDate() + 280);
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `موعد الولادة المتوقع تقريبياً: <strong class="text-white">${lmp.toLocaleDateString('ar-EG')}</strong>`;
+        }
 
-        <div class="bg-slate-50 dark:bg-slate-950 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/60 text-teal-600 dark:text-teal-300 flex items-center justify-center">
-            <i data-lucide="sparkles" class="w-5 h-5"></i>
-          </div>
-          <h3 class="text-lg font-bold font-cairo text-slate-900 dark:text-white">العناية بجذع السرة</h3>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            الحفاظ على جذع السرة جافاً ونظيفاً خارج الحفاضة، مع تجنب تطبيق أي أدوية أو أعشاب حتى تسقط تلقائياً خلال 7-14 يوماً.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        function trackCSection() {
+            const day = parseInt(document.getElementById('csection-day').value);
+            const resultDiv = document.getElementById('csection-result');
+            resultDiv.classList.remove('hidden');
+            if(day >= 1 && day <= 3) {
+                resultDiv.innerText = "المرحلة الأولى: الراحة التامة، المشي الخفيف جداً لتجنب الجلطات، العناية بضماد الجرح.";
+            } else if(day >= 4 && day <= 14) {
+                resultDiv.innerText = "المرحلة الثانية: التئام الجرح السطحي، تجنب أرقال الأوزان، تجفيف الجرح جيداً بعد الاستحمام.";
+            } else if(day > 14) {
+                resultDiv.innerText = "المرحلة الثالثة: تحسن كبير بالقدرة على الحركة، استمري على تمارين التنفس واستشارة الطبيب في فحص 6 أسابيع.";
+            } else {
+                resultDiv.innerText = "يرجى إدخال رقم يوم صحيح بين 1 و60.";
+            }
+        }
 
-  <!-- ========================================================================= -->
-  <!-- 8. دليل الأسئلة الشائعة وخرافات شائعة (FAQ & MYTHS) -->
-  <!-- ========================================================================= -->
-  <section id="faq" class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-950">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="text-center space-y-3">
-        <span class="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/60 px-3 py-1 rounded-full border border-rose-200 dark:border-rose-900">حقائق وتصحيح مفاهيم</span>
-        <h2 class="text-3xl font-black font-cairo text-slate-900 dark:text-white">الأسئلة الشائعة وتصحيح المفاهيم الخاطئة</h2>
-      </div>
+        function checkBabyGrowth() {
+            const weight = parseFloat(document.getElementById('baby-weight').value);
+            const age = parseInt(document.getElementById('baby-age').value);
+            const resultDiv = document.getElementById('baby-growth-result');
+            resultDiv.classList.remove('hidden');
+            if(!weight || !age && age !== 0) {
+                resultDiv.innerText = "يرجى تعبئة كافة البيانات بشكل صحيح.";
+                return;
+            }
+            let avg = 3.3 + (age * 0.7);
+            resultDiv.innerHTML = `المتوسط التقريبي للوزن بعمر ${age} أشهر هو <strong>${avg.toFixed(1)} كجم</strong>. وزنه الحالي: <strong>${weight} كجم</strong> (استشيري الطبيب لمطابقة المنحنى).`;
+        }
 
-      <div class="space-y-4">
-        <details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer">
-          <summary class="font-bold font-cairo text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between">
-            <span>هل يجب على الحامل "أن تأكل لشخصين"؟</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-            <strong>حقيقة طبية:</strong> خرافة شائعة؛ الحامل تحتاج فقط إلى زيادة نوعية في الغذاء الغني بالبروتين والمعادن، وحوالي 300 سعرة حرارية إضافية يومياً فقط في الثلثين الثاني والثالث.
-          </p>
-        </details>
+        function calculateFeeding() {
+            const w = parseFloat(document.getElementById('feed-weight').value);
+            const resultDiv = document.getElementById('feeding-result');
+            resultDiv.classList.remove('hidden');
+            if(!w) {
+                resultDiv.innerText = "يرجى إدخال وزن الرضيع.";
+                return;
+            }
+            let totalMilk = w * 150;
+            let perFeed = totalMilk / 8;
+            resultDiv.innerHTML = `الاحتياج اليومي الكلي: <strong>${totalMilk.toFixed(0)} مل</strong> موزعة على 8 رضعات (تقريباً <strong>${perFeed.toFixed(0)} مل</strong> لكل رضعة).`;
+        }
 
-        <details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer">
-          <summary class="font-bold font-cairo text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between">
-            <span>متى يمكن الاستحمام بعد العملية القيصرية؟</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-            <strong>حقيقة طبية:</strong> يمكن الاستحمام السريع بعد 48 ساعة إذا كانت الضمادة مقاومة للماء، مع تجفيف الجرح بالطبطبة اللطيفة دون فرك.
-          </p>
-        </details>
-
-        <details class="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer">
-          <summary class="font-bold font-cairo text-base sm:text-lg text-slate-900 dark:text-white flex items-center justify-between">
-            <span>هل تسبب الرضاعة الطبيعية ترهل الثدي؟</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
-          </summary>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
-            <strong>حقيقة طبية:</strong> التغيرات الهرمونية أثناء الحمل وزيادة حجم الثدي ثم تراجعه هي المسبب الرئيسي للتغيرات وليس فعل الرضاعة الطبيعية نفسه.
-          </p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 9. نافذة دليل علامات الخطر الطبية (MODAL) -->
-  <!-- ========================================================================= -->
-  <div id="redFlagsModal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 hidden">
-    <div class="bg-white dark:bg-slate-900 max-w-lg w-full rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
-      <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-        <div class="flex items-center gap-2 text-rose-600 dark:text-rose-400 font-bold font-cairo text-lg">
-          <i data-lucide="alert-triangle" class="w-5 h-5"></i>
-          <span>علامات الخطر التي تستدعي الطوارئ</span>
-        </div>
-        <button onclick="toggleModal('redFlagsModal')" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-      </div>
-
-      <ul class="space-y-3 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-        <li class="flex items-start gap-2">
-          <span class="text-rose-600 font-bold">🔴</span>
-          <span>نزيف مهبلي مفاجئ أو إفرازات مائية تدفقية غير معتادة.</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-rose-600 font-bold">🔴</span>
-          <span>صداع شديد لا يزول مع المسكنات مصحوب بزغللة في العين أو ألم بالجهة اليمنى العلوية من البطن.</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-rose-600 font-bold">🔴</span>
-          <span>قلة ملحوظة أو انعدام في حركة الجنين بعد الأسبوع 28 من الحمل.</span>
-        </li>
-        <li class="flex items-start gap-2">
-          <span class="text-rose-600 font-bold">🔴</span>
-          <span>ارتفاع درجة الحرارة فوق 38°C أو احمرار شديد وإفرازات ذات رائحة من جرح القيصرية.</span>
-        </li>
-      </ul>
-
-      <button onclick="toggleModal('redFlagsModal')" class="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold py-3 rounded-xl transition">
-        فهمت، إغلاق الدليل
-      </button>
-    </div>
-  </div>
-
-  <!-- تذييل الصفحة (FOOTER) -->
-  <footer class="py-10 bg-slate-900 text-slate-400 text-center text-xs border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 space-y-2">
-      <div class="text-white font-bold font-cairo text-sm">Mother's Care - منصة رعاية الأمومة والطفولة الشاملة</div>
-      <p>المعلومات الواردة بالمنصة للأغراض التثقيفية والإرشادية فقط ولا تغني عن الاستشارة الطبية المباشرة مع الطبيب المختص.</p>
-    </div>
-  </footer>
-
-  <!-- ========================================================================= -->
-  <!-- 10. الجافاسكريبت التشغيلي للحاسبات والوضع المظلم -->
-  <!-- ========================================================================= -->
-  <script>
-    // تهيئة أيقونات Lucide
-    lucide.createIcons();
-
-    // تبديل الوضع الليلي
-    function toggleDarkMode() {
-      const isDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeIcon(isDark);
-    }
-
-    function updateThemeIcon(isDark) {
-      const icon = document.getElementById('themeIcon');
-      if (icon) {
-        icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-        lucide.createIcons();
-      }
-    }
-
-    // استعادة تفضيل المستخدم للوضع المظلم
-    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      updateThemeIcon(true);
-    }
-
-    // فتح وإغلاق النوافذ
-    function toggleModal(modalId) {
-      const modal = document.getElementById(modalId);
-      if (modal) modal.classList.toggle('hidden');
-    }
-
-    // 1. حاسبة موعد الولادة المتوقع وعمر الحمل
-    function calculateDueDate() {
-      const lmpVal = document.getElementById('lmpInput').value;
-      if (!lmpVal) {
-        alert('الرجاء اختيار تاريخ آخر دورة شهرية أولاً.');
-        return;
-      }
-      const lmp = new Date(lmpVal);
-      const due = new Date(lmp.getTime() + 280 * 24 * 60 * 60 * 1000);
-      const now = new Date();
-      const diffDays = Math.max(0, Math.floor((now.getTime() - lmp.getTime()) / (1000 * 60 * 60 * 24)));
-      const weeks = Math.floor(diffDays / 7);
-      const days = diffDays % 7;
-      const remaining = Math.max(0, Math.floor((due.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)));
-
-      let trimesterName = 'الثلث الأول (تكون الأعضاء)';
-      let fruit = 'حبة أرز / تفاحة صغيرة';
-      let imgUrl = 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&auto=format&fit=crop&q=80';
-      let stageTitle = 'تكوّن الأعضاء الرئيسية والقلب';
-      let stageDesc = 'تتكون النواة الأساسية للجهاز العصبي والقلب وتظهر براعم اليدين والقدمين.';
-
-      if (weeks >= 13 && weeks < 27) {
-        trimesterName = 'الثلث الثاني (مرحلة النمو)';
-        fruit = 'ثمرة مانجو / باذنجانة';
-        imgUrl = 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&auto=format&fit=crop&q=80';
-        stageTitle = 'اكتمال ملامح الوجه وتطور السمع';
-        stageDesc = 'يستطيع طفلك سماع صوت نبضك وأصوات المحيط، وتبدأ حركته بالتزايد والوضوح.';
-      } else if (weeks >= 27) {
-        trimesterName = 'الثلث الثالث (مرحلة النضج)';
-        fruit = 'أناناس / بطيخة صغيرة';
-        imgUrl = 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=600&auto=format&fit=crop&q=80';
-        stageTitle = 'نضج الرئتين وتخزين الدهون';
-        stageDesc = 'يكتمل نمو الجهاز التنفسي ويتخذ طفلك وضعية الولادة بنزول الرأس لأسفل بالحوض.';
-      }
-
-      document.getElementById('resDueDate').innerText = due.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
-      document.getElementById('resRemainingDays').innerText = `متبقي تقريباً ${remaining} يوماً`;
-      document.getElementById('resWeeksDays').innerText = `${weeks} أسبوع و ${days} يوم`;
-      document.getElementById('resTrimesterName').innerText = trimesterName;
-      document.getElementById('resFruitSize').innerText = fruit;
-
-      document.getElementById('fetusStageImg').src = imgUrl;
-      document.getElementById('fetusStageTitle').innerText = stageTitle;
-      document.getElementById('fetusStageDesc').innerText = stageDesc;
-      
-      document.getElementById('dueDateResult').classList.remove('hidden');
-      confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
-    }
-
-    // 2. حاسبة متتبع القيصرية
-    function calculateCSection() {
-      const surgeryVal = document.getElementById('surgeryInput').value;
-      if (!surgeryVal) {
-        alert('الرجاء اختيار تاريخ العملية أولاً.');
-        return;
-      }
-      const op = new Date(surgeryVal);
-      const now = new Date();
-      const days = Math.max(0, Math.floor((now.getTime() - op.getTime()) / (1000 * 60 * 60 * 24)));
-
-      let title = 'الأيام الأولى بالمستشفى (1 - 3 أيام)';
-      let msg = 'المشي الخفيف والمبكر، شرب السوائل الدافئة لتنشيط الأمعاء، وحماية الجرح بوسادة ناعمة عند السعال.';
-
-      if (days >= 4 && days <= 14) {
-        title = 'التعافي المنزلي الأولي (الأسبوع 1 - 2)';
-        msg = 'تجفيف الجرح بعد الاستحمام بالطبطبة، تجنب حمل أوزان أثقل من طفلك، وتناول الأغذية الغنية بالألياف.';
-      } else if (days > 14 && days <= 42) {
-        title = 'استعادة القوة وقاع الحوض (الأسابيع 3 - 6)';
-        msg = 'التئام الأنسجة الداخلية، إمكانية المشي 20 دقيقة يومياً، وبدء تمارين التنفس البطني وكيجل ببطء.';
-      } else if (days > 42) {
-        title = 'الشفاء التام والعودة للنشاط (الأسبوع 6+)';
-        msg = 'التئام كامل للندبة الجراحية، وممارسة الأنشطة اليومية الطبيعية والرياضة بعد استشارة طبيبك.';
-      }
-
-      document.getElementById('csDaysElapsed').innerText = `اليوم ${days} بعد العملية`;
-      document.getElementById('csPhaseTitle').innerText = title;
-      document.getElementById('csPhaseMsg').innerText = msg;
-      document.getElementById('csectionResult').classList.remove('hidden');
-    }
-
-    // 3. حاسبة نمو الرضيع
-    function calculateBabyGrowth() {
-      const age = parseInt(document.getElementById('babyAgeInput').value) || 0;
-      const weight = parseFloat(document.getElementById('babyWeightInput').value) || 0;
-      
-      const minW = (3.2 + age * 0.6).toFixed(1);
-      const maxW = (4.8 + age * 0.75).toFixed(1);
-
-      let text = `الوزن الطبيعي الموصى به لعمر ${age} شهر يتراوح بين ${minW} إلى ${maxW} كجم وفقاً لمنحنيات منظمة الصحة العالمية. قياس طفلك الحالي (${weight} كجم) يقع ضمن النطاق الموصى به.`;
-      document.getElementById('growthStatusText').innerText = text;
-      document.getElementById('growthResult').classList.remove('hidden');
-    }
-
-    // 4. عداد ركلات الجنين
-    let kicks = 0;
-    let timerSecs = 0;
-    let timerInterval = null;
-
-    function addKick() {
-      if (!timerInterval) {
-        timerInterval = setInterval(() => {
-          timerSecs++;
-          const m = Math.floor(timerSecs / 60).toString().padStart(2, '0');
-          const s = (timerSecs % 60).toString().padStart(2, '0');
-          document.getElementById('timerDisplay').innerText = `${m}:${s}`;
-        }, 1000);
-      }
-
-      kicks++;
-      document.getElementById('kickDisplay').innerText = `${kicks} / 10`;
-
-      if (kicks >= 10) {
-        clearInterval(timerInterval);
-        confetti({ particleCount: 70, spread: 70, origin: { y: 0.6 } });
-        alert('تم تسجيل 10 ركلات بنجاح! هذا مؤشر ممتاز على حيوية ونشاط طفلك.');
-      }
-    }
-
-    function resetKicks() {
-      kicks = 0;
-      timerSecs = 0;
-      clearInterval(timerInterval);
-      timerInterval = null;
-      document.getElementById('kickDisplay').innerText = '0 / 10';
-      document.getElementById('timerDisplay').innerText = '00:00';
-    }
-  </script>
+        let kicks = 0;
+        function addKick() {
+            kicks++;
+            document.getElementById('kick-count').innerText = kicks;
+        }
+        function resetKicks() {
+            kicks = 0;
+            document.getElementById('kick-count').innerText = kicks;
+        }
+    </script>
 </body>
 </html>
