@@ -930,5 +930,15 @@
         function addKick() { kicks++; document.getElementById('kick-count').innerText = kicks; }
         function resetKicks() { kicks = 0; document.getElementById('kick-count').innerText = kicks; }
     </script>
+    <script>
+  fetch('./data/weekly.json')
+    .then(response => response.json())
+    .then(data => {
+      console.log("تحديث الأسبوع:", data);
+      // يمكنك ربط هذه البيانات بأي عنصر HTML في موقعك
+      // مثال: document.getElementById('weekly-title').innerText = data.title;
+    })
+    .catch(err => console.log('لم يتم العثور على تحديث الأسبوع بعد', err));
+    </script>
 </body>
 </html>
