@@ -1,0 +1,40 @@
+name: Weekly Health Content Update
+
+on:
+  schedule:
+    # يعمل السكربت كل يوم أحد الساعة 9 صباحاً
+    - cron: '0 9 * * 0'
+  workflow_dispatch: # يتيح لك تشغيل التحديث يدوياً بأي وقت للاختبار
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install google-generativeai
+
+    - name: Run script
+      env:
+        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      run: |
+        python update_content.py
+
+    - name: Commit and Push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+        git add data/weekly.json
+        git diff-index --quiet HEAD || git commit -m "Automated weekly update"
+        git push
+        
