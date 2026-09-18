@@ -299,18 +299,18 @@
                         </a>
                     </div>
                 </div>
-<!-- قسم نصيحة الأسبوع التلقائية -->
+<!-- بطاقة نصيحة الأسبوع المحدثة -->
 <div style="background: #fff0f5; border: 2px solid #f48fb1; border-radius: 15px; padding: 25px; margin: 30px auto; max-width: 800px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-  <span id="weekly-category" style="background: #e91e63; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;">🌸 نصيحة الأسبوع</span>
-  <h3 id="weekly-title" style="color: #880e4f; margin-top: 15px; font-size: 1.5rem;">جاري تحميل نصيحة الأسبوع...</h3>
-  <p id="weekly-content" style="color: #444; font-size: 1.1rem; line-height: 1.8; margin: 15px 0;"></p>
-  <div style="border-top: 1px dashed #f48fb1; pt: 10px; margin-top: 15px; color: #888; font-size: 0.85rem;">
-    <span id="weekly-source">المصدر الطبي: منظمة الصحة العالمية / ACOG</span>
+  <span id="weekly-category" style="background: #e91e63; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;">🌸 نصيحة الأسبوع • العناية بالتعافي</span>
+  <h3 id="weekly-title" style="color: #880e4f; margin-top: 15px; font-size: 1.5rem;">العناية بجرح القيصرية في الأسابيع الأولى</h3>
+  <p id="weekly-content" style="color: #444; font-size: 1.1rem; line-height: 1.8; margin: 15px 0;">
+    احرصي على إبقاء منطقة الجرح نظيفة وجافة تماماً. تجنبي حك الجرح أو فركه بشدة، واكتفي بمرور الماء والصابون اللطيف أثناء الاستحمام مع التجفيف بالتربيت باستخدام حولية نظيفة ومجهزة.
+  </p>
+  <div style="border-top: 1px dashed #f48fb1; padding-top: 10px; margin-top: 15px; color: #888; font-size: 0.85rem;">
+    <span id="weekly-source">المصدر الطبي: الكلية الأمريكية لأطباء النساء والتوليد (ACOG)</span>
   </div>
-</div>
-            </div>
-        </div>
-    </section>
+    </div>
+ </section>
 
     <!-- ==================== CESAREAN SECTION DETAILED GUIDE ==================== -->
     <section id="csection-guide" class="py-24 px-4 bg-gradient-to-b from-rose-50 to-white">
@@ -940,41 +940,28 @@
     </script>
     <script>
   <script>
-  // دالة لتحديث واجهة الكرت بالبيانات
-  function updateWeeklyCard(data) {
-    var titleEl = document.getElementById('weekly-title');
-    var categoryEl = document.getElementById('weekly-category');
-    var contentEl = document.getElementById('weekly-content');
-    var sourceEl = document.getElementById('weekly-source');
-
-    if (data.title && titleEl) titleEl.innerText = data.title;
-    if (data.category && data.date && categoryEl) {
-      categoryEl.innerText = "🌸 " + data.category + " • " + data.date;
-    }
-    if (data.content && contentEl) contentEl.innerText = data.content;
-    if (data.source && sourceEl) sourceEl.innerText = "المصدر الطبي: " + data.source;
-  }
-
-  // محاولة جلب الملف مع إضافة رقم عشوائي لمنع الكاش
-  fetch('./data/weekly.json?t=' + new Date().getTime())
-    .then(function(response) {
-      if (!response.ok) throw new Error('File not found');
-      return response.json();
+  <script>
+  // جلب البيانات من ملف weekly.json وتحديث العناصر إن وجد
+  fetch('./data/weekly.json?cache=' + Math.random())
+    .then(function(res) {
+      if (!res.ok) throw new Error('File not ready');
+      return res.json();
     })
     .then(function(data) {
       if (typeof data === 'string') data = JSON.parse(data);
-      updateWeeklyCard(data);
+      
+      var t = document.getElementById('weekly-title');
+      var c = document.getElementById('weekly-category');
+      var p = document.getElementById('weekly-content');
+      var s = document.getElementById('weekly-source');
+
+      if (data.title && t) t.innerText = data.title;
+      if (data.category && data.date && c) c.innerText = "🌸 " + data.category + " • " + data.date;
+      if (data.content && p) p.innerText = data.content;
+      if (data.source && s) s.innerText = "المصدر الطبي: " + data.source;
     })
     .catch(function(err) {
-      console.log('لم يتم العثور على الملف، سيتم عرض النص الافتراضي:', err);
-      // نص افتراضي يظهر فوراً بدلاً من "جاري التحميل"
-      updateWeeklyCard({
-        title: "العناية بجرح القيصرية في الأسابيع الأولى",
-        category: "الولادة القيصرية",
-        date: "تحديث هذا الأسبوع",
-        content: "احرصي على إبقاء منطقة الجرح نظيفة وجافة تماماً. تجنبي رفعه أو فركه بشدة، واكتفي بمرور الماء والصابون اللطيف أثناء الاستحمام مع التجفيف بالتربيت.",
-        source: "الكلية الأمريكية لأطباء النساء والتوليد (ACOG)"
-      });
+      console.log('يتم عرض المحتوى الافتراضي لحين اكتمال أول تحديث تلقائي:', err);
     });
 </script>
     </script>
