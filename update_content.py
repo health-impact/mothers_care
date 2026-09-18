@@ -1,11 +1,12 @@
+print("تم تحديث ملف data/weekly.json بنجاح!")
 import os
 import json
 from google import genai
 
-# جلب مفتاح الـ API من متغيرات النظام
+# جلب مفتاح الـ API
 api_key = os.environ.get("GEMINI_API_KEY")
 
-# إعداد العميل للمكتبة الجديدة
+# إعداد العميل
 client = genai.Client(api_key=api_key)
 
 prompt = """
@@ -21,9 +22,9 @@ prompt = """
 }
 """
 
-# استخدام النموذج المعتمد الحالي gemini-2.5-flash
+# استخدام اسم النموذج المعتمد والمستقر
 response = client.models.generate_content(
-    model='gemini-2.5-flash',
+    model='gemini-1.5-flash',
     contents=prompt,
 )
 
