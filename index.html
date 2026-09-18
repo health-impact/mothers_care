@@ -939,14 +939,44 @@
         function resetKicks() { kicks = 0; document.getElementById('kick-count').innerText = kicks; }
     </script>
     <script>
-  fetch('./data/weekly.json')
-    .then(response => response.json())
-    .then(data => {
-      console.log("تحديث الأسبوع:", data);
-      // يمكنك ربط هذه البيانات بأي عنصر HTML في موقعك
-      // مثال: document.getElementById('weekly-title').innerText = data.title;
+  <script>
+  // دالة لتحديث واجهة الكرت بالبيانات
+  function updateWeeklyCard(data) {
+    var titleEl = document.getElementById('weekly-title');
+    var categoryEl = document.getElementById('weekly-category');
+    var contentEl = document.getElementById('weekly-content');
+    var sourceEl = document.getElementById('weekly-source');
+
+    if (data.title && titleEl) titleEl.innerText = data.title;
+    if (data.category && data.date && categoryEl) {
+      categoryEl.innerText = "🌸 " + data.category + " • " + data.date;
+    }
+    if (data.content && contentEl) contentEl.innerText = data.content;
+    if (data.source && sourceEl) sourceEl.innerText = "المصدر الطبي: " + data.source;
+  }
+
+  // محاولة جلب الملف مع إضافة رقم عشوائي لمنع الكاش
+  fetch('./data/weekly.json?t=' + new Date().getTime())
+    .then(function(response) {
+      if (!response.ok) throw new Error('File not found');
+      return response.json();
     })
-    .catch(err => console.log('لم يتم العثور على تحديث الأسبوع بعد', err));
+    .then(function(data) {
+      if (typeof data === 'string') data = JSON.parse(data);
+      updateWeeklyCard(data);
+    })
+    .catch(function(err) {
+      console.log('لم يتم العثور على الملف، سيتم عرض النص الافتراضي:', err);
+      // نص افتراضي يظهر فوراً بدلاً من "جاري التحميل"
+      updateWeeklyCard({
+        title: "العناية بجرح القيصرية في الأسابيع الأولى",
+        category: "الولادة القيصرية",
+        date: "تحديث هذا الأسبوع",
+        content: "احرصي على إبقاء منطقة الجرح نظيفة وجافة تماماً. تجنبي رفعه أو فركه بشدة، واكتفي بمرور الماء والصابون اللطيف أثناء الاستحمام مع التجفيف بالتربيت.",
+        source: "الكلية الأمريكية لأطباء النساء والتوليد (ACOG)"
+      });
+    });
+</script>
     </script>
 </body>
 </html>
