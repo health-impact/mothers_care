@@ -641,8 +641,8 @@
     </section>
 
     <!-- ==================== VACCINATION SECTION ==================== -->
-    <!-- قسم جدول التطعيمات المنسق بالكامل -->
-<section id="vaccines-section" class="content-card" style="margin-top: 30px;">
+     <!-- قسم جدول التطعيمات بنفس تصميم الموقع الهيكلي -->
+<section id="vaccines-section" class="content-card">
     <div class="card-header">
         <div class="icon-wrapper">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -656,105 +656,81 @@
         </div>
     </div>
 
-    <div class="table-responsive" style="overflow-x: auto; margin-top: 15px;">
-        <table style="width: 100%; border-collapse: collapse; text-align: right; background: rgba(255, 255, 255, 0.02); border-radius: 10px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="table-responsive" style="margin-top: 15px; overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: center; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); color: #333333;">
             <thead>
-                <tr style="background-color: var(--primary-color, #e91e63); color: #ffffff;">
-                    <th style="padding: 14px 16px; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); width: 35%;">عمر الطفل / موعد التطعيم</th>
-                    <th style="padding: 14px 16px; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">نوع التطعيمات والجرعات</th>
+                <tr style="background-color: #e67e22; color: #ffffff; font-weight: bold;">
+                    <th style="padding: 12px 10px; width: 25%; font-size: 0.95rem;">العمر</th>
+                    <th style="padding: 12px 10px; width: 45%; font-size: 0.95rem;">اللقاحات</th>
+                    <th style="padding: 12px 10px; width: 30%; font-size: 0.95rem;">الأمراض المحمية</th>
                 </tr>
             </thead>
-            <tbody style="line-height: 1.8;">
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الولادة (حديث الولادة)</td>
-                    <td style="padding: 12px 16px;">
-                        • الواقي من الدرن (BCG)<br>
-                        • التهاب الكبد الفيروسي البائي (HepB)
-                    </td>
+            <tbody style="line-height: 1.6; font-size: 0.9rem;">
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">الولادة</td>
+                    <td style="padding: 12px 8px;">BCG - التهاب الكبد B</td>
+                    <td style="padding: 12px 8px; color: #666666;">الدرن والتهاب الكبد B</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الشهرين (شهران)</td>
-                    <td style="padding: 12px 16px;">
-                        • شلل الأطفال الفموي (OPV)<br>
-                        • الطعم السداسي Hexa [DTaP + IPV + Hib + HepB]<br>
-                        • الفيروس العجلي (Rota Virus)<br>
-                        • المكورات الرئوية المقترن (PCV)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0; background-color: #fafafa;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">شهرين</td>
+                    <td style="padding: 12px 8px;">السداسي (DTaP+IPV+Hib+HepB) - شلل الأطفال (OPV) - الروتا - المكورات الرئوية</td>
+                    <td style="padding: 12px 8px; color: #666666;">الخناق، الكزاز، الشاهوق، الشلل، الهيب، الكبد B، النزلات المعوية، التهاب الرئة</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند أربعة أشهر (4 أشهر)</td>
-                    <td style="padding: 12px 16px;">
-                        • الطعم السداسي Hexa [DTaP + IPV + Hib + HepB]<br>
-                        • الفيروس العجلي (Rota Virus)<br>
-                        • المكورات الرئوية المقترن (PCV)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">4 أشهر</td>
+                    <td style="padding: 12px 8px;">السداسي (DTaP+IPV+Hib+HepB) - الروتا - المكورات الرئوية</td>
+                    <td style="padding: 12px 8px; color: #666666;">أمراض السداسي، النزلات المعوية، المكورات الرئوية</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند ستة أشهر (6 أشهر)</td>
-                    <td style="padding: 12px 16px;">
-                        • الطعم السداسي Hexa [DTaP + IPV + Hib + HepB]<br>
-                        • الفيروس العجلي (Rota Virus)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0; background-color: #fafafa;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">6 أشهر</td>
+                    <td style="padding: 12px 8px;">السداسي (DTaP+IPV+Hib+HepB) - الروتا</td>
+                    <td style="padding: 12px 8px; color: #666666;">أمراض السداسي، النزلات المعوية (فيروس العجلي)</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الشهر التاسع (9 أشهر)</td>
-                    <td style="padding: 12px 16px;">
-                        • شلل الأطفال الفموي (OPV)<br>
-                        • السحايا الرباعي المقترن (Meningococcal A,C,Y,W135)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">9 أشهر</td>
+                    <td style="padding: 12px 8px;">شلل الأطفال (OPV) - السحايا الرباعي المقترن</td>
+                    <td style="padding: 12px 8px; color: #666666;">شلل الأطفال، الحمى شوكية (السحائي)</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الشهر الثاني عشر (12 شهراً / سنة)</td>
-                    <td style="padding: 12px 16px;">
-                        • المركب الفيروسي (MMR - الحصبة والحصبة الألمانية والنكاف)<br>
-                        • السحايا الرباعي المقترن (Meningococcal A,C,Y,W135)<br>
-                        • المكورات الرئوية المقترن (PCV)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0; background-color: #fafafa;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">سنة (12 شهر)</td>
+                    <td style="padding: 12px 8px;">MMR - السحايا الرباعي - المكورات الرئوية</td>
+                    <td style="padding: 12px 8px; color: #666666;">الحصبة، الحصبة الألمانية، النكاف، الحمى الشوكية، المكورات الرئوية</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الشهر الخامس عشر (15 شهراً)</td>
-                    <td style="padding: 12px 16px;">
-                        • الجدري المائي (Chicken Pox)<br>
-                        • التهاب الكبد الفيروسي الوبائي الألفي (HepA)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">15 شهر</td>
+                    <td style="padding: 12px 8px;">الجدري المائي (Chicken Pox) - التهاب الكبد A</td>
+                    <td style="padding: 12px 8px; color: #666666;">الجدري المائي، التهاب الكبد الوبائي الألفي</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الشهر الثامن عشر (18 شهراً)</td>
-                    <td style="padding: 12px 16px;">
-                        • المركب الفيروسي (MMR)<br>
-                        • الطعم الخماسي Penta [DTaP + IPV + Hib]
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0; background-color: #fafafa;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">18 شهر</td>
+                    <td style="padding: 12px 8px;">MMR - الخماسي (DTaP+IPV+Hib)</td>
+                    <td style="padding: 12px 8px; color: #666666;">الحصبة، الحصبة الألمانية، النكاف، أمراض الخماسي</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند السادسة من العمر (6 سنوات)</td>
-                    <td style="padding: 12px 16px;">
-                        • الطعم الرباعي [DTaP + IPV]
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">6 سنوات</td>
+                    <td style="padding: 12px 8px;">الرباعي (DTaP+IPV)</td>
+                    <td style="padding: 12px 8px; color: #666666;">الخناق، الكزاز، الشاهوق، شلل الأطفال</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(255, 255, 255, 0.02);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الثانية عشرة من العمر (12 سنة)</td>
-                    <td style="padding: 12px 16px;">
-                        • الجدري المائي (Chicken Pox)<br>
-                        • السحايا الرباعي المقترن (Meningococcal A,C,Y,W135)<br>
-                        • الورم الحليمي البشري (HPV) للبنات (3 جرعات: 0، 2، 6 شهور)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0; background-color: #fafafa;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">12 سنة</td>
+                    <td style="padding: 12px 8px;">الجدري المائي - السحايا الرباعي - الورم الحليمي HPV (للبنات 3 جرعات)</td>
+                    <td style="padding: 12px 8px; color: #666666;">الجدري، الحمى الشوكية، سرطان عنق الرحم والورم الحليمي</td>
                 </tr>
-                <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">عند الخامسة عشرة من العمر (15 سنة)</td>
-                    <td style="padding: 12px 16px;">
-                        • الثلاثي البكتيري (Tdap - الخناق والكزاز والشاهوق منزوع الخلية)
-                    </td>
+                <tr style="border-bottom: 1px solid #f0f0f0;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">15 سنة</td>
+                    <td style="padding: 12px 8px;">الثلاثي البكتيري (Tdap)</td>
+                    <td style="padding: 12px 8px; color: #666666;">الخناق، الكزاز، الشاهوق</td>
                 </tr>
-                <tr style="background: rgba(255, 255, 255, 0.02);">
-                    <td style="padding: 12px 16px; font-weight: bold; color: var(--primary-color, #e91e63);">تطعيمات إضافية سنوية</td>
-                    <td style="padding: 12px 16px;">
-                        • الإنفلونزا الموسمية (Seasonal Flu) سنوياً لفئات ذوي الاختطار
-                    </td>
+                <tr style="background-color: #fafafa;">
+                    <td style="padding: 12px 8px; font-weight: bold; color: #e67e22;">سنوياً</td>
+                    <td style="padding: 12px 8px;">إنفلونزا موسمية (الفئات الأكثر عرضة)</td>
+                    <td style="padding: 12px 8px; color: #666666;">مضاعفات الانفلونزا الموسمية</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </section>
+
 
     <!-- ==================== SMART CALCULATORS ==================== -->
     <section id="calculators" class="py-24 px-4 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
