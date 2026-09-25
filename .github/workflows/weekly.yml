@@ -2,39 +2,31 @@ name: Weekly Health Content Update
 
 on:
   schedule:
-    # يعمل السكربت كل يوم أحد الساعة 9 صباحاً
-    - cron: '0 9 * * 0'
-  workflow_dispatch: # يتيح لك تشغيل التحديث يدوياً بأي وقت للاختبار
+    # يعمل تلقائياً كل يوم جمعة الساعة 12 ظهراً
+    - cron: '0 12 * * 5'
+  workflow_dispatch: # يتيح لك تشغيله يدوياً لتجربته في أي وقت
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write # إعطاء صلاحية الكتابة للملفات
+    
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install google-genai
+      - name: Run update script
+        run: python update_content.py
 
-    - name: Run script
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      run: |
-        python update_content.py
-
-    - name: Commit and Push changes
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action Bot"
-        git add data/weekly.json
-        git diff-index --quiet HEAD || git commit -m "Automated weekly update"
-        git push
-        
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/weekly.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update weekly health content" && git push)
