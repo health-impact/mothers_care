@@ -1062,30 +1062,29 @@
     </script>
     <script>
   <script>
-  <script>
-  // جلب البيانات من ملف weekly.json وتحديث العناصر إن وجد
-  fetch('./data/weekly.json?cache=' + Math.random())
-    .then(function(res) {
-      if (!res.ok) throw new Error('File not ready');
-      return res.json();
-    })
-    .then(function(data) {
-      if (typeof data === 'string') data = JSON.parse(data);
-      
-      var t = document.getElementById('weekly-title');
-      var c = document.getElementById('weekly-category');
-      var p = document.getElementById('weekly-content');
-      var s = document.getElementById('weekly-source');
+      <script>
+      // جلب البيانات من ملف weekly.json وتحديث العناصر إن وجد
+      fetch('./data/weekly.json?cache=' + Math.random())
+        .then(function(res) {
+          if (!res.ok) throw new Error('File not ready');
+          return res.json();
+        })
+        .then(function(data) {
+          if (typeof data === 'string') data = JSON.parse(data);
+          
+          var t = document.getElementById('weekly-title');
+          var c = document.getElementById('weekly-category');
+          var p = document.getElementById('weekly-content');
+          var s = document.getElementById('weekly-source');
 
-      if (data.title && t) t.innerText = data.title;
-      if (data.category && data.date && c) c.innerText = "🌸 " + data.category + " • " + data.date;
-      if (data.content && p) p.innerText = data.content;
-      if (data.source && s) s.innerText = "المصدر الطبي: " + data.source;
-    })
-    .catch(function(err) {
-      console.log('يتم عرض المحتوى الافتراضي لحين اكتمال أول تحديث تلقائي:', err);
-    });
-</script>
+          if (data.title && t) t.innerText = data.title;
+          if (data.category && data.date && c) c.innerText = "🌸 " + data.category + " • " + data.date;
+          if (data.content && p) p.innerText = data.content;
+          if (data.source && s) s.innerText = "المصدر الطبي: " + data.source;
+        })
+        .catch(function(err) {
+          console.log('يتم عرض المحتوى الافتراضي لحين اكتمال أول تحديث تلقائي:', err);
+        });
     </script>
-</body>
-</html>
+    </body>
+    </html>
